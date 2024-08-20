@@ -18,13 +18,13 @@
   position: absolute;
   color: white;
   font-size: 150%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   top: 25vh;
 }
 
 
 .cadastro {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   width: 50vw;
   height: 100vh;
   text-align: center;
@@ -56,7 +56,7 @@
 }
 
 #buttonInicial {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   border: 1px solid white;
   color: white;
   margin: 20px 0px;
@@ -90,6 +90,34 @@
   padding-bottom: 5vh;
 }
 
+
+#inputNome, #inputEmail, #inputTelefone, #inputSenha {
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-position-x: 0.8vw;
+  background-position-y: center;
+  font-size: 15px;
+  padding: 15px 55px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(233, 233, 233);
+  background-color: rgb(233, 233, 233);
+}
+
+#inputInvalido {
+  font-size: 15px;
+  padding: 15px 55px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(233, 0, 0);
+  outline: 2px red;
+  background-color: rgb(233, 233, 233);
+}
+
+#inputNome {background-image: url(./icones/icone-nome.png);}
+#inputEmail {background-image: url(./icones/icone-email.png);}
+#inputTelefone {background-image: url(./icones/icone-telefone.png);}
+#inputSenha {background-image: url(./icones/icone-senha.png);}
 
 .main {
   display: flex;
