@@ -6,6 +6,7 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import ImgLogo from '../imgs/logo-apae.png'
 
+
 import iconeHome from '../icones/icone_home.png';
 import iconeAluno from '../icones/icone_aluno.png';
 import iconeRelatorio from '../icones/icone_relatorio.png';
@@ -18,7 +19,10 @@ function Home() {
         <div>
             <div id={styles.barraSuperior}>
                     <section className={styles.logoApae}>
-                        <Image src={ImgLogo} alt= 'Logo' style={{width: "5em", height: '5em'}}></Image>
+                        <Link href="./home">
+                            <Image src={ImgLogo} alt= 'Logo' style={{width: "5em", height: '5em'}}></Image>    
+                        </Link>
+                        
                     </section>
                     
                     <section className={styles.nomeApae}>
@@ -31,55 +35,70 @@ function Home() {
                         </button>
                     </section>
             </div>
-            
-
-
-
-
-
-            <div id={styles.barraLateral} >
-                <section className={styles.opcoes}>
-                    <a href='https://gitlab.com/ifpbesperanca/integrador2024' className={styles.linkHome} >
-                    <Image src={iconeHome} alt='icone_home'></Image> HOME
-                </a>
-                <br></br>
-                <a href='https://mail.google.com/mail/u/0/#inbox/FMfcgzGxRncVbRrVgWdFqQkFgmKdKZdH' className={styles.linkHome}>
-                    <Image src={iconeAluno} alt='icone_aluno'></Image> ALUNOS
-                </a>
-                <br></br>
-                <a href='https://stackoverflow.com/questions/57073650/gatsby-Image-is-a-void-element-tag-and-must-neither-have-children-nor-use-dang' className={styles.linkHome}>
-                    <Image src={iconePagamentos} alt='icone_pagamentos'></Image> PAGAMENTOS
-                </a>
-                <br></br>
-                <a href='bibia.com' className={styles.linkHome}>
-                    <Image src={iconeRelatorio} alt='icone_relatorio'></Image> RELATÓRIOS
-                </a>
-                
-                <br></br>
-                </section>
-                
-
-                <section className={styles.info}>
-                <a href='bibia.com' className={styles.linkHome}>
-                    <Image src={iconeConfiguracao} alt='icone_configuracao'></Image> Configurações
-                </a>
-                <br></br>
-                <a href='biba.com' className={styles.linkHome}>
-                    <Image src={iconeSair} alt='icone_sair'></Image> Sair
-                </a>
-                </section>
-
-            </div>
-            
-            
 
 
 
             <div id={styles.conteudo}>
-                <button className={styles.BotaoRegistrar}>
-                    <Image src={ImageAdd} alt="Adicionar" />
-                    REGISTRAR NOVO ALUNO
-                </button>
+
+                <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' />
+
+                <section className={styles.AlunosEncontrados}>
+                    <section className={styles.ExibicaoAlunos}>
+                        <div className={styles.alunoPesquisado}>
+                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p>
+                                <p style={{fontWeight: "bold"}}>16 anos </p>/<p>Autismo</p>/<p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                            </p>
+                        </div>
+                        <div className={styles.alunoPesquisado}>
+                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
+                            <p style={{color: 'red'}}>3 pendências</p>
+                        </div>
+                        <div className={styles.alunoPesquisado}>
+                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
+                            <p style={{color: 'red'}}>0 pendências</p>
+                        </div>
+                        <div className={styles.alunoPesquisado}>
+                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
+                            <p style={{color: 'red'}}>5 pendências</p>
+                        </div>
+                    </section>
+                    
+                    <section className={styles.FiltrosPesquisa}>
+                        <div className={styles.FiltroPagamento}>
+                            <h3 style={{color: '#6079d0'}}>Filtrar por quantidade de pendências</h3>
+                            
+                            <select>
+                                <option>Todos os alunos</option>
+                                <option>Nenhum pagamento pendente</option>
+                                <option>1 pagamento pendente</option>
+                                <option>2 pagamentos pendentes</option>
+                                <option>3 ou mais pagamentos pendentes</option>
+                            </select>
+                            
+                        </div>
+                        <div className={styles.FiltroCID}>
+                            <h3 style={{color: '#6079d0'}}>Filtrar por CID</h3>
+                            <p><input type="checkbox" style={{marginTop: '1em'}} /> CID F8* - Autismo</p>
+                            <p><input type="checkbox" style={{marginTop: '1em'}} /> CID F7* - Retardo mental não especificado</p>
+
+                            <p><input type="checkbox" style={{marginTop: '1em'}} /> Outros CIDs</p>
+
+                        
+
+                            
+
+
+                        </div>
+                        <button className={styles.BotaoRegistrar}>
+                            <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
+                        </button>
+                    </section>
+
+                </section>
+
+
+                
             </div>
         </div>
     );
