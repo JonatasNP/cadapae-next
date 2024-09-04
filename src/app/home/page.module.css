@@ -1,3 +1,6 @@
+
+
+
 #barraSuperior{
   padding-top: 8px;
   background-color: #8490ff;
@@ -36,14 +39,14 @@
 }
 
 .BarraPesquisa {
-  width: 94vw;
+  width: 72vw;
   font-size: 25px;
   background-repeat: no-repeat;
   background-size: 2em;
   background-position-x: 0.8vw;
   background-position-y: center;
   font-size: 15px;
-  padding: 15px 55px;
+  padding: 2em 4em 2em 4em;
   padding-right: 15px;
   border-radius: 15px;
   border: 1px solid #435bb2;
@@ -66,28 +69,50 @@
 
 
 #conteudo {
-  top: 15vh;
-  left: 3vw;
-  right: 3vw;
+  display: flex;
+  margin-top: 15vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 6vh;
   color: black;
-  position: fixed;
-  text-align: center;
+  text-align: left;
 }
 
 .BotaoRegistrar {
   color: white;
   width: 22vw;
-  background-color: green;
+  background-color: rgb(49, 165, 49);
   border: none;
   font-weight: bolder;
-  font-size: 1vw;
+  font-size: 2vh;
   bottom: 10vh;
   border-radius: 20px;
   padding: 20px 20px 20px 20px;
   align-items: center;
   vertical-align: center;
   display: flex;
+  height: 8vh;
+}
 
+.BotaoPesquisar {
+  height: 8vh;
+  color: rgb(75, 75, 75);
+  width: 22vw;
+  background-color: rgb(148, 148, 148);
+  border: none;
+  font-weight: bolder;
+  font-size: 2vh;
+  bottom: 10vh;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  align-items: center;
+  vertical-align: center;
+  display: flex;
+}
+.BotaoPesquisar img {
+  padding-right: 10px;
+  height: 2em;
+  width: 2.7em;
 }
 
 
@@ -95,19 +120,6 @@
   padding-right: 10px;
   height: 3em;
   width: 4em;
-}
-
-#barraLateral {
-  margin-top: 10vh;
-  background-color: #6079d0;
-  height: 90vh;
-  width: 15vw;
-  min-width: 262px;
-  position: fixed;
-  padding-top: 32px;
-  letter-spacing: 2px;
-  padding-left: 16px;
-  position: fixed;
 }
 
 
@@ -140,10 +152,9 @@
 }
 
 .ExibicaoAlunos {
-  padding: 1em;
   border-radius: 15px;
   width: 74vw;
-  background-color: rgb(200, 200, 200);
+  background-color: #d4d4d4;
 }
 
 .alunoPesquisado {
@@ -152,7 +163,7 @@
   vertical-align: middle;
   color: black;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 1em;
 }
 
@@ -190,12 +201,16 @@
 
 
 
-.FiltroPagamento, .FiltroCID {
+.FiltrosPesquisa {
   text-align: left;
-  border: 1px solid #435bb2;
-  background-color: rgb(233, 233, 233);
+
+  background-color: #d4d4d4;
   border-radius: 15px;
   padding: 2em;
+}
+
+.FiltroIdade, .FiltroPagamento, .FiltroCID {
+  margin-bottom: 2em;
 }
 
 .FiltroPagamento select {
@@ -204,7 +219,7 @@
   border-radius: 20px;
 }
 
-.FiltroCID select {
+.FiltroIdade select {
   margin-top: 1em;
   padding: 0.5em;
   border-radius: 20px;

@@ -13,10 +13,11 @@ import iconeRelatorio from '../icones/icone_relatorio.png';
 import iconePagamentos from '../icones/icone_pagamentos.png';
 import iconeConfiguracao from '../icones/icone_configuracao.png';
 import iconeSair from '../icones/icone_sair.png';
+import iconePesquisar from '../icones/icone-pesquisa.png';
 
 function Home() { 
     return (
-        <div>
+        <div style={{height: "100vh"}}>
             <div id={styles.barraSuperior}>
                     <section className={styles.logoApae}>
                         <Link href="./home">
@@ -40,36 +41,66 @@ function Home() {
 
             <div id={styles.conteudo}>
 
-                <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' />
+                
 
                 <section className={styles.AlunosEncontrados}>
+                    
                     <section className={styles.ExibicaoAlunos}>
+                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' />
                         <div className={styles.alunoPesquisado}>
                             <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
                             <p>
-                                <p style={{fontWeight: "bold"}}>16 anos </p>/<p>Autismo</p>/<p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                                <p style={{fontWeight: "bold"}}>73 anos </p>/<p>Autismo</p>/<p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
                             </p>
                         </div>
                         <div className={styles.alunoPesquisado}>
                             <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
-                            <p style={{color: 'red'}}>3 pendências</p>
+                            <p>
+                                <p style={{fontWeight: "bold"}}>65 anos </p>/<p>---</p>/<p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
+                            </p>
                         </div>
                         <div className={styles.alunoPesquisado}>
                             <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
-                            <p style={{color: 'red'}}>0 pendências</p>
+                            <p>
+                                <p style={{fontWeight: "bold"}}>17 anos </p>/<p>Deficiência Intelectual</p>/<p style={{color: 'red', fontWeight: "bold"}}>0 pendências</p>
+                            </p>
                         </div>
                         <div className={styles.alunoPesquisado}>
                             <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
-                            <p style={{color: 'red'}}>5 pendências</p>
+                            <p>
+                                <p style={{fontWeight: "bold"}}>70 anos </p>/<p>Autismo</p>/<p style={{color: 'red', fontWeight: "bold"}}>98 pendências</p>
+                            </p>
                         </div>
+                        
                     </section>
                     
-                    <section className={styles.FiltrosPesquisa}>
+                    <section style={{marginLeft: '1em'}}>
+                        <Link href="./">
+                            <button className={styles.BotaoPesquisar}>
+                                <Image src={iconePesquisar} alt="Pesquisar" /> PESQUISAR
+                            </button>
+                        </Link>
+                        
+
+                        <section className={styles.FiltrosPesquisa}>
+                        <div className={styles.FiltroIdade}>
+                            <h3 style={{color: '#6079d0'}}>Filtrar por idade</h3>
+                            <select>
+                                <option>Todas as idades</option>
+                                <option>Abaixo de 10 anos</option>
+                                <option>De 10 a 20 anos</option>
+                                <option>De 21 a 30 anos</option>
+                                <option>De 30 a 50 anos</option>
+                                <option>Acima de 50 anos</option>
+                            </select>
+                        
+                            
+                        </div>
                         <div className={styles.FiltroPagamento}>
                             <h3 style={{color: '#6079d0'}}>Filtrar por quantidade de pendências</h3>
                             
                             <select>
-                                <option>Todos os alunos</option>
+                                <option>-----</option>
                                 <option>Nenhum pagamento pendente</option>
                                 <option>1 pagamento pendente</option>
                                 <option>2 pagamentos pendentes</option>
@@ -86,14 +117,20 @@ function Home() {
 
                         
 
-                            
-
+                    
 
                         </div>
-                        <button className={styles.BotaoRegistrar}>
-                            <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
-                        </button>
+                        </section>
+                    
+                        <Link href="./">
+                            <button className={styles.BotaoRegistrar}>
+                                <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
+                            </button>
+                        </Link>
+
+                    
                     </section>
+                        
 
                 </section>
 
