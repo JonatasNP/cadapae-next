@@ -50,7 +50,7 @@
   padding-right: 15px;
   border-radius: 15px;
   border: 1px solid #435bb2;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(255, 255, 255);
   
   background-image: url(../icones/icone-nome.png);
 }
@@ -98,7 +98,7 @@
   height: 8vh;
   color: rgb(75, 75, 75);
   width: 22vw;
-  background-color: rgb(148, 148, 148);
+  background-color: rgb(172, 172, 172);
   border: none;
   font-weight: bolder;
   font-size: 2vh;
@@ -154,7 +154,7 @@
 .ExibicaoAlunos {
   border-radius: 15px;
   width: 74vw;
-  background-color: #d4d4d4;
+  
 }
 
 .alunoPesquisado {

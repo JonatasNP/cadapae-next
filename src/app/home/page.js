@@ -56,7 +56,7 @@ function Home() {
                         <div className={styles.alunoPesquisado}>
                             <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
                             <p>
-                                <p style={{fontWeight: "bold"}}>65 anos </p>/<p>---</p>/<p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
+                                <p style={{fontWeight: "bold"}}>65 anos </p>/<p>-----</p>/<p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
                             </p>
                         </div>
                         <div className={styles.alunoPesquisado}>
@@ -123,7 +123,7 @@ function Home() {
                         </div>
                         </section>
                     
-                        <Link href="./">
+                        <Link href="../registrar_aluno">
                             <button className={styles.BotaoRegistrar}>
                                 <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
                             </button>
