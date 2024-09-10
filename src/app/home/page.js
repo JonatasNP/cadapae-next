@@ -88,10 +88,11 @@ function Home() {
                             <select>
                                 <option>Todas as idades</option>
                                 <option>Abaixo de 10 anos</option>
-                                <option>De 10 a 20 anos</option>
-                                <option>De 21 a 30 anos</option>
-                                <option>De 30 a 50 anos</option>
-                                <option>Acima de 50 anos</option>
+                                <option>De 10 a 19 anos</option>
+                                <option>De 20 a 29 anos</option>
+                                <option>De 30 a 39 anos</option>
+                                <option>De 40 a 49 anos</option>
+                                <option>50 anos ou mais</option>
                             </select>
                         
                             
