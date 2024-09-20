@@ -83,44 +83,92 @@
     border: none;
     font-weight: bolder;
     font-size: 2vh;
-    bottom: 10vh;
     border-radius: 20px;
-    padding: 20px 20px 20px 20px;
-    align-items: center;
+
     vertical-align: center;
     display: flex;
     height: 8vh;
   }
   
 
-  .inputNome {
-    width: 69vw;
+  .inputNomeAluno {
+    width: 67vw;
   }
 
   
-  .DadosAluno input {
+  .DadosAluno input, .DadosAluno select {
     font-size: 15px;
     padding: 0.8em;
     border-radius: 15px;
     border: 1px solid #435bb2;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(255, 255, 255);
   }
   
   
-  .DadosGeraisAluno {
+  .DadosGeraisAluno, .DadosGeraisResponsavel {
+    width: 87vw;
+    justify-content: space-between;
     display: flex;
   }
 
 .ImagemAluno {
+  margin-right: 2vw;
     width: 25vw;
+    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
 }
 
 .DadosAluno {
     width: 60vw;
     text-align: left;
+}
 
+.SelecionarCID {
+  width: 20vw;
+}
+
+.Dados1Responsavel, .Dados2Responsavel {
+  width: 45vw;
+  text-align: left;
+}
+
+.Dados1Responsavel input, .Dados2Responsavel input {
+  background-color: white;
+  font-size: 15px;
+    padding: 0.8em;
+    border-radius: 15px;
+    border: 1px solid #435bb2;
+}
+
+.Dados1Responsavel {
+  margin-right: 4vw;
+}
+
+
+.BotaoRegistrar {
+  color: white;
+  width: 22vw;
+  background-color: rgb(49, 165, 49);
+  border: none;
+  font-weight: bolder;
+  font-size: 2vh;
+  bottom: 10vh;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  align-items: center;
+  vertical-align: center;
+  display: flex;
+  height: 8vh;
+}
+
+.BotaoRegistrar img {
+  padding-right: 10px;
+  height: 3em;
+  width: 4em;
 }

@@ -154,7 +154,7 @@
 .ExibicaoAlunos {
   border-radius: 15px;
   width: 74vw;
-  
+  margin-bottom: 10vh;
 }
 
 .alunoPesquisado {
@@ -203,7 +203,7 @@
 
 .FiltrosPesquisa {
   text-align: left;
-
+  margin-top: 2vh;
   background-color: #d4d4d4;
   border-radius: 15px;
   padding: 2em;
