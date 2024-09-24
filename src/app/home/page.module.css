@@ -158,16 +158,17 @@
 }
 
 .alunoPesquisado {
+  width: 72vw;
   display: flex;
-  justify-content: space-between;
   vertical-align: middle;
   color: black;
-  align-items: center;
   border-radius: 20px;
   padding: 1em;
 }
 
 .alunoPesquisado p {
+  text-align: center;
+
   display: flex;
   vertical-align: middle;
   color: black;

@@ -38,13 +38,14 @@ function Login() {
 
                     <div>
                         <p className={styles.textLogin2} >Senha</p>
-                            <input placeholder="SENHA" id={senhaEhValida ? styles.inputSenha : styles.inputInvalido} type="password" className={styles.InputInicial} value={senha} onChange={elemento => setSenha(elemento.target.value)}></input>
-                            <p style={{textAlign: "right"}}>Esqueceu sua senha?<Link href="google.com" style={{color: "#8490ff"}}> Clique aqui.</Link></p>
-
+                        <input placeholder="SENHA" id={senhaEhValida ? styles.inputSenha : styles.inputInvalido} type="password" className={styles.InputInicial} value={senha} onChange={elemento => setSenha(elemento.target.value)}></input>
+                        <p style={{textAlign: "right"}}>Esqueceu sua senha?<Link href="google.com" style={{color: "#8490ff"}}> Clique aqui.</Link></p>
                     </div>
                     
                     <div style={{display: "flex", justifyContent: "center"}}>
-                        <Link href="./home"><button className={styles.buttonLogin}>Entrar</button></Link>
+                            <Link href="./perfil">
+                                <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            </Link>
                     </div>
                     
                     </div>

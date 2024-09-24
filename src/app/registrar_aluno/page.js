@@ -28,7 +28,6 @@ function Registrar_Aluno() {
                         <Link href="./home"> 
                             <Image src={ImgLogo} alt= 'Logo' style={{width: "5em", height: '5em'}}></Image>    
                         </Link>
-                        
                     </section>
                     
                     <section className={styles.nomeApae}>
@@ -37,7 +36,9 @@ function Registrar_Aluno() {
 
                     <section className={styles.botaoUser}>
                         <button id={styles.buttonHome}>
-                            <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            <Link href="./perfil">
+                                <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            </Link>
                         </button>
                     </section>
             </div>
@@ -51,7 +52,7 @@ function Registrar_Aluno() {
                     <section>
                         <h1>DADOS DO ALUNO</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "94vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
@@ -116,7 +117,7 @@ function Registrar_Aluno() {
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "94vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisResponsavel}>

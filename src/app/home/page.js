@@ -32,7 +32,9 @@ function Home() {
 
                     <section className={styles.botaoUser}>
                         <button id={styles.buttonHome}>
-                            <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            <Link href="./perfil">
+                                <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            </Link>
                         </button>
                     </section>
             </div>
@@ -48,133 +50,60 @@ function Home() {
                     <section className={styles.ExibicaoAlunos}>
                         <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' />
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
-                            <p></p>
-                            
-                            <p style={{fontWeight: "bold"}}>73 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
                     
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>65 anos </p>
-                            <p>-----</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>17 anos </p>
-                            <p>Deficiência Intelectual</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>0 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>70 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>98 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>73 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>69 anos </p>
+                            <p style={{width: '17vw'}}>Demência</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>68654 pendências</p>
                     
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>65 anos </p>
-                            <p>-----</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>17 anos </p>
-                            <p>Deficiência Intelectual</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>0 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>70 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>98 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>73 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>17 anos </p>
+                            <p style={{width: '17vw'}}>Nenhum</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>0 pendências</p>
                     
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>65 anos </p>
-                            <p>-----</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>17 anos </p>
-                            <p>Deficiência Intelectual</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>0 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>70 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>98 pendências</p>
-                            
-                        </div>
-                        <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>73 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>2 pendências</p>
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
                     
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Augusto Francisco Marques da Silva</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>65 anos </p>
-                            <p>-----</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>3 pendências</p>
-                            
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
+                    
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Jônatas Nicolau Pereira da Cunha</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>17 anos </p>
-                            <p>Deficiência Intelectual</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>0 pendências</p>
-                            
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
+                    
                         </div>
                         <div className={styles.alunoPesquisado}>
-                            <p><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Wendel da Silva Martins</p>
-                            <p></p>
-                            <p style={{fontWeight: "bold"}}>70 anos </p>
-                            <p>Autismo</p>
-                            <p style={{color: 'red', fontWeight: "bold"}}>98 pendências</p>
-                            
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
+                    
+                        </div>
+                        <div className={styles.alunoPesquisado}>
+                            <p style={{width: '60vw'}}><Image src={iconeUsuario} style={{marginRight: "1em"}}></Image> Ana Beatriz Alves Ribeiro da Silva</p>
+                            <p style={{fontWeight: "bold", width: "16vw"}}>73 anos </p>
+                            <p style={{width: '17vw'}}>Autismo</p>
+                            <p style={{color: 'red', fontWeight: "bold", width:"16vw", textAlign: "right"}}>2 pendências</p>
+                    
                         </div>
                         
                     </section>
