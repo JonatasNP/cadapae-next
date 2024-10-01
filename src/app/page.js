@@ -43,9 +43,7 @@ function Login() {
                     </div>
                     
                     <div style={{display: "flex", justifyContent: "center"}}>
-                            <Link href="./perfil">
-                                <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
-                            </Link>
+                        <Link href="./home"><button className={styles.buttonLogin}>Entrar</button></Link>
                     </div>
                     
                     </div>

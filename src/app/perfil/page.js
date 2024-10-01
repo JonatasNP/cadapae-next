@@ -16,6 +16,7 @@ import iconePesquisar from '../icones/icone-pesquisa.png';
 import imagemSecretario from '../imgs/foto.jpg';
 
 
+
 function Perfil() { 
 
     return (
@@ -45,15 +46,15 @@ function Perfil() {
 
             <div id={styles.conteudo}>
                 <div className={styles.DadosPessoais}>
-                    <h1>Seus dados pessoais</h1>
-                    <div style={{
-                        backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
-                    }}></div>
+                    <div style={{textAlign: "center", marginBottom: "2em"}}>
+                        <h1>Seus dados pessoais</h1>
+                    </div>
+
                     <section style={{display: "flex"}}>
                         <Image src={imagemSecretario} style={{height: "15vh", width: "20vw", marginRight: "2vw"}}></Image>
                         <section>
-                            <h2 style={{marginBottom: "2vh"}}>Secretárie Ana Nicolau Papito Francisco</h2>
-                            <h3 style={{color: "gray"}}>Tenho 127 anos, sou graduando no Senai e possuo experiência na área da saúde (drogaria).</h3>
+                            <h2 style={{marginBottom: "2vh"}}>Secretário(a)</h2>
+                            <h3 style={{color: "gray"}}>Tenho 127 anos.</h3>
                         </section>
                     </section>
                     
@@ -61,10 +62,9 @@ function Perfil() {
 
 
 
-                <h1>Configurações do sistema</h1>
-                <div style={{
-                    backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
-                }}></div>
+                <div style={{textAlign: "center", marginBottom: "2em"}}>
+                    <h1>Configurações do sistema</h1>
+                </div>
 
                 <div className={styles.Configuracoes}>
                     
