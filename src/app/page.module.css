@@ -83,7 +83,7 @@ padding-bottom: 3vh;
   width: 380px;
 }
 
-#inputNome, #inputEmail, #inputTelefone, #inputSenha {
+#inputNome, #inputUsuario, #inputTelefone, #inputSenha {
   background-repeat: no-repeat;
   width: 25em;
   background-size: 2em;
@@ -94,30 +94,25 @@ padding-bottom: 3vh;
   padding-right: 15px;
   border-radius: 15px;
   border: 1px solid rgb(233, 233, 233);
+  position: relative;
 }
 
 
 
 
-#inputInvalido {
-  background-color: transparent;
-  background-position: 1;
-  background-repeat: no-repeat;
+.inputInvalido {
   width: 25em;
   background-size: 2em;
-  background-position-x: 0.8vw;
-  background-position-y: center;
   font-size: 15px;
   padding: 15px 55px;
   padding-right: 15px;
   border-radius: 15px;
   border: 1px solid rgb(233, 0, 0);
   outline: 2px red;
-  
 }
 
 #inputNome {background-image: url(./icones/icone-nome.png);}
-#inputEmail {background-image: url(./icones/icone-email.png);}
+#inputUsuario {background-image: url(./icones/icone-nome.png);}
 #inputTelefone {background-image: url(./icones/icone-telefone.png);}
 #inputSenha {background-image: url(./icones/icone-senha.png);}
 

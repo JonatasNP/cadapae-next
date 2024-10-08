@@ -2,30 +2,30 @@
 import Link from "next/link";
 import Image from 'next/image';
 import styles from './page.module.css';
-import ImageAdd from '../icones/icone-adicionar.png';
+import ImageAdd from '../../icones/icone-adicionar.png';
 
-import iconeUsuario from '../icones/perfil_do_usuario.png';
-import ImgLogo from '../imgs/logo-apae.png'
-import iconeHome from '../icones/icone_home.png';
-import iconeAluno from '../icones/icone_aluno.png';
-import iconeRelatorio from '../icones/icone_relatorio.png';
-import iconePagamentos from '../icones/icone_pagamentos.png';
-import iconeConfiguracao from '../icones/icone_configuracao.png';
-import iconeSair from '../icones/icone_sair.png';
-import iconePesquisar from '../icones/icone-pesquisa.png';
+import iconeUsuario from '../../icones/perfil_do_usuario.png';
+import ImgLogo from '../../imgs/logo-apae.png'
+import iconeHome from '../../icones/icone_home.png';
+import iconeAluno from '../../icones/icone_aluno.png';
+import iconeRelatorio from '../../icones/icone_relatorio.png';
+import iconePagamentos from '../../icones/icone_pagamentos.png';
+import iconeConfiguracao from '../../icones/icone_configuracao.png';
+import iconeSair from '../../icones/icone_sair.png';
+import iconePesquisar from '../../icones/icone-pesquisa.png';
 
 
 
 function Registrar_Aluno() { 
 
-
+    
 
 
     return (
         <div style={{height: "100vh"}}>
             <div id={styles.barraSuperior}>
                     <section className={styles.logoApae}>
-                        <Link href="./home"> 
+                        <Link href="../home"> 
                             <Image src={ImgLogo} alt= 'Logo' style={{width: "5em", height: '5em'}}></Image>    
                         </Link>
                     </section>
@@ -173,7 +173,7 @@ function Registrar_Aluno() {
                 </div>
 
                 <div style={{display: "flex", padding: "3vh 72vw"}}>
-                    <Link href="./home">
+                    <Link href="../home">
                         <button className={styles.BotaoRegistrar}>
                             <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
                         </button>

@@ -54,7 +54,7 @@ function Perfil() {
                         <Image src={imagemSecretario} style={{height: "15vh", width: "20vw", marginRight: "2vw"}}></Image>
                         <section>
                             <h2 style={{marginBottom: "2vh"}}>Secretário(a)</h2>
-                            <h3 style={{color: "gray"}}>Tenho 127 anos.</h3>
+                            <h3 style={{color: "gray"}}>Tenho 127 anos. E 5 votos.</h3>
                         </section>
                     </section>
                     

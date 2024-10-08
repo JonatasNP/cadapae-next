@@ -6,6 +6,8 @@ import styles from './page.module.css';
 import ImageAdd from '../icones/icone-adicionar.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
+import { getAlunos } from "../lib/aluno";
+
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import iconeHome from '../icones/icone_home.png';
 import iconeAluno from '../icones/icone_aluno.png';
@@ -28,7 +30,7 @@ function Home() {
 
     const alunos = [
         { nome: "Ana Beatriz Alves Ribeiro da Silva", idade: 73, cid: "Autismo", pendencias: 2 },
-        { nome: "Augusto Francisco Marques da Silva", idade: 59, cid: "-----", pendencias: 5 },
+        { nome: "Augusto Francisco Marques da Silva", idade: 59, cid: "-----", pendencias: 5, matricula: 2042024 },
         { nome: "Jônatas Nicolau Pereira da Cunha", idade: 94, cid: "-----", pendencias: 3 },
         { nome: "Wendel da Silva Martins", idade: 65, cid: "Retardo mental não especificado", pendencias: 3 }
     ];
@@ -71,10 +73,15 @@ function Home() {
                     <section className={styles.ExibicaoAlunos}>
                         <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={elemento => SetAluno(elemento.target.value)} />
 
+
+
+
                         {aluno !== "" ? (
                             alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
                                 alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
                                     <div className={styles.alunoPesquisado}>
+                                        
+
                                         <p style={{ width: '100vw' }}>
                                             <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
                                         </p>
@@ -83,14 +90,22 @@ function Home() {
                                         <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
                                             {a.pendencias} pendências
                                         </p>
+                                        
+                                        
+                                        
                                     </div>
                                 ))
                             ) : (
                                 <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado com esse nome.</p>
                             )
                         ) : (
-                            <p style={{padding: "1.5em"}}>Por favor, o nome do aluno a ser encontrado.</p>
+                            <p style={{padding: "1.5em"}}>Por favor, digite o nome do aluno a ser encontrado.</p>
                         )}
+
+
+
+
+
 
 
                     </section>
@@ -146,7 +161,7 @@ function Home() {
                         </section>
 
                         <section style={{ textAlign: "right", marginTop: "2vh" }}>
-                            <Link href="../registrar_aluno">
+                            <Link href="../aluno/registro">
                                 <button className={styles.BotaoRegistrar}>
                                     <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR UM NOVO ALUNO
                                 </button>
