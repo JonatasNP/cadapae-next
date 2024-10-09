@@ -64,15 +64,20 @@ async function PerfilAluno({ params }) {
                             </section>
 
                             <section className={styles.DadosAluno}>
-                                <section style={{width: '60vw', justifyContent: 'space-between'}}>
-                                    <h3 style={{marginTop: '1em'}}>NOME</h3> {aluno.nome.toUpperCase()} 
-                                    <h3 style={{marginTop: '1em'}}>MATRÍCULA</h3> {aluno.matricula}
-                                    <h3 style={{marginTop: '1em'}}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
-                                    <h3 style={{marginTop: '1em'}}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartaoSUS ? aluno.cartaoSUS : "-"}
-                                    <h3 style={{marginTop: '1em'}}>NÚMERO DA IDENTIDADE</h3> {aluno.identidade ? aluno.identidade : "-"}
-                                    <h3 style={{marginTop: '1em'}}>CID</h3> {aluno.cpf ? aluno.cpf : "-"}
-                                    <h3 style={{marginTop: '1em'}}>DATA DE NASCIMENTO</h3> {aluno.dataNascimento ? aluno.dataNascimento : "-"}
-                                    <h3 style={{marginTop: '1em'}}>LAUDO</h3> {aluno.laudo ? <Link href={aluno.cpf} about="_blank">Visualizar</Link> : "-"}
+                                <section style={{width: '60vw', display: 'flex'}}>
+                                    <section style={{width: '30vw'}}>
+                                        <h3 style={{marginTop: '1em'}}>MATRÍCULA</h3> {aluno.matricula}
+                                        <h3 style={{marginTop: '1em'}}>NOME</h3> {aluno.nome.toUpperCase()} 
+                                        <h3 style={{marginTop: '1em'}}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
+                                        <h3 style={{marginTop: '1em'}}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartaoSUS ? aluno.cartaoSUS : "-"}
+                                        <h3 style={{marginTop: '1em'}}>NÚMERO DA IDENTIDADE</h3> {aluno.identidade ? aluno.identidade : "-"}
+                                    </section>
+                                    <section style={{width: '30vw'}}>
+                                        <h3 style={{marginTop: '1em'}}>CID</h3> {aluno.cid ? aluno.cid : "-"}
+                                        <h3 style={{marginTop: '1em'}}>DATA DE NASCIMENTO</h3> {aluno.dataNascimento ? aluno.dataNascimento : "-"}
+                                        <h3 style={{marginTop: '1em'}}>LAUDO</h3> {aluno.laudo ? <Link href={aluno.cpf} about="_blank">Visualizar</Link> : "-"}
+                                    </section>
+                                    
                                 </section>
                             </section>
                             

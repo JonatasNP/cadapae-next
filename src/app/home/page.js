@@ -6,7 +6,6 @@ import styles from './page.module.css';
 import ImageAdd from '../icones/icone-adicionar.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
-import { getAlunos } from "../lib/aluno";
 
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import iconeHome from '../icones/icone_home.png';
@@ -79,9 +78,9 @@ function Home() {
                         {aluno !== "" ? (
                             alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
                                 alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
-                                    <div className={styles.alunoPesquisado}>
+                                    <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
                                         
-
+                                        
                                         <p style={{ width: '100vw' }}>
                                             <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
                                         </p>
@@ -91,9 +90,7 @@ function Home() {
                                             {a.pendencias} pendências
                                         </p>
                                         
-                                        
-                                        
-                                    </div>
+                                    </div></Link>
                                 ))
                             ) : (
                                 <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado com esse nome.</p>
