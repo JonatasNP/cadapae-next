@@ -36,7 +36,7 @@ function Registrar_Aluno() {
 
                     <section className={styles.botaoUser}>
                         <button id={styles.buttonHome}>
-                            <Link href="./perfil">
+                            <Link href="../../perfil">
                                 <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
                             </Link>
                         </button>
@@ -84,8 +84,8 @@ function Registrar_Aluno() {
 
                                         <p style={{marginTop: '1em'}}>CID</p>
                                         <select className={styles.SelecionarCID}>
-                                            <option>-----</option>
-                                            <option>Nenhum</option>
+                                            <option>Nenhum CID</option>
+                                            <option>CID não identificado</option>
                                             <option>CID F8* - Autismo</option>
                                             <option>CID F7* - Retardo mental não especificado</option>
                                             <option>Outro CID</option>
@@ -175,7 +175,7 @@ function Registrar_Aluno() {
                 <div style={{display: "flex", padding: "3vh 72vw"}}>
                     <Link href="../home">
                         <button className={styles.BotaoRegistrar}>
-                            <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR NOVO ALUNO
+                            <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR UM NOVO ALUNO
                         </button>
                     </Link>
                 </div>

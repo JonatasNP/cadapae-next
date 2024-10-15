@@ -55,13 +55,12 @@ function Login() {
 
                     <div>
                         <p className={styles.textLogin2}>Usuário</p>
-                        <input placeholder="CPF" type='number' id={styles.inputUsuario} className={styles.InputLogin} value={usuario} onChange={elemento => setUsuario(elemento.target.value)}></input>
+                        <input placeholder="CPF" type='text' id={styles.inputUsuario} className={styles.InputLogin} value={usuario} onChange={elemento => setUsuario(elemento.target.value)}></input>
                     </div>
 
                     <div>
                         <p className={styles.textLogin2} >Senha</p>
                         <input placeholder="SENHA" id={styles.inputSenha} type="password" className={styles.InputInicial} value={senha} onChange={elemento => setSenha(elemento.target.value)}></input>
-                        <p style={{ textAlign: "right" }}>Esqueceu sua senha?<Link href="" style={{ color: "#8490ff" }}> Clique aqui.</Link></p>
                     </div>
 
                     <div style={{ display: "flex", justifyContent: "center" }}>

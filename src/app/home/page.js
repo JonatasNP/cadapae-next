@@ -146,6 +146,7 @@ function Home() {
                             <div className={styles.FiltroCID}>
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> Nenhum CID</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID não identificado</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID F8* - Autismo</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID F7* - Retardo mental não especificado</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> Outros CIDs</p>

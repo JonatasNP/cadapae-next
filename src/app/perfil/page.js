@@ -53,8 +53,8 @@ function Perfil() {
                     <section style={{display: "flex"}}>
                         <Image src={imagemSecretario} style={{height: "15vh", width: "20vw", marginRight: "2vw"}}></Image>
                         <section>
-                            <h2 style={{marginBottom: "2vh"}}>Secretário(a)</h2>
-                            <h3 style={{color: "gray"}}>Tenho 127 anos. E 5 votos.</h3>
+                            <h2 style={{marginBottom: "2vh"}}>Secretário Papito</h2>
+                            <h3 style={{color: "gray"}}>Tenho 127 anos e 5 votos de confiança.</h3>
                         </section>
                     </section>
                     
@@ -74,18 +74,28 @@ function Perfil() {
                         <h3>Telefone <input type="text" id={styles.inputTelefone}></input></h3>
                     </section>
 
-                    <section style={{display: "flex", textAlign: "left", marginBottom: "4vh"}}>
-                        <h3>Notificações</h3> <input type="checkbox" style={{marginLeft: "1vw"}}></input>
+                    <section style={{ display: "flex", textAlign: "left", marginBottom: "4vh", verticalAlign: "middle", alignItems: "center"}}>
+                        <h3>Notificações <input type="checkbox" style={{marginLeft: "1vw"}}></input></h3>
+
+                        <h3 style={{marginLeft: "10vw"}}>Listar alunos por
+                            <select className={styles.select}>
+                                <option>Ordem alfabética</option>
+                                <option>Ordem crescente de idade</option>
+                                <option>Ordem decrescente de idade</option>
+                            </select>
+                        </h3>
                     </section>
 
 
 
 
 
-
-                    <section>
+                    <section style={{display: "flex"}}>
                         <Link href="">
-                            <button className={styles.BotaoAlterarSenha}>Alterar senha</button>
+                            <button className={styles.botao} style={{backgroundColor: "rgb(189, 189, 0)"}}>Alterar senha</button>
+                        </Link>
+                        <Link href="../" style={{marginLeft: "1vw"}}>
+                            <button className={styles.botao} style={{backgroundColor: "red"}}>Desconectar conta</button>
                         </Link>
                     </section>
                     
