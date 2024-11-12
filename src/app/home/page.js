@@ -19,6 +19,7 @@ import iconePesquisar from '../icones/icone-pesquisa.png';
 import { useEffect, useState } from "react";
 
 
+/*import { getAlunosByPesquisa } from "@/app/lib/pesquisa_alunos";*/
 
 
 
@@ -27,14 +28,18 @@ import { useEffect, useState } from "react";
 
 function Home() {
 
-    const alunos = [
+    let alunos = [
         { nome: "Ana Beatriz Alves Ribeiro da Silva", idade: 73, cid: "Autismo", pendencias: 2 },
         { nome: "Augusto Francisco Marques da Silva", idade: 59, cid: "-----", pendencias: 5, matricula: 2042024 },
         { nome: "Jônatas Nicolau Pereira da Cunha", idade: 94, cid: "-----", pendencias: 3 },
         { nome: "Wendel da Silva Martins", idade: 65, cid: "Retardo mental não especificado", pendencias: 3 }
     ];
+    
 
     const [aluno, SetAluno] = useState("");
+
+
+
 
 
 
@@ -76,7 +81,8 @@ function Home() {
 
 
                         {aluno !== "" ? (
-                            alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
+
+                            /*alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
                                 alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
                                     <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
                                         
@@ -95,9 +101,50 @@ function Home() {
                             ) : (
                                 <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado com esse nome.</p>
                             )
+                            
+                            (await getAlunosByPesquisa(aluno)).map(a => (
+                                <Link href={`../aluno/${a.matricula_aluno}`}><div className={styles.alunoPesquisado}>
+                                    
+                                    <p style={{ width: '100vw' }}>
+                                        <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
+                                    </p>
+                                    <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
+                                    <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
+                                    <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
+                                        {a.pendencias} pendências
+                                    </p>
+                                    
+                                </div></Link>
+                            ))*/
+
+                            
+
+                            alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
+                                alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
+                                    <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
+                                        
+                                        
+                                        <p style={{ width: '100vw' }}>
+                                            <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
+                                        </p>
+                                        <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
+                                        <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
+                                        <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
+                                            {a.pendencias} pendências
+                                        </p>
+                                        
+                                    </div></Link>
+                                ))
+                            ) : (
+                                <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado no sistema.</p>
+                            )
+
+            
                         ) : (
                             <p style={{padding: "1.5em"}}>Por favor, digite o nome do aluno a ser encontrado.</p>
-                        )}
+                        )
+                            
+                        }
 
 
 
@@ -147,8 +194,8 @@ function Home() {
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> Nenhum CID</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID não identificado</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID F8* - Autismo</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID F7* - Retardo mental não especificado</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} /> CID F8* - Autismo</p>
                                 <p><input type="checkbox" style={{ marginTop: '1em' }} /> Outros CIDs</p>
 
 

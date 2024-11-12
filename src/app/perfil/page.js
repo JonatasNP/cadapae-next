@@ -19,6 +19,9 @@ import imagemSecretario from '../imgs/foto.jpg';
 
 function Perfil() { 
 
+
+    const secretario = "";
+
     return (
         <div style={{height: "100vh"}}>
             <div id={styles.barraSuperior}>
@@ -51,10 +54,18 @@ function Perfil() {
                     </div>
 
                     <section style={{display: "flex"}}>
-                        <Image src={imagemSecretario} style={{height: "15vh", width: "20vw", marginRight: "2vw"}}></Image>
+                        <section style={{width: "20vw", height: "15vw", display: "flex", alignItems: "center", justifyContent: "center", verticalAlign: "middle", border: "1px solid lightgray", marginRight: "1vw"}}>
+                            {
+                                secretario.foto ?
+                                <Image src={secretario.foto} style={{height: "15vw", width: "20vw", marginRight: "2vw"}}></Image> :
+                                <p>Nenhuma foto de perfil adicionada.</p>
+                            }
+                        </section>
+
+
                         <section>
-                            <h2 style={{marginBottom: "2vh"}}>Secretário Papito</h2>
-                            <h3 style={{color: "gray"}}>Tenho 127 anos e 5 votos de confiança.</h3>
+                            <h2 style={{marginBottom: "2vh"}}>Secretário(a)</h2>
+                            <h3 style={{color: "gray"}}>Nenhuma descrição adicionada.</h3>
                         </section>
                     </section>
                     
@@ -97,17 +108,19 @@ function Perfil() {
                         <Link href="../" style={{marginLeft: "1vw"}}>
                             <button className={styles.botao} style={{backgroundColor: "red"}}>Desconectar conta</button>
                         </Link>
+                        
+                        <div style={{marginLeft: "71.5vw"}}>
+                            <Link href="./home">
+                                <button className={styles.BotaoSalvarAlteracoes}>Salvar Alterações</button>
+                            </Link>
+                        </div>
                     </section>
                     
                         
                 </div>
 
 
-                <div style={{marginLeft: "85vw"}}>
-                    <Link href="./home">
-                        <button className={styles.BotaoSalvarAlteracoes}>Salvar Alterações</button>
-                    </Link>
-                </div>
+                
                 
 
 

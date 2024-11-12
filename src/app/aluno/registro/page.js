@@ -175,7 +175,7 @@ function Registrar_Aluno() {
                 <div style={{display: "flex", padding: "3vh 72vw"}}>
                     <Link href="../home">
                         <button className={styles.BotaoRegistrar}>
-                            <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR UM NOVO ALUNO
+                            <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
                         </button>
                     </Link>
                 </div>

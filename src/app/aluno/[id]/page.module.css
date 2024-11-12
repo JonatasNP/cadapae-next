@@ -62,10 +62,8 @@
   
   
   
-  
-  
-  
   #conteudo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 15vh;
     margin-left: 2vw;
     margin-right: 2vw;
@@ -172,4 +170,74 @@
   padding-right: 10px;
   height: 3em;
   width: 4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.NomeAluno {
+  border: 1px solid #8490ff;
+  padding: 1em 1em 1em 1em;
+  background-color: #cfd4ff;
+  font-weight: bolder;
+  font-size: larger;
+  width: 75vw;
+  display: flex;
+  vertical-align: middle;
+  color: black;
+  border-radius: 20px;
+  padding: 1em;
+  margin-bottom: 1vh;
+}
+
+.NomeAluno p {
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  vertical-align: middle;
+  color: black;
+  align-items: center;
+}
+
+.NomeAluno img {
+  margin-right: 1vw;
+  height: 38px;
+  width: 38px;
+}
+
+
+.Pagamento {
+  text-align: left;
+  margin: 0.4em;
+  width: 20vw;
+  padding: 1em;
+  border-radius: 15px;
+  background-color: lightgray;
+}
+
+.PagamentosAluno {
+  display: flex;
+}
+
+.Pagamento img {
+  height: 2em;
+  width: 2em;
 }

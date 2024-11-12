@@ -5,6 +5,7 @@ import ImageAdd from '../../icones/icone-adicionar.png';
 import ImagemAluno from '../../imgs/imagem-pessoa.png';
 
 import { getAlunosByMatricula } from "@/app/lib/aluno";
+import { getResponsavelById } from "@/app/lib/responsavel";
 
 import iconePagamentos from "../../icones/icone_pagamentos.png";
 import iconeUsuario from '../../icones/perfil_do_usuario.png';
@@ -21,14 +22,14 @@ import iconePesquisar from '../../icones/icone-pesquisa.png';
 async function PerfilAluno({ params }) {
 
     const aluno = await getAlunosByMatricula(params.id);
-    const responsavel = {};
+    const responsavel = await getResponsavelById(aluno.id_responsavel);
 
 
     return (
         <div style={{ height: "100vh" }}>
             <div id={styles.barraSuperior}>
                 <section className={styles.logoApae}>
-                    <Link href="../home">
+                    <Link href="../../home">
                         <Image src={ImgLogo} alt='Logo' style={{ width: "5em", height: '5em' }}></Image>
                     </Link>
                 </section>
@@ -59,31 +60,32 @@ async function PerfilAluno({ params }) {
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
-                            <section className={styles.ImagemAluno}>
-                                <Image src={ImagemAluno}></Image>
+                            <section className={styles.ImagemAluno} style={{border: "1px solid lightgray"}}>
+                                {aluno.foto ? <Image src={aluno.foto}></Image> : <p>Este aluno ainda não possui foto.</p>}
                             </section>
 
                             <section className={styles.DadosAluno}>
                                 <section style={{ width: '60vw', display: 'flex' }}>
                                     <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome.toUpperCase()}
-                                        <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}       
-                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartaoSUS ? aluno.cartaoSUS : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.identidade ? aluno.identidade : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome_aluno.toUpperCase()}
+                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf_aluno ? aluno.cpf_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartao_sus_aluno ? aluno.cartao_sus_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.identidade_aluno ? aluno.identidade_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICAÇÕES</h3> {aluno.especificacoes_aluno ? aluno.especificacoes_aluno : "-"}
                                     </section>
                                     <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.dataNascimento ? aluno.dataNascimento : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo ? <Link href={aluno.cpf} about="_blank">Visualizar</Link> : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula_aluno}
+                                        <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? ""+aluno.data_nasc_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3> 
                                         
                                         <Link href="">
                                             <section style={{
-                                                marginTop: "0.5em", padding: "0.4em", width: "20vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
+                                                    marginTop: "0.5em", padding: "0.4em", width: "18vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
                                                 }}>
                                                 
-                                                <Image src={iconePagamentos} style={{height: "2em", width: "2em"}}></Image>Acessar histórico de contribuições
+                                                <Image src={iconePagamentos} style={{height: "2em", width: "2em"}}></Image> Acessar histórico de contribuições
                                             </section>
                                         </Link>
                                         
@@ -111,16 +113,16 @@ async function PerfilAluno({ params }) {
 
                         <section className={styles.DadosGeraisResponsavel}>
                             <section className={styles.Dados1Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome ? responsavel.nome.toUpperCase() : "-"}
-                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.dataNascimento ? responsavel.dataNascimento : "-"}
-                                <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.identidade ? responsavel.identidade : "-"}
-                                <h3 style={{ marginTop: '1em' }}>TELEFONE</h3> {responsavel.telefone ? responsavel.telefone : "-"}
+                                <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome_resp ? responsavel.nome_resp.toUpperCase() : "-"}
+                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento_resp ? responsavel.data_nascimento_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.identidade_resp ? responsavel.identidade_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.contato_resp ? responsavel.contato_resp : "-"}
                             </section>
                             <section className={styles.Dados2Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"} 
-                                <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
-                                <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.endereco ? responsavel.endereco : "-"}
-                                <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprovanteResidencia ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "-"}
+                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf_resp ? responsavel.cpf_resp : "-"} 
+                                <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email_resp ? responsavel.email_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.endereco_resp ? responsavel.endereco_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprov_resid_resp ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "-"}
                             </section>
                         </section>
                     </section>
