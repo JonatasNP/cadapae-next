@@ -6,6 +6,7 @@ import ImagemAluno from '../../imgs/imagem-pessoa.png';
 
 import { getAlunosByMatricula } from "@/app/lib/aluno";
 import { getResponsavelById } from "@/app/lib/responsavel";
+import { getAlunosByPesquisa } from "@/app/lib/pesquisa_alunos";
 
 import iconePagamentos from "../../icones/icone_pagamentos.png";
 import iconeUsuario from '../../icones/perfil_do_usuario.png';
