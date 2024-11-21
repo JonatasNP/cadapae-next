@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../apae-integrador/backend/src/icones"
+		},
+		{
+			"path": "../../../../apae-integrador/backend/src/imgs"
+		}
+	],
+	"settings": {}
+}

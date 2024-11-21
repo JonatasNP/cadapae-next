@@ -1,0 +1,228 @@
+
+
+
+#barraSuperior{
+  padding-top: 8px;
+  background-color: #8490ff;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 2px 4px #7a7979;
+  position: fixed;
+  z-index: 1;
+  min-height: 6em;
+  width: 100vw;
+  align-items: center;
+  top: 0;
+}
+
+#barraSuperior .LogoHome {
+  margin-left: 4.5vw;
+}
+
+#buttonHome {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  text-align: end;
+  margin-right: 16px;
+}
+
+.nomeApae {
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.logoApae{
+ padding-left: 15px; 
+}
+
+.BarraPesquisa {
+  width: 72vw;
+  font-size: 25px;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-position-x: 0.8vw;
+  background-position-y: center;
+  font-size: 15px;
+  padding: 2em 4em 2em 4em;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: 1px solid #435bb2;
+  background-color: rgb(255, 255, 255);
+  
+  background-image: url(../icones/icone-nome.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#conteudo {
+  display: flex;
+  margin-top: 15vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 6vh;
+  color: black;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.BotaoRegistrar {
+  color: white;
+  width: 22vw;
+  background-color: rgb(49, 165, 49);
+  border: none;
+  font-weight: bolder;
+  font-size: 2vh;
+  bottom: 10vh;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  align-items: center;
+  vertical-align: center;
+  display: flex;
+  height: 8vh;
+}
+
+.BotaoPesquisar {
+  height: 8vh;
+  color: rgb(75, 75, 75);
+  width: 22vw;
+  background-color: rgb(172, 172, 172);
+  border: none;
+  font-weight: bolder;
+  font-size: 2vh;
+  bottom: 10vh;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  align-items: center;
+  vertical-align: center;
+  display: flex;
+}
+.BotaoPesquisar img {
+  padding-right: 10px;
+  height: 2em;
+  width: 2.7em;
+}
+
+
+.BotaoRegistrar img {
+  padding-right: 10px;
+  height: 3em;
+  width: 4em;
+}
+
+
+
+#inputNome, #inputEmail, #inputTelefone, #inputSenha {
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-position-x: 0.8vw;
+  background-position-y: center;
+  font-size: 15px;
+  padding: 15px 55px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(233, 233, 233);
+  background-color: rgb(233, 233, 233);
+}
+
+#inputNome {background-image: url(../icones/icone-nome.png);}
+#inputEmail {background-image: url(../icones/icone-email.png);}
+#inputTelefone {background-image: url(../icones/icone-telefone.png);}
+#inputSenha {background-image: url(../icones/icone-senha.png);}
+
+
+
+
+
+.AlunosEncontrados {
+  width: 94vw;
+  display: flex;
+}
+
+.ExibicaoAlunos {
+  border-radius: 15px;
+  width: 74vw;
+  margin-bottom: 10vh;
+}
+
+.alunoPesquisado {
+  width: 72vw;
+  display: flex;
+  vertical-align: middle;
+  color: black;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.alunoPesquisado p {
+  text-align: center;
+  display: flex;
+  vertical-align: middle;
+  color: black;
+  align-items: center;
+}
+
+.alunoPesquisado img {
+  margin-right: 1vw;
+  height: 38px;
+  width: 38px;
+}
+
+.alunoPesquisado:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+
+#tituloExibicao {
+  vertical-align: middle;
+  display: flex;
+  color: red;
+}
+
+#tituloExibicao img {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+
+
+
+
+
+.FiltrosPesquisa {
+  text-align: left;
+  margin-top: 2vh;
+  background-color: #d4d4d4;
+  border-radius: 15px;
+  padding: 2em;
+}
+
+.FiltroIdade, .FiltroPagamento, .FiltroCID {
+  margin-bottom: 2em;
+}
+
+.FiltroPagamento select {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 20px;
+}
+
+.FiltroIdade select {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 20px;
+}
+
