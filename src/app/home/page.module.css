@@ -96,20 +96,20 @@
 }
 
 .BotaoPesquisar {
-  height: 8vh;
   color: rgb(75, 75, 75);
   width: 22vw;
   background-color: rgb(172, 172, 172);
   border: none;
   font-weight: bolder;
-  font-size: 2vh;
   bottom: 10vh;
+  font-size: 1.2em;
   border-radius: 20px;
   padding: 20px 20px 20px 20px;
   align-items: center;
   vertical-align: center;
   display: flex;
 }
+
 .BotaoPesquisar img {
   padding-right: 10px;
   height: 2em;
