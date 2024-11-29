@@ -155,11 +155,6 @@ function Home() {
                     </section>
 
                     <section style={{ marginLeft: '1em' }}>
-                        <Link href="./">
-                            <button className={styles.BotaoPesquisar}>
-                                <Image src={iconePesquisar} alt="Pesquisar" /> APLICAR FILTROS
-                            </button>
-                        </Link>
 
 
                         <section className={styles.FiltrosPesquisa}>
