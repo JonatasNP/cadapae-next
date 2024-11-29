@@ -38,7 +38,7 @@ function Home() {
 
     const [aluno, SetAluno] = useState("");
 
-
+    /*const [alunos, setAlunos] = useState([]);*/
 
 
 
