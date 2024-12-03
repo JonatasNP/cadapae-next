@@ -151,8 +151,9 @@
 
 
 .BotaoRegistrar {
+
   color: white;
-  width: 22vw;
+  width: 15vw;
   background-color: rgb(49, 165, 49);
   border: none;
   font-weight: bolder;
@@ -164,6 +165,10 @@
   vertical-align: center;
   display: flex;
   height: 8vh;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .BotaoRegistrar img {
@@ -193,31 +198,31 @@
 
 
 
-.NomeAluno {
-  border: 1px solid #8490ff;
-  padding: 1em 1em 1em 1em;
-  background-color: #cfd4ff;
+.ReferenteAluno {
   font-weight: bolder;
   font-size: larger;
-  width: 75vw;
+  width: 95vw;
   display: flex;
   vertical-align: middle;
   color: black;
   border-radius: 20px;
-  padding: 1em;
-  margin-bottom: 1vh;
+  
 }
 
-.NomeAluno p {
+.ReferenteAluno p {
+  width: 80vw;
+  border: 1px solid #8490ff;
+  background-color: #cfd4ff;
   border-radius: 15px;
   text-align: center;
   display: flex;
   vertical-align: middle;
   color: black;
   align-items: center;
+  padding: 1em 1em 1em 1em;
 }
 
-.NomeAluno img {
+.ReferenteAluno img {
   margin-right: 1vw;
   height: 38px;
   width: 38px;
@@ -227,7 +232,7 @@
 .Pagamento {
   text-align: left;
   margin: 0.4em;
-  width: 20vw;
+  width: 94vw;
   padding: 1em;
   border-radius: 15px;
   background-color: lightgray;

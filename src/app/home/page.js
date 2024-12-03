@@ -21,24 +21,39 @@ import { useEffect, useState } from "react";
 
 /*import { getAlunosByPesquisa } from "@/app/lib/pesquisa_alunos";*/
 
-
+import ListarAlunos from "../components/ListarAlunos";
 
 
 
 
 function Home() {
-
+/*
     let alunos = [
         { nome: "Ana Beatriz Alves Ribeiro da Silva", idade: 73, cid: "Autismo", pendencias: 2 },
         { nome: "Augusto Francisco Marques da Silva", idade: 59, cid: "-----", pendencias: 5, matricula: 2042024 },
         { nome: "Jônatas Nicolau Pereira da Cunha", idade: 94, cid: "-----", pendencias: 3 },
         { nome: "Wendel da Silva Martins", idade: 65, cid: "Retardo mental não especificado", pendencias: 3 }
-    ];
+    ];*/
     
 
     const [aluno, SetAluno] = useState("");
 
-    /*const [alunos, setAlunos] = useState([]);*/
+
+    
+
+
+
+    const [alunos, setAlunos] = useState([]);
+
+    useEffect(() => {
+        fetchAlunos();
+    }, [])
+
+    const fetchAlunos = async () => {
+        const response = await fetch('../api/alunos');
+        const dados = await response.json();
+        setAlunos(dados);
+    }
 
 
 
@@ -77,75 +92,10 @@ function Home() {
                     <section className={styles.ExibicaoAlunos}>
                         <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={elemento => SetAluno(elemento.target.value)} />
 
+                        <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
 
 
-
-                        {aluno !== "" ? (
-
-                            /*alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
-                                alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
-                                    <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
-                                        
-                                        
-                                        <p style={{ width: '100vw' }}>
-                                            <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
-                                        </p>
-                                        <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
-                                        <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
-                                        <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
-                                            {a.pendencias} pendências
-                                        </p>
-                                        
-                                    </div></Link>
-                                ))
-                            ) : (
-                                <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado com esse nome.</p>
-                            )
-                            
-                            (await getAlunosByPesquisa(aluno)).map(a => (
-                                <Link href={`../aluno/${a.matricula_aluno}`}><div className={styles.alunoPesquisado}>
-                                    
-                                    <p style={{ width: '100vw' }}>
-                                        <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
-                                    </p>
-                                    <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
-                                    <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
-                                    <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
-                                        {a.pendencias} pendências
-                                    </p>
-                                    
-                                </div></Link>
-                            ))*/
-
-                            
-
-                            alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
-                                alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
-                                    <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
-                                        
-                                        
-                                        <p style={{ width: '100vw' }}>
-                                            <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
-                                        </p>
-                                        <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
-                                        <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
-                                        <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
-                                            {a.pendencias} pendências
-                                        </p>
-                                        
-                                    </div></Link>
-                                ))
-                            ) : (
-                                <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado no sistema.</p>
-                            )
-
-            
-                        ) : (
-                            <p style={{padding: "1.5em"}}>Por favor, digite o nome do aluno a ser encontrado.</p>
-                        )
-                            
-                        }
-
+                        
 
 
 
@@ -156,6 +106,14 @@ function Home() {
 
                     <section style={{ marginLeft: '1em' }}>
 
+
+                        <section style={{ textAlign: "right", marginBottom: "2vh" }}>
+                            <Link href="../aluno/registro">
+                                <button className={styles.BotaoRegistrar}>
+                                    <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR UM NOVO ALUNO
+                                </button>
+                            </Link>
+                        </section>
 
                         <section className={styles.FiltrosPesquisa}>
                             <div className={styles.FiltroIdade}>
@@ -200,15 +158,6 @@ function Home() {
                             </div>
                         </section>
 
-                        <section style={{ textAlign: "right", marginTop: "2vh" }}>
-                            <Link href="../aluno/registro">
-                                <button className={styles.BotaoRegistrar}>
-                                    <Image src={ImageAdd} alt="Adicionar" /> REGISTRAR UM NOVO ALUNO
-                                </button>
-                            </Link>
-                        </section>
-
-
 
                     </section>
 
@@ -222,4 +171,82 @@ function Home() {
     );
 }
 
+
+
+
 export default Home;
+
+
+
+
+
+
+
+/*
+
+{aluno !== "" ? (
+
+    alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
+        alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
+            <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
+                
+                
+                <p style={{ width: '100vw' }}>
+                    <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
+                </p>
+                <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
+                <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
+                <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
+                    {a.pendencias} pendências
+                </p>
+                
+            </div></Link>
+        ))
+    ) : (
+        <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado com esse nome.</p>
+    )
+    
+    (await getAlunosByPesquisa(aluno)).map(a => (
+        <Link href={`../aluno/${a.matricula_aluno}`}><div className={styles.alunoPesquisado}>
+            
+            <p style={{ width: '100vw' }}>
+                <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
+            </p>
+            <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
+            <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
+            <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
+                {a.pendencias} pendências
+            </p>
+            
+        </div></Link>
+    ))
+
+    
+
+    alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).length > 0 ? (
+        alunos.filter(a => a.nome.toUpperCase().includes(aluno.toUpperCase())).map(a => (
+            <Link href={`../aluno/${alunos.indexOf(a)}`}><div className={styles.alunoPesquisado}>
+                
+                
+                <p style={{ width: '100vw' }}>
+                    <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome}
+                </p>
+                <p style={{ width: '20vw', justifyContent: "center" }}>{a.cid}</p>
+                <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{a.idade} anos</p>
+                <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
+                    {a.pendencias} pendências
+                </p>
+                
+            </div></Link>
+        ))
+    ) : (
+        <p style={{padding: "1.5em"}}>Nenhum aluno foi encontrado no sistema.</p>
+    )
+
+
+) : (
+    <p style={{padding: "1.5em"}}>Por favor, digite o nome do aluno a ser encontrado.</p>
+)
+    
+}
+*/

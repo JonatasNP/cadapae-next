@@ -19,11 +19,21 @@ import iconeSair from '../../icones/icone_sair.png';
 import iconePesquisar from '../../icones/icone-pesquisa.png';
 
 
-
 async function PerfilAluno({ params }) {
 
     const aluno = await getAlunosByMatricula(params.id);
     const responsavel = await getResponsavelById(aluno.id_responsavel);
+
+    
+
+
+    function formatarData(data) {
+        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const ano = data.getFullYear();
+      
+        return `${dia}/${mes}/${ano}`;
+    }
 
 
     return (
@@ -77,11 +87,11 @@ async function PerfilAluno({ params }) {
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula_aluno}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? ""+aluno.data_nasc_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? formatarData(aluno.data_nasc_aluno) : "-"}
                                         <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3> 
                                         
-                                        <Link href="">
+                                        <Link href={`./${params.id}/pagamentos`}>
                                             <section style={{
                                                     marginTop: "0.5em", padding: "0.4em", width: "18vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
                                                 }}>
@@ -115,7 +125,7 @@ async function PerfilAluno({ params }) {
                         <section className={styles.DadosGeraisResponsavel}>
                             <section className={styles.Dados1Responsavel}>
                                 <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome_resp ? responsavel.nome_resp.toUpperCase() : "-"}
-                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento_resp ? responsavel.data_nascimento_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento_resp ? formatarData(responsavel.data_nascimento_resp) : "-"}
                                 <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.identidade_resp ? responsavel.identidade_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.contato_resp ? responsavel.contato_resp : "-"}
                             </section>
