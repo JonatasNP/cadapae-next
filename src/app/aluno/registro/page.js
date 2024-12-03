@@ -29,8 +29,11 @@ function Registrar_Aluno() {
           },
           body: JSON.stringify(aluno),
         })
+
         if (response.ok) {
-          fetchAlunos() 
+          fetchAlunos();
+          alert("Aluno cadastrado com sucesso!");
+          window.location.href = "@/home"; 
         }
     }
 

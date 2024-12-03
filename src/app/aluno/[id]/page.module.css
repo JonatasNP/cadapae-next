@@ -238,9 +238,6 @@
   background-color: lightgray;
 }
 
-.PagamentosAluno {
-  display: flex;
-}
 
 .Pagamento img {
   height: 2em;

@@ -61,17 +61,20 @@ function Pagamentos({ params }) {
                     </div>
                     
                     
+
+
+
+
+
                     <div className={styles.PagamentosAluno}>
 
                         <section className={styles.Pagamento}>
-                            <div style={{display: "flex", alignItems: "center", verticalAlign: "middle", marginBottom: "1em"}}>
-                                <h3 style={{color: "green", display: "flex", alignItems: "center", verticalAlign: "middle"}}><Image src={iconePagamentoConcluido}></Image> Janeiro de 2024</h3>
-                            </div>
-                            <div style={{display: "flex"}}>
-                                <section style={{display: "flex", width: "80vw"}}>
-                                    <p style={{marginLeft: "1em"}}><b>Data:</b> 27/01/2024</p>
-                                    <p style={{marginLeft: "1em"}}><b>Pagante:</b> Jesus da Silva</p>
-                                    <p style={{marginLeft: "1em"}}><b>Valor:</b> R$ 20,00</p>
+                            <div style={{display: "flex", alignItems: "center", verticalAlign: "middle"}}>
+                                <h3 style={{color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "12vw"}}><Image src={iconePagamentoConcluido}></Image> Janeiro de 2024</h3>
+                                <section style={{display: "flex", width: "68vw"}}>
+                                    <p style={{marginLeft: "3vw"}}><b>Data:</b> 27/01/2024</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Pagante:</b> Jesus da Silva</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Valor:</b> R$ 20,00</p>
                                 </section>
 
                                 <section style={{display: "flex", width: "15vw", justifyContent: "right", textAlign: "right"}}>
@@ -80,11 +83,47 @@ function Pagamentos({ params }) {
                                         <Link href=""><button style={{backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em"}}>Excluir</button></Link>
                                     </p>  
                                 </section>
-                              
-                                
+                            </div>
+                        </section>
+                        
+
+                        <section className={styles.Pagamento}>
+                            <div style={{display: "flex", alignItems: "center", verticalAlign: "middle"}}>
+                                <h3 style={{color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "12vw"}}><Image src={iconePagamentoConcluido}></Image> Fevereiro de 2024</h3>
+                                <section style={{display: "flex", width: "68vw"}}>
+                                    <p style={{marginLeft: "3vw"}}><b>Data:</b> 27/01/2024</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Pagante:</b> Jesus da Silva</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Valor:</b> R$ 20,00</p>
+                                </section>
+
+                                <section style={{display: "flex", width: "15vw", justifyContent: "right", textAlign: "right"}}>
+                                    <p style={{display: "flex", justifyContent: "right", textAlign: "right" }}>
+                                        <Link href=""><button style={{backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em"}}>Editar</button></Link>
+                                        <Link href=""><button style={{backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em"}}>Excluir</button></Link>
+                                    </p>  
+                                </section>
                             </div>
                         </section>
 
+
+
+                        <section className={styles.Pagamento}>
+                            <div style={{display: "flex", alignItems: "center", verticalAlign: "middle"}}>
+                                <h3 style={{color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "12vw"}}><Image src={iconePagamentoConcluido}></Image> Março de 2024</h3>
+                                <section style={{display: "flex", width: "68vw"}}>
+                                    <p style={{marginLeft: "3vw"}}><b>Data:</b> 27/01/2024</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Pagante:</b> Jesus da Silva</p>
+                                    <p style={{marginLeft: "3vw"}}><b>Valor:</b> R$ 20,00</p>
+                                </section>
+
+                                <section style={{display: "flex", width: "15vw", justifyContent: "right", textAlign: "right"}}>
+                                    <p style={{display: "flex", justifyContent: "right", textAlign: "right" }}>
+                                        <Link href=""><button style={{backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em"}}>Editar</button></Link>
+                                        <Link href=""><button style={{backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em"}}>Excluir</button></Link>
+                                    </p>  
+                                </section>
+                            </div>
+                        </section>
 
 
 

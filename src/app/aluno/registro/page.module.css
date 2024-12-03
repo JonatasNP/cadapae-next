@@ -93,6 +93,9 @@
     height: 8vh;
   }
   
+  .BotaoRegistrar:hover {
+    cursor: pointer;
+  }
 
 
   .DadosAluno input, .DadosAluno select {

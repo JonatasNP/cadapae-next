@@ -22,9 +22,9 @@ export default function RegistroAluno ({ onAddAluno }) {
     const [contato_resp, setContatoResp] = useState('');
     const [email_resp, setEmailResp] = useState('');
 
-    const enviarSubmissão = (e) => {
+    const enviarSubmissao = (e) => {
         e.preventDefault();
-        onAddAluno({ foto, matricula_aluno, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno });
+        onAddAluno({ foto, matricula_aluno, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp, identidade_resp, comprov_resid_resp, contato_resp, email_resp  });
         setFotoAluno('');
         setMatriculaAluno('');
         setNomeAluno('');
@@ -41,7 +41,7 @@ export default function RegistroAluno ({ onAddAluno }) {
     }
 
     return (
-        <form onSubmit={enviarSubmissão}>
+        <form onSubmit={enviarSubmissao}>
             <div>
                 <section>
                     <h1>DADOS DO ALUNO</h1>
