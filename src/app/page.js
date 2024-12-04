@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 
 
-
 function Login() {
 
 
@@ -64,7 +63,7 @@ function Login() {
                     </div>
 
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <Link href={loginValido ? "./home" : "./"}><button className={styles.buttonLogin}>Entrar</button></Link>
+                        <Link href={loginValido ? "./home" : "./"}><button className={styles.buttonLogin} onClick={() => {alert("Usuário ou senha incorretos!");}}>Entrar</button></Link>
                     </div>
 
                 </div>

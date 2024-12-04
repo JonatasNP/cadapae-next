@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from "next/link";
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -31,9 +31,11 @@ function Registrar_Aluno() {
         })
 
         if (response.ok) {
-          fetchAlunos();
-          alert("Aluno cadastrado com sucesso!");
-          window.location.href = "@/home"; 
+            alert("Aluno cadastrado com sucesso!");
+            window.location.href = "@/home"; 
+        } else {
+            console.error('Erro ao adicionar aluno:', await response.json());
+            alert("Falha ao cadastrar aluno.");
         }
     }
 
