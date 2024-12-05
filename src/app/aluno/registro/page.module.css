@@ -93,9 +93,12 @@
     height: 8vh;
   }
   
+  .BotaoRegistrar:hover {
+    cursor: pointer;
+  }
 
 
-  .DadosAluno input, .DadosAluno select {
+  .DadosAluno input, .DadosAluno select, .DadosAluno textarea {
     font-size: 15px;
     padding: 0.8em;
     border-radius: 15px;
