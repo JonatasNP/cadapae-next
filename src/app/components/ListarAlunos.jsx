@@ -38,8 +38,9 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa }) {
                     ) ? (
 
                         alunos.map((a) => (
+                            a.nome_aluno.toUpperCase().includes(nomeAlunoPesquisa.toUpperCase()) ? (
                             <div key={nomeAlunoPesquisa.matricula_aluno}>
-                                <Link href={`../aluno/${alunos.indexOf(a) + 1}`}><div className={styles.alunoPesquisado}>
+                                <Link href={`../aluno/${alunos[alunos.indexOf(a)].cpf_aluno}`}><div className={styles.alunoPesquisado}>
 
                                     <p style={{ width: '100vw' }}>
                                         <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome_aluno}
@@ -52,6 +53,7 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa }) {
 
                                 </div></Link>
                             </div>
+                            ) : ("")
                         ))) : (
                         <p style={{ padding: "1.5em" }}>Nenhum aluno foi encontrado com esse nome.</p>
                     )

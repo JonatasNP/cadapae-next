@@ -1,37 +1,68 @@
+'use client';
+
 import Link from "next/link";
 import Image from 'next/image';
 import styles from './page.module.css';
 import ImageAdd from '../../icones/icone-adicionar.png';
 import ImagemAluno from '../../imgs/imagem-pessoa.png';
 
-import { getAlunosByMatricula } from "@/app/lib/aluno";
+import { getAlunosByCpf } from "@/app/lib/aluno";
 import { getResponsavelById } from "@/app/lib/responsavel";
 
 import iconePagamentos from "../../icones/icone_pagamentos.png";
 import iconeUsuario from '../../icones/perfil_do_usuario.png';
 import ImgLogo from '../../imgs/logo-apae.png'
-import iconeHome from '../../icones/icone_home.png';
-import iconeAluno from '../../icones/icone_aluno.png';
+import iconeEditar from '../../icones/icone-editar.png';
+import iconeExcluir from '../../icones/icone-excluir.png';
 import iconeRelatorio from '../../icones/icone_relatorio.png';
 import iconeConfiguracao from '../../icones/icone_configuracao.png';
 import iconeSair from '../../icones/icone_sair.png';
 import iconePesquisar from '../../icones/icone-pesquisa.png';
 
 
+import { useState, useEffect } from "react";
+
+
+
+
+
 async function PerfilAluno({ params }) {
 
-    const aluno = await getAlunosByMatricula(params.id);
+    const aluno = await getAlunosByCpf(params.id);
     const responsavel = await getResponsavelById(aluno.id_responsavel);
 
-    
+
 
 
     function formatarData(data) {
         const dia = String(data.getDate()).padStart(2, '0');
         const mes = String(data.getMonth() + 1).padStart(2, '0');
         const ano = data.getFullYear();
-      
+
         return `${dia}/${mes}/${ano}`;
+    }
+
+
+    const [alunos, setAlunos] = useState([]);
+
+    useEffect(() => {
+        fetchAlunos();
+    }, [])
+
+    const fetchAlunos = async () => {
+        const response = await fetch('/api/alunos');
+        const data = await response.json();
+        setAlunos(data);
+    }
+
+    const deleteAluno = async (cpf_aluno) => {
+        const response = await fetch(`/api/alunos/${cpf_aluno}`, {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            fetchAlunos();
+            window.location.href = "@/home";
+        }
     }
 
 
@@ -70,8 +101,8 @@ async function PerfilAluno({ params }) {
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
-                            <section className={styles.ImagemAluno} style={{border: "1px solid lightgray"}}>
-                                {aluno.foto ? <Image src={aluno.foto}></Image> : <p>Este aluno ainda não possui foto.</p>}
+                            <section className={styles.ImagemAluno} style={{ border: "1px solid lightgray" }}>
+                                {false ? <Image></Image> : <p>Este aluno ainda não possui foto.</p>}
                             </section>
 
                             <section className={styles.DadosAluno}>
@@ -88,17 +119,17 @@ async function PerfilAluno({ params }) {
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
                                         <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? formatarData(aluno.data_nasc_aluno) : "-"}
                                         <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3> 
-                                        
+                                        <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
+
                                         <Link href={`./${params.id}/pagamentos`}>
                                             <section style={{
-                                                    marginTop: "0.5em", padding: "0.4em", width: "25vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
-                                                }}>
-                                                
-                                                <Image src={iconePagamentos} style={{height: "2em", width: "2em"}}></Image> Acessar histórico de contribuições
+                                                marginTop: "0.5em", padding: "0.4em", width: "25vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
+                                            }}>
+
+                                                <Image src={iconePagamentos} style={{ height: "2em", width: "2em" }}></Image> Acessar histórico de contribuições
                                             </section>
                                         </Link>
-                                        
+
                                     </section>
 
                                 </section>
@@ -129,13 +160,28 @@ async function PerfilAluno({ params }) {
                                 <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.contato_resp ? responsavel.contato_resp : "-"}
                             </section>
                             <section className={styles.Dados2Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf_resp ? responsavel.cpf_resp : "-"} 
+                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf_resp ? responsavel.cpf_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email_resp ? responsavel.email_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.endereco_resp ? responsavel.endereco_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprov_resid_resp ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "-"}
                             </section>
                         </section>
                     </section>
+                </div>
+
+                <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
+
+                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan" }}>
+                        <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
+                    </button>
+                    
+                    <button
+                        className={styles.BotaoStyle} style={{ backgroundColor: "red" }}
+                        onClick={deleteAluno(aluno.cpf_aluno)}
+                    >
+                        <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
+                    </button>
+
                 </div>
 
             </div>

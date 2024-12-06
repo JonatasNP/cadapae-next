@@ -178,7 +178,23 @@
   width: 4em;
 }
 
+.BotaoStyle {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  margin: 1em;
+  padding: 1em;
+  font-size: 0.8em;
+  font-weight: bolder;
+  border: 0;
+  border-radius: 30px;
+}
 
+.BotaoStyle:hover, .BotaoRegistrar:hover {
+  cursor: pointer;
+}
 
 
 

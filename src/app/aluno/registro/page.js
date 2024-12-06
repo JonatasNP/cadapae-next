@@ -14,30 +14,43 @@ import iconeConfiguracao from '../../icones/icone_configuracao.png';
 import iconeSair from '../../icones/icone_sair.png';
 import iconePesquisar from '../../icones/icone-pesquisa.png';
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import RegistroAluno from '../../components/RegistroAluno';
 
 
 function Registrar_Aluno() { 
 
+    const [alunos, setAlunos] = useState([])
 
-    const adicionarAluno = async (aluno) => {
-        const response = await fetch('../../api/alunos', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(aluno),
-        })
+  useEffect(() => {
+    fetchAlunos()
+  }, [])
 
-        if (response.ok) {
-            alert("Aluno cadastrado com sucesso!");
-            window.location.href = "@/home"; 
-        } else {
-            console.error('Erro ao adicionar aluno:', await response.json());
-            alert("Falha ao cadastrar aluno.");
-        }
+  const fetchAlunos = async () => {
+    const response = await fetch('/api/alunos')
+    if(response.ok){
+        const data = await response.json()
+        setAlunos(data)
+    } else {
+        console.error('Erro ao buscar os alunos', response.status, response.statusText);
     }
+    
+  }
+
+  const addAluno = async (aluno) => {
+    const response = await fetch('/api/alunos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(aluno),
+    })
+    if (response.ok) {
+      fetchAlunos()
+      console.log("Aluno cadastrado com sucesso!");
+    } else { console.error('Falha ao adicionar aluno:', await response.text()); }
+  }
+
 
     
 
@@ -70,7 +83,7 @@ function Registrar_Aluno() {
             <div id={styles.conteudo}>
 
 
-                <RegistroAluno onAddAluno={adicionarAluno} />
+                <RegistroAluno onAddAluno={addAluno} />
 
             </div>
 

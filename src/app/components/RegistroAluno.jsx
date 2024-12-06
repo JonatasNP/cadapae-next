@@ -9,7 +9,6 @@ import ImgLogo from '../imgs/logo-apae.png';
 
 export default function RegistroAluno ({ onAddAluno }) {
     const [foto, setFotoAluno] = useState('');
-    const [matricula_aluno, setMatriculaAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
     const [cpf_aluno, setCpfAluno] = useState('');
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
@@ -22,26 +21,21 @@ export default function RegistroAluno ({ onAddAluno }) {
     const [contato_resp, setContatoResp] = useState('');
     const [email_resp, setEmailResp] = useState('');
 
-    const enviarSubmissao = (e) => {
-        e.preventDefault();
-        onAddAluno({ foto, matricula_aluno, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp, identidade_resp, comprov_resid_resp, contato_resp, email_resp  });
-        setFotoAluno('');
-        setMatriculaAluno('');
-        setNomeAluno('');
-        setCpfAluno('');
-        setCartaoSusAluno('');
-        setDataNascAluno('');
-        setIdentidadeAluno('');
-        setNomeResp('');
-        setCpfResp('');
-        setIdentidadeResp('');
-        setComprovResidResp('');
-        setContatoResp('');
-        setEmailResp('');
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        onAddAluno({ foto, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp })
+        setFotoAluno('')
+        setNomeAluno('')
+        setCpfAluno('')
+        setCartaoSusAluno('')
+        setDataNascAluno('')
+        setIdentidadeAluno('')
+        setNomeResp('')
+        setCpfResp('')
     }
 
     return (
-        <form onSubmit={enviarSubmissao}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <section>
                     <h1>DADOS DO ALUNO</h1>
@@ -173,12 +167,10 @@ export default function RegistroAluno ({ onAddAluno }) {
                 </section>
             </div>
 
-            <div style={{ display: "flex", padding: "3vh 72vw" }}>
-                <Link href="">
-                    <button className={styles.BotaoRegistrar} type="submit">
-                        <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
-                    </button>
-                </Link>
+            <div style={{ display: "flex", marginTop: "2em", marginBottom: "3em", justifyContent: "right", alignItems: "end" }}>
+                <button className={styles.BotaoRegistrar} type='submit'>
+                    <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
+                </button>
             </div>
 
 
