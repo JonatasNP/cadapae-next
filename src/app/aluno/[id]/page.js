@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import Image from 'next/image';
+import {useRouter} from 'next/navigation';
 import styles from './page.module.css';
 import ImageAdd from '../../icones/icone-adicionar.png';
 import ImagemAluno from '../../imgs/imagem-pessoa.png';
-
-import { getAlunosByCpf } from "@/app/lib/aluno";
-import { getResponsavelById } from "@/app/lib/responsavel";
 
 import iconePagamentos from "../../icones/icone_pagamentos.png";
 import iconeUsuario from '../../icones/perfil_do_usuario.png';
@@ -22,17 +20,11 @@ import iconePesquisar from '../../icones/icone-pesquisa.png';
 
 import { useState, useEffect } from "react";
 
+function PerfilAluno({ params }) {
 
+    // const responsavel = await getResponsavelById(aluno.id_responsavel);
 
-
-
-async function PerfilAluno({ params }) {
-
-    const aluno = await getAlunosByCpf(params.id);
-    const responsavel = await getResponsavelById(aluno.id_responsavel);
-
-
-
+    const router = useRouter();
 
     function formatarData(data) {
         const dia = String(data.getDate()).padStart(2, '0');
@@ -43,16 +35,17 @@ async function PerfilAluno({ params }) {
     }
 
 
-    const [alunos, setAlunos] = useState([]);
+    const [aluno, setAluno] = useState();
+    const [responsavel, setResponsavel] = useState();
 
     useEffect(() => {
-        fetchAlunos();
+        fetchAluno();
     }, [])
 
-    const fetchAlunos = async () => {
-        const response = await fetch('/api/alunos');
+    const fetchAluno = async () => {
+        const response = await fetch('/api/alunos/'+params.id);
         const data = await response.json();
-        setAlunos(data);
+        setAluno(data);
     }
 
     const deleteAluno = async (cpf_aluno) => {
@@ -60,13 +53,14 @@ async function PerfilAluno({ params }) {
             method: 'DELETE',
         });
         if (response.ok) {
-            fetchAlunos();
-            window.location.href = "@/home";
+            window.alert(`O aluno ${aluno.nome_aluno.toUpperCase()} foi excluído com sucesso no sistema.`);
+            router.push("/home")
         }
     }
 
 
     return (
+        
         <div style={{ height: "100vh" }}>
             <div id={styles.barraSuperior}>
                 <section className={styles.logoApae}>
@@ -90,9 +84,9 @@ async function PerfilAluno({ params }) {
 
 
 
-
+            {aluno && aluno.cpf_aluno? (
             <div id={styles.conteudo}>
-
+                
                 <div>
                     <section>
                         <h1>DADOS DO ALUNO</h1>
@@ -117,7 +111,7 @@ async function PerfilAluno({ params }) {
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula_aluno}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? formatarData(aluno.data_nasc_aluno) : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? aluno.data_nasc_aluno : "-"}
                                         <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
@@ -142,9 +136,7 @@ async function PerfilAluno({ params }) {
 
 
 
-
-
-
+{/*
                 <div style={{ marginTop: '10vh' }}>
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
@@ -169,22 +161,23 @@ async function PerfilAluno({ params }) {
                     </section>
                 </div>
 
+*/}
                 <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
 
-                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan" }}>
+                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", border: "1px solid black" }}>
                         <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
                     </button>
                     
                     <button
-                        className={styles.BotaoStyle} style={{ backgroundColor: "red" }}
-                        onClick={deleteAluno(aluno.cpf_aluno)}
+                        className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537", border: "1px solid black" }}
+                        onClick={() => deleteAluno(aluno.cpf_aluno)}
                     >
                         <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
                     </button>
 
                 </div>
 
-            </div>
+            </div>):<h2 style={{margin:"15vh 1em 1em 1em"}}>Aluno não encontrado.</h2>}
 
 
         </div>

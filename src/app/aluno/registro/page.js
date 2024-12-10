@@ -14,40 +14,44 @@ import iconeConfiguracao from '../../icones/icone_configuracao.png';
 import iconeSair from '../../icones/icone_sair.png';
 import iconePesquisar from '../../icones/icone-pesquisa.png';
 
+import { useRouter } from "next/navigation";
 import {useState, useEffect} from 'react';
 import RegistroAluno from '../../components/RegistroAluno';
 
 
 function Registrar_Aluno() { 
 
-    const [alunos, setAlunos] = useState([])
+    const [aluno, setAluno] = useState([])
+    const router = useRouter();
 
   useEffect(() => {
-    fetchAlunos()
+    fetchAluno()
   }, [])
 
-  const fetchAlunos = async () => {
+  const fetchAluno = async () => {
     const response = await fetch('/api/alunos')
-    if(response.ok){
+    if(response.ok) {
         const data = await response.json()
-        setAlunos(data)
+        setAluno(data)
     } else {
         console.error('Erro ao buscar os alunos', response.status, response.statusText);
     }
     
   }
 
-  const addAluno = async (aluno) => {
+  const addAluno = async (a) => {
     const response = await fetch('/api/alunos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(aluno),
+      body: JSON.stringify(a),
     })
     if (response.ok) {
-      fetchAlunos()
-      console.log("Aluno cadastrado com sucesso!");
+      fetchAluno();
+      window.alert(`O aluno foi registrado com sucesso no sistema.`);
+      router.push("/home");
+
     } else { console.error('Falha ao adicionar aluno:', await response.text()); }
   }
 

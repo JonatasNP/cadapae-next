@@ -34,6 +34,9 @@ export default function RegistroAluno ({ onAddAluno }) {
         setCpfResp('')
     }
 
+
+    
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -45,6 +48,7 @@ export default function RegistroAluno ({ onAddAluno }) {
 
                     <section className={styles.DadosGeraisAluno}>
                         <section className={styles.ImagemAluno}>
+                            <Image id={styles.ImagemAluno} style={{display:"none"}} alt="Imagem prevista" width="200"></Image>
                             <input type="file" accept=".png" value={foto} onChange={
                                 (e) => {
                                     setFotoAluno(e.target.value);
