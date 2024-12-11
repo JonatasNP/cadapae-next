@@ -43,7 +43,7 @@ export default function RegistroAluno ({ onAddAluno }) {
                 <section>
                     <h1>DADOS DO ALUNO</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisAluno}>
@@ -58,26 +58,26 @@ export default function RegistroAluno ({ onAddAluno }) {
 
                         <section className={styles.DadosAluno}>
                             <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO</p>
+                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{color: "red"}}>*</span></p>
                                 <input type="name" placeholder="Digite o nome completo do aluno..." className={styles.inputNomeAluno} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
                             </section>
 
 
                             <section style={{ display: "flex" }}>
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
-                                    <p style={{ marginTop: '1em' }}>CPF</p>
+                                    <p style={{ marginTop: '1em' }}>CPF<span style={{color: "red"}}>*</span></p>
                                     <input placeholder="Digite o CPF do aluno..." type="name" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => setCpfAluno(e.target.value)}></input>
 
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{color: "red"}}>*</span></p>
                                     <input placeholder="Digite o número do cartão do SUS do aluno..." type="number" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
                                 </section>
 
 
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE<span style={{color: "red"}}>*</span></p>
                                     <input placeholder="Digite o número do RG do aluno..." type="name" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
-                                    <p style={{ marginTop: '1em' }}>CID</p>
+                                    <p style={{ marginTop: '1em' }}>CID<span style={{color: "red"}}>*</span></p>
                                     <select className={styles.SelecionarCID}>
                                         <option>Nenhum CID</option>
                                         <option>CID não identificado</option>
@@ -89,7 +89,7 @@ export default function RegistroAluno ({ onAddAluno }) {
 
 
                                 <section style={{ width: "23vw" }}>
-                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</p>
+                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{color: "red"}}>*</span></p>
                                     <input type="date" style={{ width: '20vw' }} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>LAUDO</p>
@@ -116,20 +116,20 @@ export default function RegistroAluno ({ onAddAluno }) {
                 <section>
                     <h1>DADOS DO RESPONSÁVEL</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisResponsavel}>
                         <section className={styles.Dados1Responsavel}>
                             <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO</p>
-                                <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome do responsável..." value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
+                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{color: "red"}}>*</span></p>
+                                <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome completo do responsável..." value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
                             </section>
                             <section style={{ display: "flex", justifyContent: "space-between" }}>
                                 <section>
-                                    <p style={{ marginTop: '1em' }}>CPF</p>
+                                    <p style={{ marginTop: '1em' }}>CPF<span style={{color: "red"}}>*</span></p>
                                     <input placeholder="Digite o CPF do responsável..." type="number" style={{ width: "22vw" }} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
-                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</p>
+                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{color: "red"}}>*</span></p>
                                     <input type="date" style={{ width: "22vw" }}></input>
                                 </section>
                                 <section>
