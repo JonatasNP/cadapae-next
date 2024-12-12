@@ -7,7 +7,7 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
-export default function RegistroAluno ({ onAddAluno }) {
+export default function RegistroAluno({ onAddAluno }) {
     const [foto, setFotoAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
     const [cpf_aluno, setCpfAluno] = useState('');
@@ -35,7 +35,7 @@ export default function RegistroAluno ({ onAddAluno }) {
     }
 
 
-    
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -48,7 +48,7 @@ export default function RegistroAluno ({ onAddAluno }) {
 
                     <section className={styles.DadosGeraisAluno}>
                         <section className={styles.ImagemAluno}>
-                            <Image id={styles.ImagemAluno} style={{display:"none"}} alt="Imagem prevista" width="200"></Image>
+                            <Image style={{ display: "none" }} alt="Imagem do aluno" width="200"></Image>
                             <input type="file" accept=".png" value={foto} onChange={
                                 (e) => {
                                     setFotoAluno(e.target.value);
@@ -58,26 +58,26 @@ export default function RegistroAluno ({ onAddAluno }) {
 
                         <section className={styles.DadosAluno}>
                             <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{color: "red"}}>*</span></p>
+                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{ color: "red" }}>*</span></p>
                                 <input type="name" placeholder="Digite o nome completo do aluno..." className={styles.inputNomeAluno} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
                             </section>
 
 
                             <section style={{ display: "flex" }}>
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
-                                    <p style={{ marginTop: '1em' }}>CPF<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o CPF do aluno..." type="name" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => setCpfAluno(e.target.value)}></input>
 
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o número do cartão do SUS do aluno..." type="number" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
                                 </section>
 
 
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o número do RG do aluno..." type="name" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
-                                    <p style={{ marginTop: '1em' }}>CID<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
                                     <select className={styles.SelecionarCID}>
                                         <option>Nenhum CID</option>
                                         <option>CID não identificado</option>
@@ -89,7 +89,7 @@ export default function RegistroAluno ({ onAddAluno }) {
 
 
                                 <section style={{ width: "23vw" }}>
-                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{ color: "red" }}>*</span></p>
                                     <input type="date" style={{ width: '20vw' }} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>LAUDO</p>
@@ -98,7 +98,7 @@ export default function RegistroAluno ({ onAddAluno }) {
                             </section>
                             <section>
                                 <p style={{ marginTop: '1em' }}>ESPECIFICIDADES DO(A) ALUNO(A)</p>
-                                <textarea  placeholder="Digite as especificidades do aluno..." style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '30vh', minHeight: "5vh" }}></textarea>
+                                <textarea placeholder="Caso o aluno possua alguma especificidade, descreva-a neste campo." style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '30vh', minHeight: "15vh" }}></textarea>
                             </section>
                         </section>
 
@@ -122,14 +122,14 @@ export default function RegistroAluno ({ onAddAluno }) {
                     <section className={styles.DadosGeraisResponsavel}>
                         <section className={styles.Dados1Responsavel}>
                             <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{color: "red"}}>*</span></p>
+                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{ color: "red" }}>*</span></p>
                                 <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome completo do responsável..." value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
                             </section>
                             <section style={{ display: "flex", justifyContent: "space-between" }}>
                                 <section>
-                                    <p style={{ marginTop: '1em' }}>CPF<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o CPF do responsável..." type="number" style={{ width: "22vw" }} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
-                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{color: "red"}}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{ color: "red" }}>*</span></p>
                                     <input type="date" style={{ width: "22vw" }}></input>
                                 </section>
                                 <section>
@@ -146,7 +146,7 @@ export default function RegistroAluno ({ onAddAluno }) {
 
 
                         <section className={styles.Dados2Responsavel}>
-                            
+
                             <p style={{ marginTop: '1em', display: 'flex', justifyContent: "space-between" }}>
                                 <section>
                                     <p>CIDADE</p>
@@ -168,21 +168,23 @@ export default function RegistroAluno ({ onAddAluno }) {
                                 </section>
                                 <section>
                                     <p>COMPLEMENTO</p>
-                                    <input placeholder="Ex.: casa, apartamento, etc" type="number" style={{ width: "12vw" }}></input>
+                                    <input placeholder="Ex.: casa, apartamento, etc" type="text" style={{ width: "12vw" }}></input>
                                 </section>
                             </p>
                             <p style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</p>
                             <input type="file" style={{ width: "45vw" }} accept=".pdf" value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
+
+                            <div style={{ display: "flex", marginTop: "1em", marginBottom: "5em", justifyContent: "right", alignItems: "end" }}>
+                                <button className={styles.BotaoRegistrar} type='submit'>
+                                    <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
+                                </button>
+                            </div>
                         </section>
                     </section>
                 </section>
             </div>
 
-            <div style={{ display: "flex", marginTop: "2em", marginBottom: "3em", justifyContent: "right", alignItems: "end" }}>
-                <button className={styles.BotaoRegistrar} type='submit'>
-                    <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
-                </button>
-            </div>
+
 
 
         </form>
