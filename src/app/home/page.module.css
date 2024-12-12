@@ -55,7 +55,9 @@
   background-image: url(../icones/icone-nome.png);
 }
 
-
+.BotaoRegistrar:hover {
+  cursor: pointer;
+}
 
 
 
@@ -74,6 +76,7 @@
   margin-left: 2vw;
   margin-right: 2vw;
   margin-bottom: 6vh;
+  padding-top: 4vh;
   color: black;
   text-align: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

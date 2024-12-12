@@ -61,7 +61,7 @@ function PerfilAluno({ params }) {
     }, [])
 
     const fetchAluno = async () => {
-        const response = await fetch('/api/alunos/'+params.id);
+        const response = await fetch('/api/alunos/'+params.cpf_aluno);
         const data = await response.json();
         setAluno(data.aluno);
         setResponsavel(data.responsavel)
@@ -103,7 +103,7 @@ function PerfilAluno({ params }) {
 
 
 
-            {aluno && aluno.cpf_aluno? (
+            {aluno && aluno.cpf_aluno ? (
             <div id={styles.conteudo}>
                 
                 <div>
@@ -134,7 +134,7 @@ function PerfilAluno({ params }) {
                                         <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
-                                        <Link href={`./${params.id}/pagamentos`}>
+                                        <Link href={`./pagamentos/${params.cpf_aluno}`}>
                                             <section style={{
                                                 marginTop: "0.5em", padding: "0.4em", width: "25vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
                                             }}>
@@ -172,7 +172,7 @@ function PerfilAluno({ params }) {
                                 <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf_resp ? responsavel.cpf_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email_resp ? responsavel.email_resp : "-"}
                                 <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.endereco_resp ? responsavel.endereco_resp : "-"}
-                                <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprov_resid_resp ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "-"}
+                                <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprov_resid_resp ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "Não anexado."}
                             </section>
                         </section>
                     </section>
@@ -196,7 +196,7 @@ function PerfilAluno({ params }) {
 
                 </div>
 
-            </div>):<h2 style={{margin:"15vh 1em 1em 1em"}}>Aluno não encontrado.</h2>}
+            </div>):<h2 style={{margin:"15vh 1em 1em 1em"}}>Carregando dados do aluno...</h2>}
 
 
         </div>

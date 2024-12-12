@@ -43,7 +43,7 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa }) {
                                 <Link href={`../aluno/${alunos[alunos.indexOf(a)].cpf_aluno}`}><div className={styles.alunoPesquisado}>
 
                                     <p style={{ width: '100vw' }}>
-                                        <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {a.nome_aluno}
+                                        <Image src={iconeUsuario} style={{ marginRight: "1em", filter: "invert(50%)" }} /> {a.nome_aluno}
                                     </p>
                                     <p style={{ width: '20vw', justifyContent: "center" }}>{ }</p>
                                     <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{calcularIdade(a.data_nasc_aluno)} anos</p>
