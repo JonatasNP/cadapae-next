@@ -34,6 +34,24 @@ function PerfilAluno({ params }) {
         return `${dia}/${mes}/${ano}`;
     }
 
+    function calcularIdade(dataNascimento) {
+        const hoje = new Date();
+        const nascimento = new Date(dataNascimento);
+        let idade = hoje.getFullYear() - nascimento.getFullYear();
+
+        const mesAtual = hoje.getMonth();
+        const mesNascimento = nascimento.getMonth();
+        const diaAtual = hoje.getDate();
+        const diaNascimento = nascimento.getDate();
+
+        if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
+            idade--;
+        }
+
+        return idade;
+    }
+
+
 
     const [aluno, setAluno] = useState();
     const [responsavel, setResponsavel] = useState();
@@ -45,7 +63,8 @@ function PerfilAluno({ params }) {
     const fetchAluno = async () => {
         const response = await fetch('/api/alunos/'+params.id);
         const data = await response.json();
-        setAluno(data);
+        setAluno(data.aluno);
+        setResponsavel(data.responsavel)
     }
 
     const deleteAluno = async (cpf_aluno) => {
@@ -111,7 +130,7 @@ function PerfilAluno({ params }) {
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula_aluno}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? aluno.data_nasc_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? aluno.data_nasc_aluno + " ("+calcularIdade(aluno.data_nasc_aluno)+" anos)" : "-"}
                                         <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
@@ -135,8 +154,6 @@ function PerfilAluno({ params }) {
 
 
 
-
-{/*
                 <div style={{ marginTop: '10vh' }}>
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
@@ -161,7 +178,9 @@ function PerfilAluno({ params }) {
                     </section>
                 </div>
 
-*/}
+
+
+
                 <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
 
                     <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", border: "1px solid black" }}>

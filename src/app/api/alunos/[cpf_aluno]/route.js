@@ -19,10 +19,13 @@ export async function GET(request, { params }) {
   try {
     const { cpf_aluno } = params;
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM aluno WHERE cpf_aluno = $1', [cpf_aluno])
-    const result2 = await client.query('SELECT * FROM responsavel INNER JOIN aluno ON cpf_aluno = $1', [cpf_aluno]);
+    const aluno = await client.query('SELECT * FROM aluno WHERE cpf_aluno = $1', [cpf_aluno])
+    const responsavel = await client.query('SELECT * FROM responsavel r INNER JOIN aluno a ON a.cpf_aluno = $1 AND r.id_resp = a.id_responsavel', [cpf_aluno]);
     client.release();
-    return NextResponse.json(result.rows[0]);
+    return NextResponse.json({
+      aluno: aluno.rows[0],
+      responsavel: responsavel.rows[0]
+    })
   } catch (error) {
     console.error('Erro listando alunos:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

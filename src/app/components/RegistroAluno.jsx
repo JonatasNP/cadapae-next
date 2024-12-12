@@ -23,15 +23,20 @@ export default function RegistroAluno({ onAddAluno }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        onAddAluno({ foto, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp })
-        setFotoAluno('')
-        setNomeAluno('')
-        setCpfAluno('')
-        setCartaoSusAluno('')
-        setDataNascAluno('')
-        setIdentidadeAluno('')
-        setNomeResp('')
-        setCpfResp('')
+            onAddAluno({ foto, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp, identidade_resp, comprov_resid_resp, contato_resp, email_resp })
+            setFotoAluno('')
+            setNomeAluno('')
+            setCpfAluno('')
+            setCartaoSusAluno('')
+            setDataNascAluno('')
+            setIdentidadeAluno('')
+            setNomeResp('')
+            setCpfResp('')
+            setIdentidadeResp('')
+            setComprovResidResp('')
+            setContatoResp('')
+            setEmailResp('')
+
     }
 
 

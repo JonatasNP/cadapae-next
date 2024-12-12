@@ -48,7 +48,7 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa }) {
                                     <p style={{ width: '20vw', justifyContent: "center" }}>{ }</p>
                                     <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{calcularIdade(a.data_nasc_aluno)} anos</p>
                                     <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
-                                        {} pendências
+                                        {0} pendências
                                     </p>
 
                                 </div></Link>
