@@ -55,9 +55,6 @@
   background-image: url(../icones/icone-nome.png);
 }
 
-.BotaoRegistrar:hover {
-  cursor: pointer;
-}
 
 
 
@@ -96,6 +93,11 @@
   vertical-align: center;
   display: flex;
   height: 8vh;
+}
+
+.BotaoRegistrar:hover {
+  cursor: pointer;
+  background-color: rgb(31, 104, 31);
 }
 
 .BotaoPesquisar {
@@ -227,4 +229,3 @@
   padding: 0.5em;
   border-radius: 20px;
 }
-

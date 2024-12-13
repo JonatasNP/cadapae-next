@@ -80,7 +80,7 @@ function PerfilAluno({ params }) {
 
     return (
         
-        <div style={{ height: "100vh" }}>
+        <div id={styles.Body} style={{ height: "100vh" }}>
             <div id={styles.barraSuperior}>
                 <section className={styles.logoApae}>
                     <Link href="../../home">
