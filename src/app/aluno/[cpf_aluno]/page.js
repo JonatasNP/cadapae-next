@@ -72,7 +72,7 @@ function PerfilAluno({ params }) {
             method: 'DELETE',
         });
         if (response.ok) {
-            window.alert(`O aluno ${aluno.nome_aluno.toUpperCase()} foi excluído com sucesso no sistema.`);
+            window.alert(`O aluno ${aluno.nome.toUpperCase()} foi excluído com sucesso no sistema.`);
             router.push("/home")
         }
     }
@@ -103,7 +103,7 @@ function PerfilAluno({ params }) {
 
 
 
-            {aluno && aluno.cpf_aluno ? (
+            {aluno && aluno.cpf ? (
             <div id={styles.conteudo}>
                 
                 <div>
@@ -121,17 +121,17 @@ function PerfilAluno({ params }) {
                             <section className={styles.DadosAluno}>
                                 <section style={{ width: '60vw', display: 'flex' }}>
                                     <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome_aluno.toUpperCase()}
-                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf_aluno ? aluno.cpf_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartao_sus_aluno ? aluno.cartao_sus_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.identidade_aluno ? aluno.identidade_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICAÇÕES</h3> {aluno.especificacoes_aluno ? aluno.especificacoes_aluno : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome.toUpperCase()}
+                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartao_sus ? aluno.cartao_sus : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICAÇÕES</h3> {aluno.especificidades ? aluno.especificidades : "-"}
                                     </section>
                                     <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula_aluno}
-                                        <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid_aluno ? aluno.cid_aluno : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nasc_aluno ? aluno.data_nasc_aluno + " ("+calcularIdade(aluno.data_nasc_aluno)+" anos)" : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>LAUDO</h3> {aluno.laudo_aluno ? <Link href={aluno.cpf_aluno} about="_blank">Visualizar</Link> : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
+                                        <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? aluno.data_nascimento + " ("+calcularIdade(aluno.data_nasc_aluno)+" anos)" : "-"}
+                                        <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : "-"}</h3>
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
                                         <Link href={`./pagamentos/${params.cpf_aluno}`}>
@@ -163,16 +163,16 @@ function PerfilAluno({ params }) {
 
                         <section className={styles.DadosGeraisResponsavel}>
                             <section className={styles.Dados1Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome_resp ? responsavel.nome_resp.toUpperCase() : "-"}
-                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento_resp ? formatarData(responsavel.data_nascimento_resp) : "-"}
-                                <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.identidade_resp ? responsavel.identidade_resp : "-"}
-                                <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.contato_resp ? responsavel.contato_resp : "-"}
+                                <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome ? responsavel.nome.toUpperCase() : "-"}
+                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento ? responsavel.data_nascimento : "-"}
+                                <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.numero_identidade ? responsavel.numero_identidade : "-"}
+                                <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.telefone ? responsavel.telefone : "-"}
                             </section>
                             <section className={styles.Dados2Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf_resp ? responsavel.cpf_resp : "-"}
-                                <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email_resp ? responsavel.email_resp : "-"}
-                                <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.endereco_resp ? responsavel.endereco_resp : "-"}
-                                <h3 style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</h3> {responsavel.comprov_resid_resp ? <Link href={responsavel.cpf} about="_blank">Visualizar</Link> : "Não anexado."}
+                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}
+                                <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
+                                <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.rua && responsavel.numero ? `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento} ` : "-"}
+                                <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : "Não anexado."}</h3>
                             </section>
                         </section>
                     </section>
@@ -189,7 +189,7 @@ function PerfilAluno({ params }) {
                     
                     <button
                         className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537", border: "1px solid black" }}
-                        onClick={() => deleteAluno(aluno.cpf_aluno)}
+                        onClick={() => deleteAluno(aluno.cpf)}
                     >
                         <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
                     </button>

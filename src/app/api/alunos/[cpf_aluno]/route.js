@@ -5,7 +5,7 @@ export async function DELETE(request, { params }) {
   try {
     const { cpf_aluno } = params;
     const client = await pool.connect();
-    await client.query('DELETE FROM aluno WHERE cpf_aluno = $1', [cpf_aluno] );
+    await client.query('DELETE FROM aluno WHERE cpf = $1', [cpf_aluno] );
     client.release();
     return NextResponse.json({ message: 'Aluno removido com sucesso.' });
   } catch (error) {
@@ -19,8 +19,8 @@ export async function GET(request, { params }) {
   try {
     const { cpf_aluno } = params;
     const client = await pool.connect();
-    const aluno = await client.query('SELECT * FROM aluno WHERE cpf_aluno = $1', [cpf_aluno])
-    const responsavel = await client.query('SELECT * FROM responsavel r INNER JOIN aluno a ON a.cpf_aluno = $1 AND r.id_resp = a.id_responsavel', [cpf_aluno]);
+    const aluno = await client.query('SELECT * FROM aluno WHERE cpf = $1', [cpf_aluno])
+    const responsavel = await client.query('SELECT r.* FROM responsavel r INNER JOIN aluno a ON r.cpf = a.cpf_responsavel WHERE a.cpf = $1', [cpf_aluno])
     client.release();
     return NextResponse.json({
       aluno: aluno.rows[0],

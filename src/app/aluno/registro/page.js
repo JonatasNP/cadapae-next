@@ -21,7 +21,7 @@ import RegistroAluno from '../../components/RegistroAluno';
 
 function Registrar_Aluno() { 
 
-    const [aluno, setAluno] = useState([])
+    const [aluno, setAluno] = useState([]);
     const router = useRouter();
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function Registrar_Aluno() {
     })
     if (response.ok) {
       fetchAluno();
-      window.alert(`O aluno foi registrado com sucesso no sistema.`);
+      window.alert(`O aluno foi registrado com sucesso.`);
       router.push("/home");
 
     } else { console.error('Falha ao adicionar aluno:', await response.text()); }

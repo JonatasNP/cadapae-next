@@ -207,6 +207,22 @@
 }
 
 
+.BotaoVisualizar {
+  margin-left: 0.6vw;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: #8490ff;
+  padding: 0.6em 1em 0.6em 1em;
+  font-weight: bolder;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 
 
