@@ -72,7 +72,7 @@ function Pagamentos({ params }) {
 
                 <div className={styles.ReferenteAluno} style={{ display: "flex", marginBottom: "3vh" }}>
                     <p style={{ width: '100vw' }}>
-                        <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {aluno.nome_aluno ? aluno.nome_aluno.toUpperCase() : <i style={{}}>Carregando nome do aluno...</i>}
+                        <Image src={iconeUsuario} style={{ marginRight: "1em" }} /> {aluno.nome_aluno ? aluno.nome_aluno.toUpperCase() : <i className={styles.Carregamento}>Carregando nome do aluno...</i>}
                     </p>
                     <Link href="">
                         <button className={styles.BotaoRegistrar}>REGISTRAR PAGAMENTO</button>

@@ -261,3 +261,18 @@
   height: 2em;
   width: 2em;
 }
+
+
+.Carregamento {
+  animation: carregamento 0.8s linear infinite;
+}
+
+@keyframes carregamento {
+  0% {
+    opacity: 100%;
+  } 50% {
+    opacity: 20%;
+  } 100% {
+    opacity: 100%;
+  }
+}
