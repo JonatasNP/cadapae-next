@@ -8,12 +8,15 @@ import iconeUsuario from '../icones/perfil_do_usuario.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
 export default function RegistroAluno({ onAddAluno }) {
+    
+    const [matricula_aluno, setMatriculaAluno] = useState('');
+    const [cpf_aluno, setCpfAluno] = useState('');
     const [foto, setFotoAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
-    const [cpf_aluno, setCpfAluno] = useState('');
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
-    const [data_nasc_aluno, setDataNascAluno] = useState('');
     const [identidade_aluno, setIdentidadeAluno] = useState('');
+    
+    const [data_nasc_aluno, setDataNascAluno] = useState('');
     const [nome_resp, setNomeResp] = useState('');
     const [cpf_resp, setCpfResp] = useState('');
     const [identidade_resp, setIdentidadeResp] = useState('');
@@ -23,19 +26,31 @@ export default function RegistroAluno({ onAddAluno }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-            onAddAluno({ foto, nome_aluno, cpf_aluno, cartao_sus_aluno, data_nasc_aluno, identidade_aluno, nome_resp, cpf_resp, identidade_resp, comprov_resid_resp, contato_resp, email_resp })
-            setFotoAluno('')
-            setNomeAluno('')
-            setCpfAluno('')
-            setCartaoSusAluno('')
-            setDataNascAluno('')
-            setIdentidadeAluno('')
-            setNomeResp('')
-            setCpfResp('')
-            setIdentidadeResp('')
-            setComprovResidResp('')
-            setContatoResp('')
-            setEmailResp('')
+            onAddAluno({
+                matricula_aluno,
+                cpf_aluno,
+                foto,
+                nome_aluno,
+                cartao_sus_aluno,
+                identidade_aluno,
+                data_ingresso,
+                data_nasc_aluno,
+                laudo_aluno,
+                especificidades_aluno,
+                cpf_resp,
+                nome_resp,
+                identidade_resp,
+                data_nasc_resp,
+                comprov_resid_resp,
+                email_resp,
+                contato_resp,
+                senha_resp,
+                cidade,
+                rua,
+                bairro,
+                numero,
+                complemento
+            })
 
     }
 
@@ -62,9 +77,15 @@ export default function RegistroAluno({ onAddAluno }) {
                         </section>
 
                         <section className={styles.DadosAluno}>
-                            <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{ color: "red" }}>*</span></p>
-                                <input type="name" placeholder="Digite o nome completo do aluno..." className={styles.inputNomeAluno} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
+                            <section style={{display:'flex', width: "67vw", justifyContent: "space-between", marginTop: '1em'}}>
+                                <p>
+                                    NOME COMPLETO<span style={{ color: "red" }}>*</span>
+                                    <input type="name" placeholder="Digite o nome completo do aluno..." style={{width: "43.5vw"}} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
+                                </p>
+                                <p style={{marginLeft: "3.5vw"}}>
+                                    MATRICULA
+                                    <input type="number" placeholder="Digite a matrícula do aluno..." style={{width: "20vw"}} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
+                                </p>
                             </section>
 
 

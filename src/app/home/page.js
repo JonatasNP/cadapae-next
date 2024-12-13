@@ -75,7 +75,7 @@ function Home() {
                 <section className={styles.botaoUser}>
                     <button id={styles.buttonHome}>
                         <Link href="./perfil">
-                            <Image src={iconeUsuario} alt='icone_usuario' style={{ width: "5em", height: '5em' }}></Image>
+                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
                         </Link>
                     </button>
                 </section>

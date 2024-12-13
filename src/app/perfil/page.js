@@ -38,7 +38,7 @@ function Perfil() {
                 <section className={styles.botaoUser}>
                     <button id={styles.buttonHome}>
                         <Link href="./perfil">
-                            <Image src={iconeUsuario} alt='icone_usuario' style={{width: "5em", height: '5em'}}></Image>
+                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
                         </Link>
                     </button>
                 </section>
@@ -48,30 +48,6 @@ function Perfil() {
 
 
             <div id={styles.conteudo}>
-                <div className={styles.DadosPessoais}>
-                    <div style={{textAlign: "center", marginBottom: "2em"}}>
-                        <h1>Seus dados pessoais</h1>
-                    </div>
-
-                    <section style={{display: "flex"}}>
-                        <section style={{width: "20vw", height: "15vw", display: "flex", alignItems: "center", justifyContent: "center", verticalAlign: "middle", border: "1px solid lightgray", marginRight: "1vw"}}>
-                            {
-                                secretario.foto ?
-                                <Image src={secretario.foto} style={{height: "15vw", width: "20vw", marginRight: "2vw"}}></Image> :
-                                <p>Nenhuma foto de perfil adicionada.</p>
-                            }
-                        </section>
-
-
-                        <section>
-                            <h2 style={{marginBottom: "2vh"}}>Secretário(a)</h2>
-                            <h3 style={{color: "gray"}}>Nenhuma descrição adicionada.</h3>
-                        </section>
-                    </section>
-                    
-                </div>
-
-
 
                 <div style={{textAlign: "center", marginBottom: "2em"}}>
                     <h1>Configurações do sistema</h1>
