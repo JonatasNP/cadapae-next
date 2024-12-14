@@ -100,7 +100,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                     <input type="name" placeholder="Digite o nome completo do aluno..." style={{width: "43.5vw"}} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
                                 </p>
                                 <p style={{marginLeft: "2vw"}}>
-                                    MATRÍCULA
+                                    MATRÍCULA<span style={{ color: "red" }}>*</span>
                                     <input type="number" placeholder="Digite a matrícula do aluno..." style={{width: "21.5vw"}} value={matricula_aluno} onChange={(e) => setMatriculaAluno(e.target.value)}></input>
                                 </p>
                             </section>
@@ -187,13 +187,13 @@ export default function RegistroAluno({ onAddAluno }) {
                                     <input type="date" style={{ width: "22vw" }} value={data_nasc_resp} onChange={(e) => setDataNascResp(e.target.value)}></input>
                                 </section>
                                 <section>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE</p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o número do RG do responsável..." type="text" maxLength="9" style={{ width: "22vw" }} value={identidade_resp} onChange={(e) => setIdentidadeResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>TELEFONE</p>
                                     <input placeholder="Digite o telefone do responsável..." type="text" maxLength="11" style={{ width: "22vw" }} value={contato_resp} onChange={(e) => setContatoResp(e.target.value)}></input>
                                 </section>
                             </section>
-                            <p style={{ marginTop: '1em' }}>EMAIL</p>
+                            <p style={{ marginTop: '1em' }}>EMAIL<span style={{ color: "red" }}>*</span></p>
                             <input placeholder="Digite o email do responsável..." type="email" style={{ width: "45vw" }} value={email_resp} onChange={(e) => setEmailResp(e.target.value)}></input>
                         </section>
 
