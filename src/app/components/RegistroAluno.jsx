@@ -97,7 +97,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <section style={{display:'flex', width: "67vw", justifyContent: "space-between", marginTop: '1em'}}>
                                 <p>
                                     NOME COMPLETO<span style={{ color: "red" }}>*</span>
-                                    <input type="name" placeholder="Digite o nome completo do aluno..." style={{width: "43.5vw"}} value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
+                                    <input type="name" placeholder="Digite o nome completo do aluno..." style={{width: "43.5vw"}} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos" value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
                                 </p>
                                 <p style={{marginLeft: "2vw"}}>
                                     MATRÍCULA<span style={{ color: "red" }}>*</span>
@@ -109,16 +109,16 @@ export default function RegistroAluno({ onAddAluno }) {
                             <section style={{ display: "flex" }}>
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
                                     <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o CPF do aluno..." maxLength="11" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => setCpfAluno(e.target.value)}></input>
+                                    <input placeholder="Digite o CPF do aluno..." minLength="11" maxLength="11" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => setCpfAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o número do cartão do SUS do aluno..." type="text" maxLength="15" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
+                                    <input placeholder="Digite o número do cartão do SUS do aluno..." type="text" minLength="15" maxLength="15" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
                                 </section>
 
 
                                 <section style={{ width: "23vw", marginRight: "2vw" }}>
                                     <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o número do RG do aluno..." type="text" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
+                                    <input placeholder="Digite o número do RG do aluno..." type="text" minLength="9" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
                                     <select className={styles.SelecionarCID}>
@@ -177,20 +177,20 @@ export default function RegistroAluno({ onAddAluno }) {
                         <section className={styles.Dados1Responsavel}>
                             <section>
                                 <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{ color: "red" }}>*</span></p>
-                                <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome completo do responsável..." value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
+                                <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome completo do responsável..." pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos" value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
                             </section>
                             <section style={{ display: "flex", justifyContent: "space-between" }}>
                                 <section>
                                     <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o CPF do responsável..." maxLength="11" type="text" style={{ width: "22vw" }} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
+                                    <input placeholder="Digite o CPF do responsável..." minLength="11" maxLength="11" type="text" style={{ width: "22vw" }} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{ color: "red" }}>*</span></p>
                                     <input type="date" style={{ width: "22vw" }} value={data_nasc_resp} onChange={(e) => setDataNascResp(e.target.value)}></input>
                                 </section>
                                 <section>
                                     <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o número do RG do responsável..." type="text" maxLength="9" style={{ width: "22vw" }} value={identidade_resp} onChange={(e) => setIdentidadeResp(e.target.value)}></input>
+                                    <input placeholder="Digite o número do RG do responsável..." type="text" minLength="9" maxLength="9" style={{ width: "22vw" }} value={identidade_resp} onChange={(e) => setIdentidadeResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>TELEFONE</p>
-                                    <input placeholder="Digite o telefone do responsável..." type="text" maxLength="11" style={{ width: "22vw" }} value={contato_resp} onChange={(e) => setContatoResp(e.target.value)}></input>
+                                    <input placeholder="Digite o telefone do responsável..." type="text" minLength="11" maxLength="11" style={{ width: "22vw" }} value={contato_resp} onChange={(e) => setContatoResp(e.target.value)}></input>
                                 </section>
                             </section>
                             <p style={{ marginTop: '1em' }}>EMAIL<span style={{ color: "red" }}>*</span></p>
@@ -204,17 +204,17 @@ export default function RegistroAluno({ onAddAluno }) {
                             <p style={{ marginTop: '1em', display: 'flex', justifyContent: "space-between" }}>
                                 <section>
                                     <p>CIDADE</p>
-                                    <input placeholder="Nome da cidade..." type="name" style={{ width: "18vw" }} value={cidade} onChange={(e) => setCidade(e.target.value)}></input>
+                                    <input placeholder="Nome da cidade..." type="name" style={{ width: "18vw" }} value={cidade} onChange={(e) => setCidade(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
                                 </section>
                                 <section>
                                     <p>BAIRRO</p>
-                                    <input placeholder="Nome do bairro..." type="name" style={{ width: "26vw" }} value={bairro} onChange={(e) => setBairro(e.target.value)}></input>
+                                    <input placeholder="Nome do bairro..." type="name" style={{ width: "26vw" }} value={bairro} onChange={(e) => setBairro(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
                                 </section>
                             </p>
                             <p style={{ marginTop: '1em', display: 'flex', justifyContent: "space-between" }}>
                                 <section>
                                     <p>RUA</p>
-                                    <input placeholder="Digite o nome da rua..." type="name" style={{ width: "24vw" }} value={rua} onChange={(e) => setRua(e.target.value)}></input>
+                                    <input placeholder="Digite o nome da rua..." type="name" style={{ width: "24vw" }} value={rua} onChange={(e) => setRua(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
                                 </section>
                                 <section>
                                     <p>NÚMERO</p>

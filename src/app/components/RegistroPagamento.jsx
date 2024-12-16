@@ -1,68 +1,77 @@
-"use client";
-
+import { useState } from 'react';
 import Link from "next/link";
 import Image from 'next/image';
-import styles from "./page.module.css";
-import ImageAdd from '../../../icones/icone-adicionar.png';
+import styles from '../aluno/registro/page.module.css';
+import ImageAdd from '../icones/icone-adicionar.png';
 
-import iconeUsuario from '../../../icones/perfil_do_usuario.png';
-import ImgLogo from '../../../imgs/logo-apae.png'
+import iconeUsuario from '../icones/perfil_do_usuario.png';
+import ImgLogo from '../imgs/logo-apae.png';
 
-import iconeHome from '../../../icones/icone_home.png';
-import iconeAluno from '../../../icones/icone_aluno.png';
-import iconeRelatorio from '../../../icones/icone_relatorio.png';
-import iconePagamentos from '../../../icones/icone_pagamentos.png';
-import iconePagamentoConcluido from '../../../icones/icone-pagamento-concluido.png';
-import iconeConfiguracao from '../../../icones/icone_configuracao.png';
-import iconeSair from '../../../icones/icone_sair.png';
-import iconePesquisar from '../../../icones/icone-pesquisa.png';
-import imagemSecretario from '../../../imgs/foto.jpg';
+export default function RegistroAluno({ onAddAluno }) {
 
-import { useState, useEffect } from "react";
+    const [matricula_aluno, setMatriculaAluno] = useState('');
+    const [cpf_aluno, setCpfAluno] = useState('');
+    const [foto, setFotoAluno] = useState('');
+    const [nome_aluno, setNomeAluno] = useState('');
+    const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
+
+    const [identidade_aluno, setIdentidadeAluno] = useState('');
+    const [data_ingresso, setDataIngresso] = useState('');
+    const [data_nasc_aluno, setDataNascAluno] = useState('');
+    const [laudo_aluno, setLaudoAluno] = useState('');
+    const [especificidades_aluno, setEspecificidadesAluno] = useState('');
+
+    const [cpf_resp, setCpfResp] = useState('');
+    const [nome_resp, setNomeResp] = useState('');
+    const [identidade_resp, setIdentidadeResp] = useState('');
+    const [data_nasc_resp, setDataNascResp] = useState('');
+    const [comprov_resid_resp, setComprovResidResp] = useState('');
+    const [email_resp, setEmailResp] = useState('');
+    const [contato_resp, setContatoResp] = useState('');
+    const [senha, setSenhaResp] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [rua, setRua] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [numero, setNumero] = useState('');
+    const [complemento, setComplemento] = useState('');
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-function Pagamentos({ params }) {
 
-    const [aluno, setAluno] = useState("");
-    const [pagamentos, setPagamentos] = useState([]);
+        onAddAluno({
+            matricula_aluno,
+            cpf_aluno,
+            foto,
+            nome_aluno,
+            cartao_sus_aluno,
+            identidade_aluno,
+            data_ingresso,
+            data_nasc_aluno,
+            laudo_aluno,
+            especificidades_aluno,
+            cpf_resp,
+            nome_resp,
+            identidade_resp,
+            data_nasc_resp,
+            comprov_resid_resp,
+            email_resp,
+            contato_resp,
+            cidade,
+            rua,
+            bairro,
+            numero,
+            complemento
+        })
 
-    useEffect(() => {
-        fetchAluno();
-    }, [])
-
-    const fetchAluno = async () => {
-        const response = await fetch('/api/alunos/' + params.cpf_aluno);
-        const data = await response.json();
-        setAluno(data.aluno);
-        setPagamentos(data.pagamentos);
     }
 
 
+
+
     return (
-        <div style={{ height: "100vh" }}>
-            <div id={styles.barraSuperior}>
-                <section className={styles.logoApae}>
-                    <Link href="../../../home">
-                        <Image src={ImgLogo} alt='Logo' style={{ width: "5em", height: '5em' }}></Image>
-                    </Link>
-                </section>
-
-                <section className={styles.nomeApae}>
-                    <p>CadAPAE</p>
-                </section>
-
-                <section className={styles.botaoUser}>
-                    <button id={styles.buttonHome}>
-                        <Link href="./perfil">
-                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{ width: "5em", height: '5em' }}></Image>
-                        </Link>
-                    </button>
-                </section>
-            </div>
-
-
-
+        <>
             {aluno && aluno.cpf ? (
                 <div id={styles.conteudo}>
                     <div style={{ textAlign: "center", marginBottom: "2em", display: "flex", alignItems: "center", verticalAlign: "middle", justifyContent: "center" }}>
@@ -184,10 +193,10 @@ function Pagamentos({ params }) {
                     </h2>
                 )
             }
+        </>
 
-
-        </div>
-    );
+    )
 }
 
-export default Pagamentos;
+
+

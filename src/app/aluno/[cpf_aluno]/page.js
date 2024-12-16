@@ -125,13 +125,13 @@ function PerfilAluno({ params }) {
                                         <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
                                         <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartao_sus ? aluno.cartao_sus : "-"}
                                         <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICAÇÕES</h3> {aluno.especificidades ? aluno.especificidades : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICIDADES</h3> {aluno.especificidades ? aluno.especificidades : "-"}
                                     </section>
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
                                         <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? aluno.data_nascimento + " ("+calcularIdade(aluno.data_nasc_aluno)+" anos)" : "-"}
-                                        <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : "-"}</h3>
+                                        <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <p style={{color: "red", marginLeft: "0.5vw"}}>NÃO ANEXADO</p>}</h3>
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
                                         <Link href={`./pagamentos/${params.cpf_aluno}`}>
@@ -172,7 +172,7 @@ function PerfilAluno({ params }) {
                                 <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}
                                 <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
                                 <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.rua && responsavel.numero ? `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento} ` : "-"}
-                                <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : "Não anexado."}</h3>
+                                <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <p style={{color: "red", marginLeft: "0.5vw"}}>NÃO ANEXADO</p>}</h3>
                             </section>
                         </section>
                     </section>

@@ -64,9 +64,10 @@ function Perfil() {
                     <section style={{ display: "flex", textAlign: "left", marginBottom: "4vh", verticalAlign: "middle", alignItems: "center"}}>
                         <h3>Notificações <input type="checkbox" style={{marginLeft: "1vw"}}></input></h3>
 
-                        <h3 style={{marginLeft: "10vw"}}>Listar alunos por
+                        <h3 style={{marginLeft: "10vw"}}>Listar alunos na tela inicial por
                             <select className={styles.select}>
                                 <option>Ordem alfabética</option>
+                                <option>Quantidade de pendências</option>
                                 <option>Ordem crescente de idade</option>
                                 <option>Ordem decrescente de idade</option>
                             </select>

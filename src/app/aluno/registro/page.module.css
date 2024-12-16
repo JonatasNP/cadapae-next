@@ -92,6 +92,7 @@
 
 .BotaoRegistrar:hover {
   cursor: pointer;
+  background-color: rgb(31, 104, 31);
 }
 
 
