@@ -72,7 +72,7 @@ function PerfilAluno({ params }) {
             method: 'DELETE',
         });
         if (response.ok) {
-            window.alert(`O aluno ${aluno.nome.toUpperCase()} foi excluído com sucesso no sistema.`);
+            window.alert(`${aluno.nome.toUpperCase()} foi excluído(a) com sucesso no sistema.`);
             router.push("/home")
         }
     }

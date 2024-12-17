@@ -49,12 +49,11 @@ function Registrar_Aluno() {
     })
     if (response.ok) {
       fetchAluno();
-      window.alert(`O aluno foi registrado com sucesso.`);
+      window.alert(`Aluno(a) registrado(a) com sucesso.`);
       router.push("/home");
 
     } else { console.error('Falha ao adicionar aluno:', await response.text()); }
   }
-
 
     
 

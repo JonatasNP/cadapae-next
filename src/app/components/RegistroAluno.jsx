@@ -121,7 +121,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                     <input placeholder="Digite o número do RG do aluno..." type="text" minLength="9" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
-                                    <select className={styles.SelecionarCID}>
+                                    <select className={styles.SelecionarCID} >
                                         <option>Nenhum CID</option>
                                         <option>CID não identificado</option>
                                         <option>CID F8* - Autismo</option>
