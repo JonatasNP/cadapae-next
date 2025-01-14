@@ -64,7 +64,7 @@ function PerfilAluno({ params }) {
         const response = await fetch('/api/alunos/'+params.cpf_aluno);
         const data = await response.json();
         setAluno(data.aluno);
-        setResponsavel(data.responsavel)
+        setResponsavel(data.responsavel);
     }
 
     const deleteAluno = async (cpf_aluno) => {
@@ -183,7 +183,9 @@ function PerfilAluno({ params }) {
 
                 <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
 
-                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", border: "1px solid black" }}>
+                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", border: "1px solid black" }}
+                        onClick={() => router.push(`edicao/${aluno.cpf}`)}
+                    >
                         <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
                     </button>
                     

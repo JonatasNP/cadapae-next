@@ -78,7 +78,7 @@ export default function RegistroAluno({ onAddAluno }) {
         <form onSubmit={handleSubmit}>
             <div>
                 <section>
-                    <h1>DADOS DO ALUNO</h1>
+                    <h1>PREENCHA COM OS DADOS DO ALUNO</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -137,7 +137,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                             <input type="date" style={{ width: '9.5vw' }} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
                                         </p>
 
-                                        <p style={{ marginTop: '1em' }}>INGRESSO<span style={{ color: "red" }}>*</span>
+                                        <p style={{ marginTop: '1em' }}>INGRESSOU EM<span style={{ color: "red" }}>*</span>
                                             <input type="date" style={{ width: '9.5vw' }} value={data_ingresso} onChange={(e) => setDataIngresso(e.target.value)}></input>
                                         </p>
                                     </span>
@@ -168,7 +168,7 @@ export default function RegistroAluno({ onAddAluno }) {
 
             <div style={{ marginTop: '10vh' }}>
                 <section>
-                    <h1>DADOS DO RESPONSÁVEL</h1>
+                    <h1>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
