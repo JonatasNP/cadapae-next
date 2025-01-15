@@ -25,6 +25,8 @@ function PerfilAluno({ params }) {
         fetchAluno();
     }, [])
 
+
+
     const fetchAluno = async () => {
         const response = await fetch('/api/alunos/' + params.cpf_aluno);
         const data = await response.json();
@@ -82,7 +84,7 @@ function PerfilAluno({ params }) {
 
             ) :
                 <h2 className={styles.Carregamento} style={{ height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
-                    Aguarde um instante...
+                    Aguarde um momento...
                 </h2>
             }
 

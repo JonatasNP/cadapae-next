@@ -1,3 +1,8 @@
+#conteudo input {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 102%;
+}
+
 #barraSuperior{
     padding-top: 8px;
     background-color: #8490ff;
@@ -256,6 +261,12 @@
   background-color: lightgray;
 }
 
+.Pagamento input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
 
 .Pagamento img {
   height: 2em;

@@ -6,6 +6,7 @@ export async function DELETE(request, { params }) {
     const { cpf_aluno } = params;
     const client = await pool.connect();
     await client.query('DELETE FROM aluno WHERE cpf = $1', [cpf_aluno]);
+    await client.query('DELETE FROM responsavel r INNER JOIN aluno a ON r.cpf = a.cpf_responsavel WHERE a.cpf = $1', [cpf_aluno]);
     client.release();
     return NextResponse.json({ message: 'Aluno removido com sucesso.' });
   } catch (error) {
@@ -35,7 +36,8 @@ export async function GET(request, { params }) {
 export async function UPDATE(request, { params }) {
   const { cpf_aluno } = params;
   try {
-    const { matricula_aluno,
+    const {
+      matricula_aluno,
       cpf_aluno,
       foto,
       nome_aluno,
@@ -70,7 +72,7 @@ export async function UPDATE(request, { params }) {
       data_nascimento = $8,
       laudo = $9, 
       especificidades = $10
-      WHERE cpf = ${cpf_aluno}
+      WHERE cpf = $2
       RETURNING *`,
       [matricula_aluno, cpf_aluno, foto, nome_aluno, cartao_sus_aluno, identidade_aluno, data_ingresso, data_nasc_aluno, laudo_aluno, especificidades_aluno]
     );
@@ -89,9 +91,9 @@ export async function UPDATE(request, { params }) {
       bairro = $10,
       numero = $11,
       complemento = $12
-      WHERE cpf = (SELECT r.cpf FROM responsavel r INNER JOIN aluno a ON r.cpf = a.cpf_responsavel WHERE a.cpf = ${cpf_aluno})
+      WHERE cpf = $13
       RETURNING *`,
-      [cpf_resp, nome_resp, identidade_resp, data_nasc_resp, comprov_resid_resp, email_resp, contato_resp, cidade, rua, bairro, numero, complemento]
+      [cpf_resp, nome_resp, identidade_resp, data_nasc_resp, comprov_resid_resp, email_resp, contato_resp, cidade, rua, bairro, numero, complemento, cpf_aluno]
     )
     
 

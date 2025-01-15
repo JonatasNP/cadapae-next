@@ -27,11 +27,16 @@ function PerfilAluno({ params }) {
     const router = useRouter();
 
     function formatarData(data) {
-        const dia = String(data.getDate()).padStart(2, '0');
-        const mes = String(data.getMonth() + 1).padStart(2, '0');
-        const ano = data.getFullYear();
+        const date = new Date(data);
 
-        return `${dia}/${mes}/${ano}`;
+        const dia = date.getDate().toString().padStart(2, '0');
+        const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+        const ano = date.getFullYear();
+
+
+        const dataFormatada = `${dia}/${mes}/${ano}`;
+
+        return dataFormatada;
     }
 
     function calcularIdade(dataNascimento) {
@@ -130,7 +135,7 @@ function PerfilAluno({ params }) {
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? aluno.data_nascimento + " ("+calcularIdade(aluno.data_nasc_aluno)+" anos)" : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " ("+calcularIdade(aluno.data_nascimento)+" anos)" : "-"}
                                         <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <p style={{color: "red", marginLeft: "0.5vw"}}>NÃO ANEXADO</p>}</h3>
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
 
@@ -200,7 +205,7 @@ function PerfilAluno({ params }) {
 
             </div>):
                 <h2 className={styles.Carregamento} style={{height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle"}}>
-                    Carregando dados do aluno...
+                    Carregando os dados do aluno...
                 </h2>
             }
 

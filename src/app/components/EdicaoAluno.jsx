@@ -39,6 +39,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
 
     const handleSubmit = (e) => {
 
+        e.preventDefault();
         if (!nome_aluno || !matricula_aluno || !cpf_aluno || !data_nasc_aluno || !cpf_resp) {
             alert('Por favor, preencha todos os campos obrigatórios.');
             return;
@@ -69,6 +70,19 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
             complemento
         })
 
+    }
+
+    function formatarDataComHifen(data) {
+        const date = new Date(data);
+
+        const dia = date.getDate().toString().padStart(2, '0');
+        const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+        const ano = date.getFullYear();
+
+
+        const dataFormatada = `${ano}-${mes}-${dia}`;
+
+        return dataFormatada;
     }
 
 
@@ -137,15 +151,15 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
 
 
                                 <section style={{ width: "23vw" }}>
-                                    <span style={{ width: "23vw", display: "flex" }}>
-                                        <p style={{ marginTop: '1em' }}>NASCIMENTO<span style={{ color: "red" }}>*</span>
-                                            <input type="date" style={{ width: '9.5vw' }}
-                                                defaultValue={data_nasc_aluno} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
+                                    <span style={{ width: "23vw", display: "flex"}}>
+                                        <p style={{ marginTop: '1em', marginRight: '0.5em' }}>NASCIMENTO<span style={{ color: "red" }}>*</span>
+                                            <input type="date" style={{ width: '10vw' }}
+                                                defaultValue={formatarDataComHifen(data_nasc_aluno)} onChange={(e) => setDataNascAluno(e.target.value)}></input>
                                         </p>
 
                                         <p style={{ marginTop: '1em' }}>INGRESSOU EM<span style={{ color: "red" }}>*</span>
-                                            <input type="date" style={{ width: '9.5vw' }}
-                                                defaultValue={data_ingresso} value={data_ingresso} onChange={(e) => setDataIngresso(e.target.value)}></input>
+                                            <input type="date" style={{ width: '10vw' }}
+                                                defaultValue={formatarDataComHifen(data_ingresso)} onChange={(e) => setDataIngresso(e.target.value)}></input>
                                         </p>
                                     </span>
 
@@ -195,7 +209,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                         defaultValue={cpf_resp} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{ color: "red" }}>*</span></p>
                                     <input type="date" style={{ width: "22vw" }}
-                                        defaultValue={data_nasc_resp} value={data_nasc_resp} onChange={(e) => setDataNascResp(e.target.value)}></input>
+                                        defaultValue={formatarDataComHifen(data_nasc_resp)} onChange={(e) => setDataNascResp(e.target.value)}></input>
                                 </section>
                                 <section>
                                     <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE<span style={{ color: "red" }}>*</span></p>
@@ -219,19 +233,19 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                 <section>
                                     <p>CIDADE</p>
                                     <input placeholder="Nome da cidade..." type="name" style={{ width: "18vw" }}
-                                        defaultValue={cidade} value={cidade} onChange={(e) => setCidade(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
+                                        defaultValue={cidade} value={cidade} onChange={(e) => setCidade(e.target.value)}></input>
                                 </section>
                                 <section>
                                     <p>BAIRRO</p>
                                     <input placeholder="Nome do bairro..." type="name" style={{ width: "26vw" }}
-                                        defaultValue={bairro} value={bairro} onChange={(e) => setBairro(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
+                                        defaultValue={bairro} value={bairro} onChange={(e) => setBairro(e.target.value)}></input>
                                 </section>
                             </p>
                             <p style={{ marginTop: '1em', display: 'flex', justifyContent: "space-between" }}>
                                 <section>
                                     <p>RUA</p>
                                     <input placeholder="Digite o nome da rua..." type="name" style={{ width: "24vw" }}
-                                        defaultValue={rua} value={rua} onChange={(e) => setRua(e.target.value)} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos"></input>
+                                        defaultValue={rua} value={rua} onChange={(e) => setRua(e.target.value)}></input>
                                 </section>
                                 <section>
                                     <p>NÚMERO</p>
