@@ -36,19 +36,25 @@ function PerfilAluno({ params }) {
 
 
     const changeAluno = async (a) => {
-        const response = await fetch(`/api/alunos/${params.cpf_aluno}`, {
-            method: 'UPDATE',
+        console.log("1");
+        fetch(`/api/alunos/${params.cpf_aluno}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(a),
-        });
-        if (response.ok) {
-            fetchAluno();
-            window.alert(`Os dados do aluno foram editados com sucesso.`);
-            router.push("/home");
+            body: JSON.stringify(a)
+        }).then( (response) => {
+            console.log("2");
+            if (response.ok) {
+                console.log("3");
+                fetchAluno();
+                window.alert(`Os dados do aluno foram editados com sucesso.`);
+                router.push("/home");
 
-        } else { console.error('Falha ao editar dados do aluno:', await response.text()); }
+                
+            } else { console.log("4");console.error('Falha ao editar dados do aluno:', response.text(), 'oi'); }
+        } ).catch( e => console.log(e));
+        
     }
 
 

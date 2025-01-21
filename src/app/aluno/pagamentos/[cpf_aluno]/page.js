@@ -20,6 +20,7 @@ import iconePesquisar from '../../../icones/icone-pesquisa.png';
 import imagemSecretario from '../../../imgs/foto.jpg';
 
 import { useState, useEffect } from "react";
+import ListarPagamentos from "@/app/components/ListarPagamentos";
 
 
 
@@ -28,8 +29,11 @@ function Pagamentos({ params }) {
     const [aluno, setAluno] = useState("");
     const [pagamentos, setPagamentos] = useState([]);
 
+    let dataAtual = Date.now();
+
     useEffect(() => {
         fetchAluno();
+        fetchPagamento();
     }, [])
 
     const fetchAluno = async () => {
@@ -38,6 +42,32 @@ function Pagamentos({ params }) {
         setAluno(data.aluno);
         setPagamentos(data.pagamentos);
     }
+
+    const fetchPagamento = async () => {
+        const response = await fetch('/api/alunos/pagamentos' + params.cpf_aluno);
+        const data = await response.json();
+        setAluno(data.aluno);
+        setPagamentos(data.pagamentos);
+    }
+
+
+    const addPagamento = async (p) => {
+        const response = await fetch('/api/alunos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(p),
+        })
+        if (response.ok) {
+          fetchPagamento();
+          console.log(`O pagamento foi registrado com sucesso.`);
+          router.push("/home");
+    
+        } else { console.error('Falha ao adicionar aluno:', await response.text()); }
+      }
+
+
 
     function formatarData(data) {
         const date = new Date(data);
@@ -99,6 +129,7 @@ function Pagamentos({ params }) {
 
 
 
+                    <ListarPagamentos pagamentos={pagamentos} />
 
                     <div className={styles.PagamentosAluno}>
 
@@ -107,19 +138,20 @@ function Pagamentos({ params }) {
 
 
 
-                    <section className={styles.Pagamento}>
+
+                        <section className={styles.Pagamento}>
                             <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
                                 <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
                                     <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Junho de 2024</h3>
                                 <section style={{ display: "flex", width: "60vw" }}>
                                     <p style={{ width: "15vw" }}><b>Data: </b>
-                                        <input type="date" style={{width: "65%"}}></input>
+                                        <input type="date" style={{ width: "65%" }}></input>
                                     </p>
                                     <p style={{ width: "15vw" }}><b>Valor: </b>
-                                        R$ <input type="number" style={{width: "50%"}}></input>
+                                        R$ <input type="number" style={{ width: "50%" }}></input>
                                     </p>
                                     <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                        <input type="name" style={{width: "60%"}}></input>
+                                        <input type="name" style={{ width: "60%" }}></input>
                                     </p>
                                 </section>
 
@@ -137,13 +169,13 @@ function Pagamentos({ params }) {
                                     <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Maio de 2024</h3>
                                 <section style={{ display: "flex", width: "60vw" }}>
                                     <p style={{ width: "15vw" }}><b>Data: </b>
-                                        <input type="date" style={{width: "65%"}}></input>
+                                        <input type="date" style={{ width: "65%" }}></input>
                                     </p>
                                     <p style={{ width: "15vw" }}><b>Valor: </b>
-                                        R$ <input type="number" style={{width: "50%"}}></input>
+                                        R$ <input type="number" style={{ width: "50%" }}></input>
                                     </p>
                                     <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                        <input type="name" style={{width: "60%"}}></input>
+                                        <input type="name" style={{ width: "60%" }}></input>
                                     </p>
                                 </section>
 
@@ -236,22 +268,23 @@ function Pagamentos({ params }) {
                         </section>
 
 
-                        
+
 
 
 
                     </div>
 
                     {aluno.data_ingresso ?
-                        <div style={{color: "gray"}}>Este aluno ingressou em {formatarData(aluno.data_ingresso)}</div>
-                            :
-                        <div style={{color: "gray"}}>A data de ingresso deste aluno não foi registrada.</div>
+                        <div style={{ color: "gray" }}>Esse aluno ingressou em {formatarData(aluno.data_ingresso)}</div>
+                        :
+                        <div style={{ color: "gray" }}>A data de ingresso deste aluno não foi registrada.</div>
                     }
-                    
 
 
 
-                </div>)
+
+                </div>
+                )
 
                 : (
                     <h2 className={styles.Carregamento} style={{ height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>

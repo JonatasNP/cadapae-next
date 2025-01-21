@@ -33,7 +33,7 @@ export async function GET(request, { params }) {
   }
 }
 
-export async function UPDATE(request, { params }) {
+export async function PUT(request, { params }) {
   const { cpf_aluno } = params;
   try {
     const {
