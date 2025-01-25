@@ -24,6 +24,8 @@ import { useEffect, useState } from "react";
 import ListarAlunos from "../components/ListarAlunos";
 
 
+import Header from "../components/Header";
+
 
 
 function Home() {
@@ -60,26 +62,7 @@ function Home() {
 
     return (
         <div style={{ height: "100vh" }}>
-            <div id={styles.barraSuperior}>
-                <section className={styles.logoApae}>
-                    <Link href="./home">
-                        <Image src={ImgLogo} alt='Logo' style={{ width: "5em", height: '5em' }}></Image>
-                    </Link>
-
-                </section>
-
-                <section className={styles.nomeApae}>
-                    <p>CadAPAE</p>
-                </section>
-
-                <section className={styles.botaoUser}>
-                    <button id={styles.buttonHome}>
-                        <Link href="./perfil">
-                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
-                        </Link>
-                    </button>
-                </section>
-            </div>
+            <Header/>
 
 
 
@@ -90,7 +73,7 @@ function Home() {
                 <section className={styles.AlunosEncontrados}>
 
                     <section className={styles.ExibicaoAlunos}>
-                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={elemento => SetAluno(elemento.target.value)} />
+                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={e => SetAluno(e.target.value)} />
 
                         <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
 
@@ -119,7 +102,7 @@ function Home() {
                             <div className={styles.FiltroIdade}>
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por faixa etária</h3>
                                 <select>
-                                    <option>Todas as idades</option>
+                                    <option disabled selected>Selecione a faixa etária</option>
                                     <option>Abaixo de 4 anos</option>
                                     <option>De 5 a 7 anos</option>
                                     <option>De 8 a 10 anos</option>
@@ -135,7 +118,7 @@ function Home() {
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por quantidade de pendências</h3>
 
                                 <select>
-                                    <option>-----</option>
+                                    <option disabled selected>Selecione q quantidadede pendências</option>
                                     <option>Nenhum pagamento pendente</option>
                                     <option>1 pagamento pendente</option>
                                     <option>2 pagamentos pendentes</option>

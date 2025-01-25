@@ -78,7 +78,7 @@ export default function RegistroAluno({ onAddAluno }) {
         <form onSubmit={handleSubmit}>
             <div>
                 <section>
-                    <h1>PREENCHA COM OS DADOS DO ALUNO</h1>
+                    <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO ALUNO</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -168,7 +168,7 @@ export default function RegistroAluno({ onAddAluno }) {
 
             <div style={{ marginTop: '10vh' }}>
                 <section>
-                    <h1>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
+                    <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
