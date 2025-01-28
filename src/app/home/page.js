@@ -38,33 +38,23 @@ function Home() {
     ];*/
     
 
-    const [aluno, SetAluno] = useState("");
-
-
-    
-
-
-
+    const [aluno, setAluno] = useState("");
     const [alunos, setAlunos] = useState([]);
+
+    const fetchAlunos = async () => {
+        const response = await fetch('/api/alunos');
+        const dados = await response.json();
+        setAlunos(dados);
+    }
 
     useEffect(() => {
         fetchAlunos();
     }, [])
 
-    const fetchAlunos = async () => {
-        const response = await fetch('../api/alunos');
-        const dados = await response.json();
-        setAlunos(dados);
-    }
-
-
-
 
     return (
         <div style={{ height: "100vh" }}>
             <Header/>
-
-
 
             <div id={styles.conteudo}>
 
@@ -73,7 +63,7 @@ function Home() {
                 <section className={styles.AlunosEncontrados}>
 
                     <section className={styles.ExibicaoAlunos}>
-                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={e => SetAluno(e.target.value)} />
+                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={e => setAluno(e.target.value)} />
 
                         <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
 
@@ -118,7 +108,7 @@ function Home() {
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por quantidade de pendências</h3>
 
                                 <select>
-                                    <option disabled selected>Selecione q quantidadede pendências</option>
+                                    <option disabled selected>Selecione a quantidade de pendências</option>
                                     <option>Nenhum pagamento pendente</option>
                                     <option>1 pagamento pendente</option>
                                     <option>2 pagamentos pendentes</option>

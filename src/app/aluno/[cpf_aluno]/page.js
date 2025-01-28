@@ -61,9 +61,6 @@ function PerfilAluno({ params }) {
     const [aluno, setAluno] = useState();
     const [responsavel, setResponsavel] = useState();
 
-    useEffect(() => {
-        fetchAluno();
-    }, [])
 
     const fetchAluno = async () => {
         const response = await fetch('/api/alunos/'+params.cpf_aluno);
@@ -71,6 +68,10 @@ function PerfilAluno({ params }) {
         setAluno(data.aluno);
         setResponsavel(data.responsavel);
     }
+    
+    useEffect(() => {
+        fetchAluno();
+    }, [])
 
     const deleteAluno = async (cpf_aluno) => {
         const response = await fetch(`/api/alunos/${cpf_aluno}`, {
