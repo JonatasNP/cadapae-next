@@ -35,41 +35,24 @@
     padding-left: 15px;
 }
 
-.BarraPesquisa {
-    width: 72vw;
-    font-size: 25px;
-    background-repeat: no-repeat;
-    background-size: 2em;
-    background-position-x: 0.8vw;
-    background-position-y: center;
-    font-size: 15px;
-    padding: 2em 4em 2em 4em;
-    padding-right: 15px;
-    border-radius: 15px;
-    border: 1px solid #435bb2;
-    background-color: rgb(255, 255, 255);
-
-    background-image: url(../../../icones/icone-nome.png);
-}
-
 
 .Carregamento {
     animation: carregamento 0.8s linear infinite;
-  }
-  
-  @keyframes carregamento {
+}
+
+@keyframes carregamento {
     0% {
-      opacity: 100%;
+        opacity: 100%;
     }
-  
+
     50% {
-      opacity: 20%;
+        opacity: 20%;
     }
-  
+
     100% {
-      opacity: 100%;
+        opacity: 100%;
     }
-  }
+}
 
 
 
@@ -192,4 +175,21 @@
     padding-right: 10px;
     height: 3em;
     width: 4em;
+}
+
+.BotaoStyle {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 1em;
+    font-size: 0.8em;
+    font-weight: bolder;
+    border: 0px;
+}
+
+.BotaoStyle:hover,
+.BotaoRegistrar:hover {
+    cursor: pointer;
 }

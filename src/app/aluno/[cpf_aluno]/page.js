@@ -129,28 +129,27 @@ function PerfilAluno({ params }) {
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome.toUpperCase()}
                                         <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.cartao_sus ? aluno.cartao_sus : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " ("+calcularIdade(aluno.data_nascimento)+" anos)" : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.numero_cartao_sus ? aluno.numero_cartao_sus : "-"}
                                         <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>ESPECIFICIDADES</h3> {aluno.especificidades ? aluno.especificidades : "-"}
                                     </section>
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " ("+calcularIdade(aluno.data_nascimento)+" anos)" : "-"}
-                                        <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <p style={{color: "red", marginLeft: "0.5vw"}}>NÃO ANEXADO</p>}</h3>
+                                        <h3 style={{ marginTop: '1em' }}>DATA DE INGRESSO</h3> {aluno.data_ingresso ? formatarData(aluno.data_ingresso) : "-"}
+                                        <h3 style={{ marginTop: '1em', alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
-
                                         <Link href={`./pagamentos/${params.cpf_aluno}`}>
                                             <section style={{
-                                                marginTop: "0.5em", padding: "0.4em", width: "25vw", backgroundColor: "#8490ff", borderRadius: "30px", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
+                                                marginTop: "0.5em", padding: "0.3em", minWidth: "10em", maxWidth: "23em", backgroundColor: "#8490ff", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
                                             }}>
-
-                                                <Image src={iconePagamentos} style={{ height: "2em", width: "2em" }}></Image> Acessar histórico de contribuições
+                                                <Image src={iconePagamentos} style={{ height: "2em", width: "2em", marginRight: "0.5em" }}></Image> ACESSAR HISTÓRICO DE CONTRIBUIÇÕES
                                             </section>
                                         </Link>
-
                                     </section>
-
+                                </section>
+                                <section>
+                                    <h3 style={{ marginTop: '1em' }}>ESPECIFICIDADES DO ALUNO</h3> {aluno.especificidades ? aluno.especificidades : "-"}
                                 </section>
                             </section>
 
@@ -178,7 +177,7 @@ function PerfilAluno({ params }) {
                                 <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}
                                 <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
                                 <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.rua && responsavel.numero ? `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento} ` : "-"}
-                                <h3 style={{ marginTop: '1em', display: "flex", alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <p style={{color: "red", marginLeft: "0.5vw"}}>NÃO ANEXADO</p>}</h3>
+                                <h3 style={{ marginTop: '1em', alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
                             </section>
                         </section>
                     </section>
@@ -189,15 +188,18 @@ function PerfilAluno({ params }) {
 
                 <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
 
-                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", border: "1px solid black" }}
+                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", marginRight: "0.5%" }}
                         onClick={() => router.push(`edicao/${aluno.cpf}`)}
                     >
                         <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
                     </button>
                     
                     <button
-                        className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537", border: "1px solid black" }}
-                        onClick={() => deleteAluno(aluno.cpf)}
+                        className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537"}}
+                        onClick={() => {
+                            if(prompt(`Para confirmar a exclusão de ${aluno.nome.toUpperCase()} do sistema, digite "Excluir".`).toUpperCase() === "EXCLUIR") deleteAluno(aluno.cpf);
+                            else alert(`Não foi possível excluir ${aluno.nome.toUpperCase()} do sistema!`)
+                        }}
                     >
                         <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
                     </button>

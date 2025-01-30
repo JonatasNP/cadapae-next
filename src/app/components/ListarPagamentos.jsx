@@ -35,6 +35,8 @@ export default function ListarPagamentos({ pagamentos }) {
         <>
             <div className={styles.PagamentosAluno}>
                 {
+
+                    
                     pagamentos ? (
                         pagamentos.map((a) => {
                             a.status.toUpperCase == "pendente" ? (
@@ -85,6 +87,7 @@ export default function ListarPagamentos({ pagamentos }) {
                     ) : (
                         <p>Não há pagamentos associados a esse aluno.</p>
                     )
+
                 }
 
             </div>

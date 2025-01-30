@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import styles from './page.module.css';
+import styles from '../page.module.css';
 import ImgLogo from '../../../imgs/logo-apae.png'
 import iconeConfiguracao from '../../../icones/icone_configuracao.png';
 
@@ -36,24 +36,21 @@ function PerfilAluno({ params }) {
 
 
     const changeAluno = async (a) => {
-        console.log("1");
         fetch(`/api/alunos/${params.cpf_aluno}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(a)
-        }).then( (response) => {
-            console.log("2");
+        }).then((response) => {
             if (response.ok) {
-                console.log("3");
                 fetchAluno();
-                window.alert(`Os dados do aluno foram editados com sucesso.`);
+                window.alert(`Os dados do aluno ${aluno.nome} foram editados com sucesso.`);
                 router.push("/home");
-
-                
-            } else { console.log("4");console.error('Falha ao editar dados do aluno:', response.text(), 'oi'); }
-        } ).catch( e => console.log(e));
+            } else {
+                console.error('Falha ao editar dados do aluno:', response.text());
+            }
+        }).catch(e => console.log(e));
         
     }
 

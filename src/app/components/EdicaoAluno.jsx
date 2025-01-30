@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from "next/link";
 import Image from 'next/image';
-import styles from '../aluno/registro/page.module.css';
+import styles from '../aluno/edicao/page.module.css';
 import ImageAdd from '../icones/icone-adicionar.png';
 
 import iconeUsuario from '../icones/perfil_do_usuario.png';
@@ -263,8 +263,8 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                 value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
 
                             <div style={{ display: "flex", marginTop: "1em", marginBottom: "5em", justifyContent: "right", alignItems: "end" }}>
-                                <button className={styles.BotaoEditar} type='submit'>
-                                    <Image src={iconeEditar} alt="Adicionar" /> FINALIZAR EDIÇÃO
+                                <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan" }} type='submit'>
+                                    <Image style={{ height: "2em", width: "2em", marginRight: "1em" }} src={iconeEditar} alt="Adicionar" /> FINALIZAR EDIÇÃO
                                 </button>
                             </div>
                         </section>

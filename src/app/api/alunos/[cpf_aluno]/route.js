@@ -91,7 +91,9 @@ export async function PUT(request, { params }) {
       bairro = $10,
       numero = $11,
       complemento = $12
-      WHERE cpf = $13
+      WHERE cpf IN (
+        SELECT cpf_responsavel FROM aluno a WHERE a.cpf = $13
+      )
       RETURNING *`,
       [cpf_resp, nome_resp, identidade_resp, data_nasc_resp, comprov_resid_resp, email_resp, contato_resp, cidade, rua, bairro, numero, complemento, cpf_aluno]
     )
