@@ -1,13 +1,12 @@
 /*ESTILO DO LAYOUT*/
 #barraSuperior {
-  padding-top: 8px;
+  padding: 0.8em;
   background-color: #8490ff;
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 2px 4px #7a7979;
   position: fixed;
   z-index: 1;
-  min-height: 6em;
   width: 100vw;
   align-items: center;
   top: 0;
@@ -29,19 +28,15 @@
   color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 100;
 }
 
-.logoApae {
-  padding-left: 15px;
-}
 
 #buttonHome {
   background-color: transparent;
   border: transparent;
   cursor: pointer;
   text-align: end;
-  margin-right: 16px;
 }
 /*---------------------*/
 

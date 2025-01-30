@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import styles from '../page.module.css';
 import ImgLogo from '../../../imgs/logo-apae.png'
 import iconeConfiguracao from '../../../icones/icone_configuracao.png';
-
+import Header from "@/app/components/Header";
 import EdicaoAluno from "@/app/components/EdicaoAluno";
 
 
@@ -58,25 +58,7 @@ function PerfilAluno({ params }) {
     return (
 
         <div id={styles.Body} style={{ height: "100vh" }}>
-            <div id={styles.barraSuperior}>
-                <section className={styles.logoApae}>
-                    <Link href="../../home">
-                        <Image src={ImgLogo} alt='Logo' style={{ width: "5em", height: '5em' }}></Image>
-                    </Link>
-                </section>
-
-                <section className={styles.nomeApae}>
-                    <p>CadAPAE</p>
-                </section>
-
-                <section className={styles.botaoUser}>
-                    <button id={styles.buttonHome}>
-                        <Link href="../../perfil">
-                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{ width: "5em", height: '5em' }}></Image>
-                        </Link>
-                    </button>
-                </section>
-            </div>
+            <Header />
 
 
 

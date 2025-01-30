@@ -12,6 +12,7 @@ export default function ListarPagamentos({ pagamentos }) {
 
 
 
+
     function calcularIdade(dataNascimento) {
         const hoje = new Date();
         const nascimento = new Date(dataNascimento);
@@ -35,7 +36,6 @@ export default function ListarPagamentos({ pagamentos }) {
         <>
             <div className={styles.PagamentosAluno}>
                 {
-
                     
                     pagamentos ? (
                         pagamentos.map((a) => {

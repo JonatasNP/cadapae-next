@@ -262,7 +262,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                             <input type="file" style={{ width: "45vw" }} accept=".pdf"
                                 value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
 
-                            <div style={{ display: "flex", marginTop: "1em", marginBottom: "5em", justifyContent: "right", alignItems: "end" }}>
+                            <div style={{ display: "flex", marginTop: "1em", justifyContent: "right", alignItems: "end" }}>
                                 <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan" }} type='submit'>
                                     <Image style={{ height: "2em", width: "2em", marginRight: "1em" }} src={iconeEditar} alt="Adicionar" /> FINALIZAR EDIÇÃO
                                 </button>

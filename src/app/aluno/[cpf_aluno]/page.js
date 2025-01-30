@@ -16,7 +16,7 @@ import iconeRelatorio from '../../icones/icone_relatorio.png';
 import iconeConfiguracao from '../../icones/icone_configuracao.png';
 import iconeSair from '../../icones/icone_sair.png';
 import iconePesquisar from '../../icones/icone-pesquisa.png';
-
+import Header from "@/app/components/Header";
 
 import { useState, useEffect } from "react";
 
@@ -87,25 +87,7 @@ function PerfilAluno({ params }) {
     return (
         
         <div id={styles.Body} style={{ height: "100vh" }}>
-            <div id={styles.barraSuperior}>
-                <section className={styles.logoApae}>
-                    <Link href="../../home">
-                        <Image src={ImgLogo} alt='Logo' style={{ width: "5em", height: '5em' }}></Image>
-                    </Link>
-                </section>
-
-                <section className={styles.nomeApae}>
-                    <p>CadAPAE</p>
-                </section>
-
-                <section className={styles.botaoUser}>
-                    <button id={styles.buttonHome}>
-                        <Link href="../../perfil">
-                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
-                        </Link>
-                    </button>
-                </section>
-            </div>
+            <Header/>
 
 
 
@@ -116,7 +98,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO ALUNO</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
@@ -128,7 +110,7 @@ function PerfilAluno({ params }) {
                                 <section style={{ width: '60vw', display: 'flex' }}>
                                     <section style={{ width: '30vw' }}>
                                         <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome.toUpperCase()}
-                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? aluno.cpf : "-"}
+                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? ""+aluno.cpf : "-"}
                                         <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " ("+calcularIdade(aluno.data_nascimento)+" anos)" : "-"}
                                         <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.numero_cartao_sus ? aluno.numero_cartao_sus : "-"}
                                         <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
@@ -163,7 +145,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.5vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisResponsavel}>
