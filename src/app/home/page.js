@@ -93,13 +93,13 @@ function Home() {
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por faixa etária</h3>
                                 <select>
                                     <option disabled selected>Selecione a faixa etária</option>
-                                    <option>Abaixo de 4 anos</option>
-                                    <option>De 5 a 7 anos</option>
-                                    <option>De 8 a 10 anos</option>
-                                    <option>De 11 a 13 anos</option>
-                                    <option>De 14 a 16 anos</option>
-                                    <option>De 17 a 20 anos</option>
-                                    <option>20 anos ou mais</option>
+                                    <option value={[0, 4]}>4 anos ou menos</option>
+                                    <option value={[5, 7]}>De 5 a 7 anos</option>
+                                    <option value={[8, 10]}>De 8 a 10 anos</option>
+                                    <option value={[11, 13]}>De 11 a 13 anos</option>
+                                    <option value={[14, 16]}>De 14 a 16 anos</option>
+                                    <option value={[17, 19]}>De 17 a 19 anos</option>
+                                    <option value={[20, 120]}>20 anos ou mais</option>
                                 </select>
 
 
@@ -118,11 +118,13 @@ function Home() {
                             </div>
                             <div className={styles.FiltroCID}>
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> Nenhum CID</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID não identificado</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID F7* - Retardo mental não especificado</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID F8* - Autismo</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> Outros CIDs</p>
+                                <select>
+                                    <option disabled selected>Selecione o CID correspondente</option>
+                                    <option>CID não identificado</option>
+                                    <option>CID F7 - Retardo mental não especificado</option>
+                                    <option>CID F8 - Autismo</option>
+                                    <option>Outro CID</option>
+                                </select>
 
 
 
