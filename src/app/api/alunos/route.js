@@ -25,6 +25,7 @@ export async function POST(request) {
                 data_nasc_aluno,
                 laudo_aluno,
                 especificidades_aluno,
+                cid_aluno,
                 cpf_resp,
                 nome_resp,
                 identidade_resp,

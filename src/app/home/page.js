@@ -63,7 +63,7 @@ function Home() {
                 <section className={styles.AlunosEncontrados}>
 
                     <section className={styles.ExibicaoAlunos}>
-                        <input className={styles.BarraPesquisa} placeholder='Insira o nome completo do aluno' value={aluno} onChange={e => setAluno(e.target.value)} />
+                        <input className={styles.BarraPesquisa} placeholder='Insira o nome do aluno a ser pesquisado...' value={aluno} onChange={e => setAluno(e.target.value)} />
 
                         <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
 
@@ -118,11 +118,11 @@ function Home() {
                             </div>
                             <div className={styles.FiltroCID}>
                                 <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} checked/> Nenhum CID</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} checked /> CID não identificado</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} checked /> CID F7* - Retardo mental não especificado</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} checked /> CID F8* - Autismo</p>
-                                <p><input type="checkbox" style={{ marginTop: '1em' }} checked /> Outros CIDs</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> Nenhum CID</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID não identificado</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID F7* - Retardo mental não especificado</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> CID F8* - Autismo</p>
+                                <p><input type="checkbox" style={{ marginTop: '1em' }} defaultChecked /> Outros CIDs</p>
 
 
 

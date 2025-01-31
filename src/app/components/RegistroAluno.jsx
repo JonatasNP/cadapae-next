@@ -14,7 +14,7 @@ export default function RegistroAluno({ onAddAluno }) {
     const [foto, setFotoAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
-
+    const [cid_aluno, setCidAluno] = useState('');
     const [identidade_aluno, setIdentidadeAluno] = useState('');
     const [data_ingresso, setDataIngresso] = useState('');
     const [data_nasc_aluno, setDataNascAluno] = useState('');
@@ -55,6 +55,7 @@ export default function RegistroAluno({ onAddAluno }) {
                 data_nasc_aluno,
                 laudo_aluno,
                 especificidades_aluno,
+                cid_aluno,
                 cpf_resp,
                 nome_resp,
                 identidade_resp,
@@ -71,8 +72,7 @@ export default function RegistroAluno({ onAddAluno }) {
 
     }
 
-
-
+    
 
     return (
         <form onSubmit={handleSubmit}>
@@ -121,12 +121,12 @@ export default function RegistroAluno({ onAddAluno }) {
                                     <input placeholder="Digite o número do RG do aluno..." type="text" minLength="9" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
-                                    <select className={styles.SelecionarCID}>
-                                        <option>Nenhum CID</option>
-                                        <option>CID não identificado</option>
-                                        <option>CID F8* - Autismo</option>
-                                        <option>CID F7* - Retardo mental não especificado</option>
-                                        <option>Outro CID</option>
+                                    <select className={styles.SelecionarCID} onChange={s => {setCidAluno(s.value); console.log(s.target.value)}}>
+                                        <option value={null} disabled selected>Nenhum CID</option>
+                                        <option value={"N.I."}>CID não identificado</option>
+                                        <option value={"F7 - Retardo mental não especificado"}>CID F7* - Retardo mental não especificado</option>
+                                        <option value={"F8 - Autismo"}>CID F8* - Autismo</option>
+                                        <option value={"Outro"}>Outro CID</option>
                                     </select>
                                 </section>
 

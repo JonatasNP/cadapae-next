@@ -1,23 +1,12 @@
 'use client';
-
-import Link from "next/link";
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '../page.module.css';
-import ImgLogo from '../../../imgs/logo-apae.png'
-import iconeConfiguracao from '../../../icones/icone_configuracao.png';
 import Header from "@/app/components/Header";
 import EdicaoAluno from "@/app/components/EdicaoAluno";
-
-
 import { useState, useEffect } from "react";
 
 function PerfilAluno({ params }) {
-
-    // const responsavel = await getResponsavelById(aluno.id_responsavel);
-
     const router = useRouter();
-
     const [aluno, setAluno] = useState();
     const [responsavel, setResponsavel] = useState();
 
@@ -25,15 +14,12 @@ function PerfilAluno({ params }) {
         fetchAluno();
     }, [])
 
-
-
     const fetchAluno = async () => {
         const response = await fetch('/api/alunos/' + params.cpf_aluno);
         const data = await response.json();
         setAluno(data.aluno);
         setResponsavel(data.responsavel)
     }
-
 
     const changeAluno = async (a) => {
         fetch(`/api/alunos/${params.cpf_aluno}`, {
@@ -60,13 +46,10 @@ function PerfilAluno({ params }) {
         <div id={styles.Body} style={{ height: "100vh" }}>
             <Header />
 
-
-
             {aluno && aluno.cpf ? (
                 <div id={styles.conteudo}>
                     <EdicaoAluno dadosAluno={aluno} dadosResponsavel={responsavel} onChangeAluno={changeAluno} />
                 </div>
-
             ) :
                 <h2 className={styles.Carregamento} style={{ height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
                     Aguarde um momento...

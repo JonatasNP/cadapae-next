@@ -99,12 +99,6 @@ function Pagamentos({ params }) {
                             </span>
                         </div>
                     </Link>
-                    
-
-
-
-
-
 
                     <ListarPagamentos pagamentos={pagamentos} />
 
@@ -403,11 +397,6 @@ function Pagamentos({ params }) {
                             </div>
                         </section>
 
-
-
-
-
-
                     </div>
 
                     {aluno.data_ingresso ?
@@ -415,9 +404,6 @@ function Pagamentos({ params }) {
                         :
                         <div style={{ color: "gray" }}>A data de ingresso deste aluno na APAE não foi registrada.</div>
                     }
-
-
-
 
                 </div>
 

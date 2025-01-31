@@ -22,7 +22,7 @@ export default function Header() {
 
                 <section className={styles.botaoUser}>
                     <button id={styles.buttonHome}>
-                        <Link href="./perfil">
+                        <Link href="/perfil">
                             <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
                         </Link>
                     </button>
