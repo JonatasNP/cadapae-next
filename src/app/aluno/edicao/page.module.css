@@ -1,0 +1,203 @@
+#barraSuperior {
+    padding-top: 8px;
+    background-color: #8490ff;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 2px 4px #7a7979;
+    position: fixed;
+    z-index: 1;
+    min-height: 6em;
+    width: 100vw;
+    align-items: center;
+    top: 0;
+}
+
+#barraSuperior .LogoHome {
+    margin-left: 4.5vw;
+}
+
+#buttonHome {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    text-align: end;
+    margin-right: 16px;
+}
+
+.nomeApae {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logoApae {
+    padding-left: 15px;
+}
+
+
+.Carregamento {
+    animation: carregamento 0.8s linear infinite;
+}
+
+@keyframes carregamento {
+    0% {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 20%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#conteudo {
+    margin-top: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 6vh;
+    padding-top: 4vh;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+
+    & input, & textarea {
+        color: black;
+        background-color: white;
+    }
+}
+
+
+.BotaoRegistrar {
+    color: white;
+    width: 22vw;
+    background-color: rgb(49, 165, 49);
+    border: none;
+    font-weight: bolder;
+    font-size: 2vh;
+    border-radius: 20px;
+
+    vertical-align: center;
+    display: flex;
+    height: 8vh;
+}
+
+.BotaoRegistrar:hover {
+    cursor: pointer;
+    background-color: rgb(31, 104, 31);
+}
+
+
+.DadosAluno input,
+.DadosAluno select,
+.DadosAluno textarea {
+    font-size: 15px;
+    padding: 0.8em;
+    border-radius: 15px;
+    border: 1px solid #435bb2;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.DadosGeraisAluno,
+.DadosGeraisResponsavel {
+    width: 87vw;
+    justify-content: space-between;
+    display: flex;
+}
+
+.ImagemAluno {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-right: 2vw;
+    width: 25vw;
+    height: 25vw;
+    max-height: 25vw;
+    max-width: 25vw;
+}
+
+.DadosAluno {
+    width: 60vw;
+    text-align: left;
+}
+
+.SelecionarCID {
+    width: 20vw;
+}
+
+.Dados1Responsavel,
+.Dados2Responsavel {
+    width: 45vw;
+    text-align: left;
+}
+
+.Dados1Responsavel input,
+.Dados2Responsavel input {
+    background-color: white;
+    font-size: 15px;
+    padding: 0.8em;
+    border-radius: 15px;
+    border: 1px solid #435bb2;
+}
+
+.Dados1Responsavel {
+    margin-right: 4vw;
+}
+
+
+.BotaoRegistrar {
+    color: white;
+    width: 22vw;
+    background-color: rgb(49, 165, 49);
+    border: none;
+    font-weight: bolder;
+    font-size: 2vh;
+    bottom: 10vh;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    align-items: center;
+    vertical-align: center;
+    display: flex;
+    height: 8vh;
+}
+
+.BotaoRegistrar img {
+    padding-right: 10px;
+    height: 3em;
+    width: 4em;
+}
+
+.BotaoStyle {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 1em;
+    font-size: 0.8em;
+    font-weight: bolder;
+    border: 0px;
+}
+
+.BotaoStyle:hover,
+.BotaoRegistrar:hover {
+    cursor: pointer;
+}

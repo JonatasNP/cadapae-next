@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 
 
-
 function Login() {
 
 
@@ -59,12 +58,13 @@ function Login() {
                     </div>
 
                     <div>
-                        <p className={styles.textLogin2} >Senha</p>
+                        <p className={styles.textLogin2}>Senha</p>
                         <input placeholder="SENHA" id={styles.inputSenha} type="password" className={styles.InputInicial} value={senha} onChange={elemento => setSenha(elemento.target.value)}></input>
                     </div>
 
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <Link href={loginValido ? "./home" : "./"}><button className={styles.buttonLogin}>Entrar</button></Link>
+            
                     </div>
 
                 </div>
