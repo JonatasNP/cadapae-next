@@ -37,7 +37,7 @@ function PerfilAluno({ params }) {
                 console.error('Falha ao editar dados do aluno:', response.text());
             }
         }).catch(e => console.log(e));
-        
+
     }
 
 
@@ -51,9 +51,11 @@ function PerfilAluno({ params }) {
                     <EdicaoAluno dadosAluno={aluno} dadosResponsavel={responsavel} onChangeAluno={changeAluno} />
                 </div>
             ) :
-                <h2 className={styles.Carregamento} style={{ height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
-                    Aguarde um momento...
-                </h2>
+                <div id={styles.conteudo}>
+                    <h2 className={styles.Carregamento} style={{ height: "100vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
+                        Aguarde um momento...
+                    </h2>
+                </div>
             }
 
 
