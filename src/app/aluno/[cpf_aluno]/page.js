@@ -189,9 +189,11 @@ function PerfilAluno({ params }) {
                 </div>
 
             </div>):
-                <h2 className={styles.Carregamento} style={{height: "85vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle"}}>
-                    Carregando os dados do aluno...
-                </h2>
+                    <div id={styles.conteudo}>
+                        <h2 className={styles.Carregamento} style={{ height: "100vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
+                            Carregando dados do aluno...
+                        </h2>
+                    </div>
             }
 
 

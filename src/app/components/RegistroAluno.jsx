@@ -20,7 +20,6 @@ export default function RegistroAluno({ onAddAluno }) {
     const [data_nasc_aluno, setDataNascAluno] = useState('');
     const [laudo_aluno, setLaudoAluno] = useState('');
     const [especificidades_aluno, setEspecificidadesAluno] = useState('');
-
     const [cpf_resp, setCpfResp] = useState('');
     const [nome_resp, setNomeResp] = useState('');
     const [identidade_resp, setIdentidadeResp] = useState('');
@@ -28,12 +27,13 @@ export default function RegistroAluno({ onAddAluno }) {
     const [comprov_resid_resp, setComprovResidResp] = useState('');
     const [email_resp, setEmailResp] = useState('');
     const [contato_resp, setContatoResp] = useState('');
-    const [senha, setSenhaResp] = useState('');
     const [cidade, setCidade] = useState('');
     const [rua, setRua] = useState('');
     const [bairro, setBairro] = useState('');
     const [numero, setNumero] = useState('');
     const [complemento, setComplemento] = useState('');
+    
+    const [senha, setSenhaResp] = useState('');
 
 
     const handleSubmit = (e) => {
@@ -109,8 +109,14 @@ export default function RegistroAluno({ onAddAluno }) {
                             <section style={{ display: "flex" }}>
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
                                     <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o CPF do aluno..." minLength="11" maxLength="11" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => setCpfAluno(e.target.value)}></input>
-
+                                    <input placeholder="Digite o CPF do aluno..." minLength="14" maxLength="14" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => {
+                                        /*if(e.target.value.length === 3 || e.target.value.length === 7) {
+                                            e.target.value += ".";
+                                        } else if(e.target.value.length === 11) {
+                                            e.target.value += "-";
+                                        }*/
+                                        setCpfAluno(e.target.value);
+                                    }}></input>
                                     <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{ color: "red" }}>*</span></p>
                                     <input placeholder="Digite o número do cartão do SUS do aluno..." type="text" minLength="15" maxLength="15" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
                                 </section>
