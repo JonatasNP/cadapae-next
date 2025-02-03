@@ -98,7 +98,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO ALUNO</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
@@ -145,7 +145,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisResponsavel}>

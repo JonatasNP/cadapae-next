@@ -123,7 +123,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -147,7 +147,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -171,7 +171,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -195,7 +195,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -219,7 +219,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -243,7 +243,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -267,7 +267,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -291,7 +291,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -315,7 +315,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>

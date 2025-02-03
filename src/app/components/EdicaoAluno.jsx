@@ -94,7 +94,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                 <section>
                     <h1>EDITE OS DADOS DO ALUNO</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisAluno}>
@@ -192,7 +192,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                 <section>
                     <h1>EDITE OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisResponsavel}>

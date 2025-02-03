@@ -80,7 +80,7 @@ export default function RegistroAluno({ onAddAluno }) {
                 <section>
                     <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO ALUNO</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisAluno}>
@@ -176,7 +176,7 @@ export default function RegistroAluno({ onAddAluno }) {
                 <section>
                     <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
-                        backgroundColor: "#8490ff", width: "94vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                        backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
 
                     <section className={styles.DadosGeraisResponsavel}>
