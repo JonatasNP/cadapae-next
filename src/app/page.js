@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 
 
-
 function Login() {
 
 
@@ -26,12 +25,6 @@ function Login() {
         }
     }, [usuario, senha]);
 
-
-    document.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            if (loginValido) window.location.href = "home";
-        }
-    });
 
 
 

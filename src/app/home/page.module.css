@@ -218,7 +218,7 @@
 }
 
 
-.FiltroPagamento select, .FiltroIdade select {
+.FiltroPagamento select, .FiltroIdade select, .FiltroCID select {
   background-color: white;
   color: black;
   margin-top: 1em;

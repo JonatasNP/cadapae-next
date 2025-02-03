@@ -31,7 +31,7 @@ function PerfilAluno({ params }) {
         }).then((response) => {
             if (response.ok) {
                 fetchAluno();
-                window.alert(`Os dados do aluno ${aluno.nome} foram editados com sucesso.`);
+                window.alert(`Os dados do aluno foram editados com sucesso.`);
                 router.push("/home");
             } else {
                 console.error('Falha ao editar dados do aluno:', response.text());
