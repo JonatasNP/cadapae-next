@@ -34,13 +34,12 @@ export async function DELETE(request, { params }) {
 
 export async function GET(request, { params }) {
   try {
-    const { cpf_aluno } = params;
+    const { matricula_aluno } = params;
     const client = await pool.connect();
-    const aluno = await client.query('SELECT * FROM aluno WHERE cpf = $1', [cpf_aluno])
-    const pagamentos = await client.query('SELECT p.* FROM pagamento p INNER JOIN aluno a ON p.matricula_aluno = $1', [cpf_aluno]);
+    const pagamentos = await client.query('SELECT p.* FROM pagamento p INNER JOIN aluno a ON p.matricula_aluno = $1', [matricula_aluno]);
     client.release();
     return NextResponse.json({
-      pagamentos: pagamentos.rows[0]
+      pagamentos: pagamentos.rows
     })
   } catch (error) {
     console.error('Erro listando alunos:', error);

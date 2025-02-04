@@ -109,7 +109,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <section style={{ display: "flex" }}>
                                 <section style={{ width: "23vw", marginRight: "3.5vw" }}>
                                     <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o CPF do aluno..." minLength="14" maxLength="14" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => {
+                                    <input placeholder="Digite o CPF do aluno..." minLength="11" maxLength="11" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => {
                                         /*if(e.target.value.length === 3 || e.target.value.length === 7) {
                                             e.target.value += ".";
                                         } else if(e.target.value.length === 11) {
@@ -128,7 +128,7 @@ export default function RegistroAluno({ onAddAluno }) {
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
                                     <select className={styles.SelecionarCID} onChange={s => {setCidAluno(s.value); console.log(s.target.value)}}>
-                                        <option value={null} disabled selected>Nenhum CID</option>
+                                        <option value={null} selected>Nenhum CID</option>
                                         <option value={"N.I."}>CID não identificado</option>
                                         <option value={"F7 - Retardo mental não especificado"}>CID F7* - Retardo mental não especificado</option>
                                         <option value={"F8 - Autismo"}>CID F8* - Autismo</option>
@@ -137,8 +137,8 @@ export default function RegistroAluno({ onAddAluno }) {
                                 </section>
 
 
-                                <section style={{ width: "23vw" }}>
-                                    <span style={{width: "23vw", display: "flex"}}>
+                                <section style={{ width: "24.75vw" }}>
+                                    <span style={{width: "24.75vw", display: "flex"}}>
                                         <p style={{ marginTop: '1em' }}>NASCIMENTO<span style={{ color: "red" }}>*</span>
                                             <input type="date" style={{ width: '9.5vw' }} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
                                         </p>

@@ -83,32 +83,11 @@
 }
 
 
-.BotaoRegistrar {
-    color: white;
-    width: 22vw;
-    background-color: rgb(49, 165, 49);
-    border: none;
-    font-weight: bolder;
-    font-size: 2vh;
-    border-radius: 20px;
-
-    vertical-align: center;
-    display: flex;
-    height: 8vh;
-}
-
-.BotaoRegistrar:hover {
-    cursor: pointer;
-    background-color: rgb(31, 104, 31);
-}
-
-
 .DadosAluno input,
 .DadosAluno select,
 .DadosAluno textarea {
     font-size: 15px;
     padding: 0.8em;
-    border-radius: 15px;
     border: 1px solid #435bb2;
     background-color: rgb(255, 255, 255);
 }
@@ -154,7 +133,6 @@
     background-color: white;
     font-size: 15px;
     padding: 0.8em;
-    border-radius: 15px;
     border: 1px solid #435bb2;
 }
 
