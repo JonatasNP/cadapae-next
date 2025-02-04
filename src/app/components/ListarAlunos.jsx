@@ -45,7 +45,7 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa }) {
                                     <p style={{ width: '100vw' }}>
                                         <Image src={iconeUsuario} style={{ marginRight: "1em", filter: "invert(50%)" }} /> {a.nome.toUpperCase()}
                                     </p>
-                                    <p style={{ width: '20vw', justifyContent: "center" }}>{ }</p>
+                                    <p style={{ width: '20vw', justifyContent: "center" }}>{  }</p>
                                     <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{(calcularIdade(a.data_nascimento) > 0) ? calcularIdade(a.data_nascimento) : 0} anos</p>
                                     <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
                                         {0} pendências

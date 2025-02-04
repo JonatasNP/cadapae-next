@@ -98,7 +98,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO ALUNO</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisAluno}>
@@ -119,9 +119,9 @@ function PerfilAluno({ params }) {
                                         <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
                                         <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
                                         <h3 style={{ marginTop: '1em' }}>DATA DE INGRESSO</h3> {aluno.data_ingresso ? formatarData(aluno.data_ingresso) : "-"}
-                                        <h3 style={{ marginTop: '1em', alignItems: "center" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
+                                        <h3 style={{ marginTop: '1em', alignItems: "center", display: "flex" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
                                         <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
-                                        <Link href={`./pagamentos/${params.cpf_aluno}`}>
+                                        <Link href={`./pagamentos/${aluno.cpf}`}>
                                             <section style={{
                                                 marginTop: "0.5em", padding: "0.3em", minWidth: "10em", maxWidth: "23em", backgroundColor: "#8490ff", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
                                             }}>
@@ -145,7 +145,7 @@ function PerfilAluno({ params }) {
                     <section>
                         <h1>DADOS DO RESPONSÁVEL</h1>
                         <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "0.2vh", marginTop: "2vh", marginBottom: "2vh"
+                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                         }}></div>
 
                         <section className={styles.DadosGeraisResponsavel}>
@@ -159,7 +159,7 @@ function PerfilAluno({ params }) {
                                 <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}
                                 <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
                                 <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.rua && responsavel.numero ? `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento} ` : "-"}
-                                <h3 style={{ marginTop: '1em', alignItems: "center" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
+                                <h3 style={{ marginTop: '1em', alignItems: "center", display: "flex" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
                             </section>
                         </section>
                     </section>

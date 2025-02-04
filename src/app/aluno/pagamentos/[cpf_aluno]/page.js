@@ -19,15 +19,7 @@ function Pagamentos({ params }) {
 
     let dataAtual = Date.now();
 
-    if (pagamentos) pagamentos.map(p => {
-        if (p.status.toUpperCase() == "PENDENTE") quantPagamentosPendentes++;
-    })
 
-
-    useEffect(() => {
-        fetchAluno();
-        fetchPagamento();
-    }, [])
 
     const fetchAluno = async () => {
         const response = await fetch('/api/alunos/' + params.cpf_aluno);
@@ -35,12 +27,22 @@ function Pagamentos({ params }) {
         setAluno(data.aluno);
     }
 
-    const fetchPagamento = async () => {
-        const response = await fetch('/api/alunos/pagamentos' + params.cpf_aluno);
-        const data = await response.json();
-        setPagamentos(data.pagamentos);
+    const fetchPagamentos = async () => {
+        if (aluno) {
+            const response = await fetch('/api/alunos/pagamentos/' + aluno.matricula);
+            const data = await response.json();
+            setPagamentos(data.pagamentos);
+            if (pagamentos) pagamentos.map(p => {
+                if (p.status.toUpperCase() == "PENDENTE") console.log(quantPagamentosPendentes++);
+            })
+        }
+        
     }
 
+    useEffect(() => {
+        fetchAluno();
+        fetchPagamentos();
+    }, [])
 
     const addPagamento = async (p) => {
         const response = await fetch('/api/alunos', {
@@ -123,157 +125,15 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button onClick={()=>{fetchPagamentos(); console.log(pagamentos)}} style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
                             </section>
 
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Dezembro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
 
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Novembro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Outubro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Setembro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Agosto de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Julho de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>
-                                            <input type="date" style={{ width: "65%" }}></input>
-                                        </p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>
-                                            R$ <input type="number" style={{ width: "25%" }}></input>,00
-                                        </p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>
-                                            <input type="name" style={{ width: "60%" }}></input>
-                                        </p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
+                            
+                            {/*<section className={styles.Pagamento}>
                                 <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
                                     <h3 style={{ color: "red", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
                                         <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} /> Junho de 2024</h3>
@@ -291,7 +151,7 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
@@ -315,87 +175,12 @@ function Pagamentos({ params }) {
 
                                     <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
                                         <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Concluir</button></Link>
+                                            <Link href=""><button style={{ backgroundColor: "green", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Concluir</button></Link>
                                         </p>
                                     </section>
                                 </div>
-                            </section>
+                            </section>*/}
 
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "green", marginRight: "1em" }} /> Abril de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>15/04/2024</p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>R$ 17,00</p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>Jorge Mendonça Farias</p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Editar</button></Link>
-                                            <Link href=""><button style={{ backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Cancelar</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "green", marginRight: "1em" }} /> Março de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>13/03/2024</p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>R$ 14,00</p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>Cleomides Oliveira Brito</p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Editar</button></Link>
-                                            <Link href=""><button style={{ backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Cancelar</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "green", marginRight: "1em" }} /> Fevereiro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>29/02/2024</p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>R$ 25,00</p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>Maria Souza Fortunato</p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Editar</button></Link>
-                                            <Link href=""><button style={{ backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Cancelar</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
-
-                            <section className={styles.Pagamento}>
-                                <div style={{ display: "flex", alignItems: "center", verticalAlign: "middle" }}>
-                                    <h3 style={{ color: "green", display: "flex", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
-                                        <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "green", marginRight: "1em" }} /> Janeiro de 2024</h3>
-                                    <section style={{ display: "flex", width: "60vw" }}>
-                                        <p style={{ width: "15vw" }}><b>Data: </b>27/01/2024</p>
-                                        <p style={{ width: "15vw" }}><b>Valor: </b>R$ 20,00</p>
-                                        <p style={{ width: "40vw" }}><b>Pagante: </b>José Silva de Almeida</p>
-                                    </section>
-
-                                    <section style={{ display: "flex", width: "15vw", justifyContent: "right", textAlign: "right" }}>
-                                        <p style={{ display: "flex", justifyContent: "right", textAlign: "right" }}>
-                                            <Link href=""><button style={{ backgroundColor: "#559988", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em", marginRight: "0.5em" }}>Editar</button></Link>
-                                            <Link href=""><button style={{ backgroundColor: "red", color: "white", padding: "0.5em", borderRadius: "10px", border: "0px", fontWeight: "bold", fontSize: "1em" }}>Cancelar</button></Link>
-                                        </p>
-                                    </section>
-                                </div>
-                            </section>
 
                         </div>
 
