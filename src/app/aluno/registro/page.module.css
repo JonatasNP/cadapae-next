@@ -144,14 +144,15 @@
 }
 
 .ImagemAluno {
+  border: 1px solid lightgray;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  margin-right: 2vw;
-  width: 25vw;
-  height: 25vw;
+  margin: 0 auto;
+  width: 20vw;
+  height: 20vw;
   max-height: 25vw;
   max-width: 25vw;
 }

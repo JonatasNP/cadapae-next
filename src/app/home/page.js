@@ -7,14 +7,7 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
 
-import iconeUsuario from '../icones/perfil_do_usuario.png';
-import iconeHome from '../icones/icone_home.png';
-import iconeAluno from '../icones/icone_aluno.png';
-import iconeRelatorio from '../icones/icone_relatorio.png';
-import iconePagamentos from '../icones/icone_pagamentos.png';
-import iconeConfiguracao from '../icones/icone_configuracao.png';
-import iconeSair from '../icones/icone_sair.png';
-import iconePesquisar from '../icones/icone-pesquisa.png';
+import iconeFiltro from '../icones/icone-filtro.png';
 
 import { useEffect, useState } from "react";
 

@@ -5,7 +5,6 @@ export async function GET() {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM aluno');
-    const result2 = await client.query('SELECT * FROM cids');
     client.release();
     return NextResponse.json(result.rows);
   } catch (error) {
