@@ -19,7 +19,6 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
     const [identidade_aluno, setIdentidadeAluno] = useState(dadosAluno.numero_identidade);
     const [data_ingresso, setDataIngresso] = useState(dadosAluno.data_ingresso);
     const [data_nasc_aluno, setDataNascAluno] = useState(dadosAluno.data_nascimento);
-    const [laudo_aluno, setLaudoAluno] = useState('');
     const [especificidades_aluno, setEspecificidadesAluno] = useState(dadosAluno.especificidades);
 
     const [cpf_resp, setCpfResp] = useState(dadosResponsavel.cpf);
@@ -35,6 +34,9 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
     const [bairro, setBairro] = useState(dadosResponsavel.bairro);
     const [numero, setNumero] = useState(dadosResponsavel.numero);
     const [complemento, setComplemento] = useState(dadosResponsavel.complemento);
+
+    const [laudos_aluno, setLaudosAluno] = useState('');
+    const [cids_aluno, setCidsAluno] = useState('');
 
 
     const handleSubmit = (e) => {
@@ -140,7 +142,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                         defaultValue={identidade_aluno} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
-                                    <select className={styles.SelecionarCID}>
+                                    <select className={styles.SelecionarCID} onChange={s => {setCidsAluno(s.value); console.log(s.target.value)}}>
                                         <option>Nenhum CID</option>
                                         <option>CID não identificado</option>
                                         <option>CID F8* - Autismo</option>
@@ -166,7 +168,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
 
                                     <p style={{ marginTop: '1em' }}>LAUDO</p>
                                     <input type="file" style={{ width: '21.5vw' }}
-                                        value={laudo_aluno} onChange={(e) => setLaudoAluno(e.target.value)}></input>
+                                        value={laudos_aluno} onChange={(e) => setLaudosAluno(e.target.value)}></input>
                                 </section>
                             </section>
                             <section>

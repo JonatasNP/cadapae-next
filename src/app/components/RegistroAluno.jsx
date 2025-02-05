@@ -9,16 +9,14 @@ import ImgLogo from '../imgs/logo-apae.png';
 
 export default function RegistroAluno({ onAddAluno }) {
     
-    const [matricula_aluno, setMatriculaAluno] = useState('');
     const [cpf_aluno, setCpfAluno] = useState('');
     const [foto, setFotoAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
-    const [cid_aluno, setCidAluno] = useState('');
+    
     const [identidade_aluno, setIdentidadeAluno] = useState('');
     const [data_ingresso, setDataIngresso] = useState('');
     const [data_nasc_aluno, setDataNascAluno] = useState('');
-    const [laudo_aluno, setLaudoAluno] = useState('');
     const [especificidades_aluno, setEspecificidadesAluno] = useState('');
     const [cpf_resp, setCpfResp] = useState('');
     const [nome_resp, setNomeResp] = useState('');
@@ -33,6 +31,9 @@ export default function RegistroAluno({ onAddAluno }) {
     const [numero, setNumero] = useState('');
     const [complemento, setComplemento] = useState('');
     
+    const [laudos_aluno, setLaudosAluno] = useState('');
+    const [cids_aluno, setCidsAluno] = useState('');
+    
     const [senha, setSenhaResp] = useState('');
 
 
@@ -45,7 +46,6 @@ export default function RegistroAluno({ onAddAluno }) {
         }
 
             onAddAluno({
-                matricula_aluno,
                 cpf_aluno,
                 foto,
                 nome_aluno,
@@ -53,9 +53,8 @@ export default function RegistroAluno({ onAddAluno }) {
                 identidade_aluno,
                 data_ingresso,
                 data_nasc_aluno,
-                laudo_aluno,
                 especificidades_aluno,
-                cid_aluno,
+
                 cpf_resp,
                 nome_resp,
                 identidade_resp,
@@ -67,7 +66,10 @@ export default function RegistroAluno({ onAddAluno }) {
                 rua,
                 bairro,
                 numero,
-                complemento
+                complemento,
+
+                cids_aluno,
+                laudos_aluno
             })
 
     }
@@ -101,7 +103,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                 </p>
                                 <p style={{marginLeft: "2vw"}}>
                                     MATRÍCULA<span style={{ color: "red" }}>*</span>
-                                    <input type="number" placeholder="Digite a matrícula do aluno..." style={{width: "21.5vw"}} value={matricula_aluno} onChange={(e) => setMatriculaAluno(e.target.value)}></input>
+                                    <input type="number" placeholder="Digite a matrícula do aluno..." style={{width: "21.5vw"}}></input>
                                 </p>
                             </section>
 
@@ -127,7 +129,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                     <input placeholder="Digite o número do RG do aluno..." type="text" minLength="9" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
 
                                     <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
-                                    <select className={styles.SelecionarCID} onChange={s => {setCidAluno(s.value); console.log(s.target.value)}}>
+                                    <select className={styles.SelecionarCID} onChange={s => {setCidsAluno(s.value); console.log(s.target.value)}}>
                                         <option value={null} selected>Nenhum CID</option>
                                         <option value={"N.I."}>CID não identificado</option>
                                         <option value={"F7 - Retardo mental não especificado"}>CID F7* - Retardo mental não especificado</option>
@@ -150,7 +152,7 @@ export default function RegistroAluno({ onAddAluno }) {
                                 
 
                                     <p style={{ marginTop: '1em' }}>LAUDO</p>
-                                    <input type="file" style={{ width: '21.5vw' }} value={laudo_aluno} onChange={(e) => setLaudoAluno(e.target.value)}></input>
+                                    <input type="file" style={{ width: '21.5vw' }} value={laudos_aluno} onChange={(e) => setLaudosAluno(e.target.value)}></input>
                                 </section>
                             </section>
                             <section>
