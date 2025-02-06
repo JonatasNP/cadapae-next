@@ -93,7 +93,7 @@ function Pagamentos({ params }) {
                         <Link href={`../${aluno.cpf}`}>
                             <div className={styles.ReferenteAluno} style={{ display: "flex", marginBottom: "3vh" }}>
                                 <p style={{ width: '100vw' }}>
-                                    <Image src={iconeUsuario} style={{ filter: "invert(100%)", marginRight: "1em" }} /> {aluno ? aluno.nome.toUpperCase() + " (" + aluno.matricula + ")" : <i className={styles.Carregamento}>Carregando nome do aluno...</i>}
+                                    <Image src={iconeUsuario} style={{ filter: "invert(100%)", marginRight: "1em" }} /> {aluno ? aluno.nome.toUpperCase() + " (" + aluno.cpf + ")" : <i className={styles.Carregamento}>Carregando nome do aluno...</i>}
                                 </p>
                                 <span style={{ display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
                                     <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} />

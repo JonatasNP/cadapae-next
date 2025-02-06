@@ -136,7 +136,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <section style={{ marginTop: '1em' }}>
                                 <p>ESPECIFICIDADES DO(A) ALUNO(A)</p>
                                 <textarea placeholder="Caso o aluno possua especificidades, descreva-as neste campo. Ex.: Intolerância à lactose."
-                                    style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '20vh', minHeight: "20vh" }}
+                                    style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '15vh', minHeight: "15vh" }}
                                     value={especificidades_aluno} onChange={(e) => setEspecificidadesAluno(e.target.value)}
                                 ></textarea>
                             </section>
@@ -147,9 +147,9 @@ export default function RegistroAluno({ onAddAluno }) {
 
                     <section style={{ marginTop: '1em', display: 'flex' }}>
                         <section style={{
-                            width: '45vw', marginRight: '5vw'
+                            width: '45vw', marginRight: '3vw'
                         }}>
-                            <p>LAUDOS DO(A) ALUNO(A)</p>
+                            <p>LAUDOS MÉDICOS</p>
                             <section style={{
                                 color: 'black',
                                 fontSize: '15px',
