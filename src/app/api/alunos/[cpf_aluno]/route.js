@@ -22,10 +22,12 @@ export async function GET(request, { params }) {
     const client = await pool.connect();
     const aluno = await client.query('SELECT * FROM aluno WHERE cpf = $1', [cpf_aluno])
     const responsavel = await client.query('SELECT r.* FROM responsavel r INNER JOIN aluno a ON r.cpf = a.cpf_responsavel WHERE a.cpf = $1', [cpf_aluno])
+    const cids = await client.query('SELECT c.* FROM cid c INNER JOIN cid_aluno ca ON c.id = ca.id_cid INNER JOIN aluno a ON a.cpf = ca.cpf_aluno WHERE a.cpf = $1', [cpf_aluno])
     client.release();
     return NextResponse.json({
       aluno: aluno.rows[0],
-      responsavel: responsavel.rows[0]
+      responsavel: responsavel.rows[0],
+      cids: cids.rows
     })
   } catch (error) {
     console.error('Erro listando alunos:', error);

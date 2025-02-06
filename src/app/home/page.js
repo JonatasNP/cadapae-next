@@ -109,21 +109,7 @@ function Home() {
                                 </select>
 
                             </div>
-                            <div className={styles.FiltroCID}>
-                                <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
-                                <select>
-                                    <option disabled selected>Selecione o CID correspondente</option>
-                                    <option>CID não identificado</option>
-                                    <option>CID F7 - Retardo mental não especificado</option>
-                                    <option>CID F8 - Autismo</option>
-                                    <option>Outro CID</option>
-                                </select>
-
-
-
-
-
-                            </div>
+                            
                         </section>
 
 

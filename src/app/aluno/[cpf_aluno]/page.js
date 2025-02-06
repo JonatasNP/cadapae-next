@@ -69,6 +69,7 @@ function PerfilAluno({ params }) {
         const data = await response.json();
         setAluno(data.aluno);
         setResponsavel(data.responsavel);
+        setCids(data.cids);
     }
 
     useEffect(() => {
@@ -141,9 +142,12 @@ function PerfilAluno({ params }) {
                                             <h3 style={{marginRight: "0.7em"}}>CIDS CORRESPONDENTES</h3>
                                             {
                                                 cids.length !== 0 ? (
-                                                    cids.map(c => {
-                                                        {c.codigo + " - " + c.nome}
-                                                    })
+                                                    cids.map(c => 
+                                                        <p>
+                                                            {`${c.codigo} - ${c.nome}`}
+                                                        </p>
+                                                        
+                                                    )
                                                 ) : ("Nenhum CID correspondente.")
                                             }
                                         </section>
