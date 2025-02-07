@@ -226,3 +226,11 @@
   border: none;
 }
 
+.Cids {
+  background-color: #8490ff;
+  border-radius: 30px;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5em;
+  margin: 0.2em;
+}

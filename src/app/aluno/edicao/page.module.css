@@ -73,10 +73,11 @@
     color: black;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     background-color: white;
 
-    & input, & textarea {
+    & input,
+    & textarea {
         color: black;
         background-color: white;
     }
@@ -101,14 +102,15 @@
 }
 
 .ImagemAluno {
+    border: 1px solid lightgray;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    margin-right: 2vw;
-    width: 25vw;
-    height: 25vw;
+    margin: 0 auto;
+    width: 20vw;
+    height: 20vw;
     max-height: 25vw;
     max-width: 25vw;
 }
@@ -149,9 +151,9 @@
     font-weight: bolder;
     font-size: 2vh;
     bottom: 10vh;
-    border-radius: 20px;
     padding: 20px 20px 20px 20px;
     align-items: center;
+
     vertical-align: center;
     display: flex;
     height: 8vh;
@@ -159,8 +161,8 @@
 
 .BotaoRegistrar img {
     padding-right: 10px;
-    height: 3em;
-    width: 4em;
+    height: 45px;
+    width: 55px;
 }
 
 .BotaoStyle {

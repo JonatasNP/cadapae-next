@@ -53,7 +53,7 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa, cids }) {
                                     <p style={{ width: '20vw', justifyContent: "center" }}>
                                         {
                                             cids ? (
-                                                cids.map(c => <span style={{borderRadius: "10px"}}>{c.codigo}</span>)
+                                                cids.map(c => <span className={styles.Cids}>{c.codigo}</span>)
                                             ) : ("")
                                         }
                                     </p>

@@ -33,11 +33,13 @@ function Home() {
 
     const [aluno, setAluno] = useState("");
     const [alunos, setAlunos] = useState([]);
+    const [cids, setCids] = useState([]);
 
     const fetchAlunos = async () => {
         const response = await fetch('/api/alunos');
         const dados = await response.json();
-        setAlunos(dados);
+        setAlunos(dados.alunos);
+        setCids(dados.cids)
     }
 
     useEffect(() => {
@@ -58,7 +60,7 @@ function Home() {
                     <section className={styles.ExibicaoAlunos}>
                         <input className={styles.BarraPesquisa} placeholder='Insira o nome do aluno a ser pesquisado...' value={aluno} onChange={e => setAluno(e.target.value)} />
 
-                        <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
+                        <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} cids={cids} />
 
 
                         

@@ -40,7 +40,7 @@ export default function RegistroAluno({ onAddAluno }) {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (!nome_aluno || !matricula_aluno || !cpf_aluno || !data_nasc_aluno || !cpf_resp) {
+        if (!nome_aluno || !cpf_aluno || !data_nasc_aluno || !cpf_resp) {
             alert('Por favor, preencha todos os campos obrigatórios.');
             return;
         }
@@ -260,7 +260,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <p style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</p>
                             <input type="file" style={{ width: "45vw" }} accept=".pdf" value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
 
-                            <div style={{ display: "flex", marginTop: "1em", marginBottom: "5em", justifyContent: "right", alignItems: "end" }}>
+                            <div>
                                 <button className={styles.BotaoRegistrar} type='submit'>
                                     <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
                                 </button>

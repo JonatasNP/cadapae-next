@@ -173,7 +173,7 @@ function PerfilAluno({ params }) {
                                     <p style={{width: "30vw"}}><h3>NOME COMPLETO</h3> {responsavel.nome ? responsavel.nome.toUpperCase() : "-"}</p>
                                     <p style={{width: "20vw"}}><h3>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}</p>
                                     <p style={{width: "22vw"}}><h3>NÚMERO DA IDENTIDADE</h3> {responsavel.numero_identidade ? responsavel.numero_identidade : "-"}</p>
-                                    <p style={{width: "15vw"}}><h3>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento ? responsavel.data_nascimento : "-"}</p>
+                                    <p style={{width: "15vw"}}><h3>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento ? formatarData(responsavel.data_nascimento) + " (" + calcularIdade(responsavel.data_nascimento) + " anos)" : "-"}</p>
                                 </section>
                                 <section className={styles.Dados2Responsavel} style={{ marginTop: '1em' }}>
                                     <p style={{width: "30vw"}}><h3>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}</p>
