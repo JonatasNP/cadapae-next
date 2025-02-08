@@ -112,21 +112,25 @@
 }
 
 
-.DadosGeraisAluno,
-.DadosGeraisResponsavel {
+.DadosGeraisAluno {
   width: 87vw;
   justify-content: space-between;
   display: flex;
 }
 
+
 .ImagemAluno {
-  margin-right: 2vw;
-  width: 30vw;
+  border: 1px solid lightgray;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  margin: 0 auto;
+  width: 20vw;
+  height: 20vw;
+  max-height: 25vw;
+  max-width: 25vw;
 }
 
 .ImagemAluno input {
@@ -145,7 +149,9 @@
 
 .Dados1Responsavel,
 .Dados2Responsavel {
-  width: 45vw;
+  flex-wrap: wrap;
+  display: flex;
+  width: 100vw;
   text-align: left;
 }
 
@@ -222,9 +228,6 @@
   align-items: center;
   justify-content: center;
 }
-
-
-
 
 
 

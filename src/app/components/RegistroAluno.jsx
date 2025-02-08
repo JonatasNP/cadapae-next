@@ -7,18 +7,31 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
-export default function RegistroAluno({ onAddAluno }) {
-    
-    const [matricula_aluno, setMatriculaAluno] = useState('');
+export default function RegistroAluno({ onAddAluno, cids }) {
+
+
+    function formatarDataComHifen(data) {
+        const date = new Date(data);
+
+        const dia = date.getDate().toString().padStart(2, '0');
+        const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+        const ano = date.getFullYear();
+
+
+        const dataFormatada = `${ano}-${mes}-${dia}`;
+
+        return dataFormatada;
+    }
+
+
     const [cpf_aluno, setCpfAluno] = useState('');
     const [foto, setFotoAluno] = useState('');
     const [nome_aluno, setNomeAluno] = useState('');
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
-    const [cid_aluno, setCidAluno] = useState('');
+
     const [identidade_aluno, setIdentidadeAluno] = useState('');
-    const [data_ingresso, setDataIngresso] = useState('');
+    const [data_ingresso, setDataIngresso] = useState(formatarDataComHifen(Date.now()));
     const [data_nasc_aluno, setDataNascAluno] = useState('');
-    const [laudo_aluno, setLaudoAluno] = useState('');
     const [especificidades_aluno, setEspecificidadesAluno] = useState('');
     const [cpf_resp, setCpfResp] = useState('');
     const [nome_resp, setNomeResp] = useState('');
@@ -32,53 +45,73 @@ export default function RegistroAluno({ onAddAluno }) {
     const [bairro, setBairro] = useState('');
     const [numero, setNumero] = useState('');
     const [complemento, setComplemento] = useState('');
-    
+
+    const [laudos_aluno, setLaudosAluno] = useState('');
+    const [cids_aluno, setCidsAluno] = useState(cids);
+
     const [senha, setSenhaResp] = useState('');
 
+
+
+
+    const handleCidsChange = (e) => {
+        const value = e.target.value;
+    
+        setCidsAluno((prev) =>
+          e.target.checked ?
+            [...prev, value] : prev.filter((cid) => cid !== value)
+        );
+        console.log(cids_aluno)
+    };
+
+
+    
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (!nome_aluno || !matricula_aluno || !cpf_aluno || !data_nasc_aluno || !cpf_resp) {
+        if (!nome_aluno || !cpf_aluno || !data_nasc_aluno || !cpf_resp) {
             alert('Por favor, preencha todos os campos obrigatórios.');
             return;
         }
 
-            onAddAluno({
-                matricula_aluno,
-                cpf_aluno,
-                foto,
-                nome_aluno,
-                cartao_sus_aluno,
-                identidade_aluno,
-                data_ingresso,
-                data_nasc_aluno,
-                laudo_aluno,
-                especificidades_aluno,
-                cid_aluno,
-                cpf_resp,
-                nome_resp,
-                identidade_resp,
-                data_nasc_resp,
-                comprov_resid_resp,
-                email_resp,
-                contato_resp,
-                cidade,
-                rua,
-                bairro,
-                numero,
-                complemento
-            })
+        onAddAluno({
+            cpf_aluno,
+            foto,
+            nome_aluno,
+            cartao_sus_aluno,
+            identidade_aluno,
+            data_ingresso,
+            data_nasc_aluno,
+            especificidades_aluno,
+
+            cpf_resp,
+            nome_resp,
+            identidade_resp,
+            data_nasc_resp,
+            comprov_resid_resp,
+            email_resp,
+            contato_resp,
+            cidade,
+            rua,
+            bairro,
+            numero,
+            complemento,
+
+            cids_aluno,
+            laudos_aluno
+        })
 
     }
 
-    
+
 
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <section>
-                    <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO ALUNO</h1>
+                    <h1 style={{ textAlign: 'center' }}>PREENCHA COM OS DADOS DO ALUNO</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -94,74 +127,98 @@ export default function RegistroAluno({ onAddAluno }) {
                         </section>
 
                         <section className={styles.DadosAluno}>
-                            <section style={{display:'flex', width: "67vw", justifyContent: "space-between", marginTop: '1em'}}>
+                            <section style={{ display: 'flex', width: "67vw", justifyContent: "space-between", marginTop: '1em' }}>
                                 <p>
-                                    NOME COMPLETO<span style={{ color: "red" }}>*</span>
-                                    <input type="name" placeholder="Digite o nome completo do aluno..." style={{width: "43.5vw"}} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos" value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
+                                    NOME COMPLETO
+                                    <input type="name" placeholder="Digite o nome completo do aluno..." style={{ width: "43.5vw" }} pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos" value={nome_aluno} onChange={(e) => setNomeAluno(e.target.value)}></input>
                                 </p>
-                                <p style={{marginLeft: "2vw"}}>
-                                    MATRÍCULA<span style={{ color: "red" }}>*</span>
-                                    <input type="number" placeholder="Digite a matrícula do aluno..." style={{width: "21.5vw"}} value={matricula_aluno} onChange={(e) => setMatriculaAluno(e.target.value)}></input>
+                                <p>CPF
+                                    <input placeholder="Digite o CPF do aluno..." minLength="11" maxLength="11" type="text" style={{ width: '21.5vw' }} value={cpf_aluno} onChange={(e) => {
+                                        setCpfAluno(e.target.value);
+                                    }}></input>
                                 </p>
                             </section>
 
 
                             <section style={{ display: "flex" }}>
-                                <section style={{ width: "23vw", marginRight: "3.5vw" }}>
-                                    <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
-                                    <input placeholder="Digite o CPF do aluno..." minLength="11" maxLength="11" type="text" style={{ width: '20vw' }} value={cpf_aluno} onChange={(e) => {
-                                        /*if(e.target.value.length === 3 || e.target.value.length === 7) {
-                                            e.target.value += ".";
-                                        } else if(e.target.value.length === 11) {
-                                            e.target.value += "-";
-                                        }*/
-                                        setCpfAluno(e.target.value);
-                                    }}></input>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS<span style={{ color: "red" }}>*</span></p>
+                                <section style={{ width: "23vw", marginRight: "3.5vw", marginTop: '1em' }}>
+                                    <p>NÚMERO DO CARTÃO DO SUS</p>
                                     <input placeholder="Digite o número do cartão do SUS do aluno..." type="text" minLength="15" maxLength="15" style={{ width: '20vw' }} value={cartao_sus_aluno} onChange={(e) => setCartaoSusAluno(e.target.value)}></input>
                                 </section>
 
 
-                                <section style={{ width: "23vw", marginRight: "2vw" }}>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE<span style={{ color: "red" }}>*</span></p>
+                                <section style={{ width: "23vw", marginRight: "2vw", marginTop: '1em' }}>
+                                    <p>NÚMERO DA IDENTIDADE (opcional)</p>
                                     <input placeholder="Digite o número do RG do aluno..." type="text" minLength="9" maxLength="9" style={{ width: '20vw' }} value={identidade_aluno} onChange={(e) => setIdentidadeAluno(e.target.value)}></input>
-
-                                    <p style={{ marginTop: '1em' }}>CID<span style={{ color: "red" }}>*</span></p>
-                                    <select className={styles.SelecionarCID} onChange={s => {setCidAluno(s.value); console.log(s.target.value)}}>
-                                        <option value={null} selected>Nenhum CID</option>
-                                        <option value={"N.I."}>CID não identificado</option>
-                                        <option value={"F7 - Retardo mental não especificado"}>CID F7* - Retardo mental não especificado</option>
-                                        <option value={"F8 - Autismo"}>CID F8* - Autismo</option>
-                                        <option value={"Outro"}>Outro CID</option>
-                                    </select>
                                 </section>
 
 
                                 <section style={{ width: "24.75vw" }}>
-                                    <span style={{width: "24.75vw", display: "flex"}}>
-                                        <p style={{ marginTop: '1em' }}>NASCIMENTO<span style={{ color: "red" }}>*</span>
+                                    <span style={{ width: "24.75vw", display: "flex", marginTop: '1em' }}>
+                                        <p>NASCIMENTO
                                             <input type="date" style={{ width: '9.5vw' }} value={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
                                         </p>
-
-                                        <p style={{ marginTop: '1em' }}>INGRESSOU EM<span style={{ color: "red" }}>*</span>
+                                        <p>INGRESSOU EM
                                             <input type="date" style={{ width: '9.5vw' }} value={data_ingresso} onChange={(e) => setDataIngresso(e.target.value)}></input>
                                         </p>
                                     </span>
-                                
-
-                                    <p style={{ marginTop: '1em' }}>LAUDO</p>
-                                    <input type="file" style={{ width: '21.5vw' }} value={laudo_aluno} onChange={(e) => setLaudoAluno(e.target.value)}></input>
                                 </section>
                             </section>
-                            <section>
-                                <p style={{ marginTop: '1em' }}>ESPECIFICIDADES DO(A) ALUNO(A)</p>
+                            <section style={{ marginTop: '1em' }}>
+                                <p>ESPECIFICIDADES DO(A) ALUNO(A)</p>
                                 <textarea placeholder="Caso o aluno possua especificidades, descreva-as neste campo. Ex.: Intolerância à lactose."
-                                    style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '30vh', minHeight: "15vh" }}
+                                    style={{ fontFamily: "Arial", width: '67vw', minWidth: "67vw", maxWidth: '67vw', maxHeight: '15vh', minHeight: "15vh" }}
                                     value={especificidades_aluno} onChange={(e) => setEspecificidadesAluno(e.target.value)}
                                 ></textarea>
                             </section>
                         </section>
 
+
+                    </section>
+
+                    <section style={{ marginTop: '1em', display: 'flex' }}>
+                        <section style={{
+                            width: '45vw', marginRight: '3vw'
+                        }}>
+                            <p>LAUDOS MÉDICOS</p>
+                            <section style={{
+                                color: 'black',
+                                fontSize: '15px',
+                                padding: '0.8em',
+                                border: '1px solid #435bb2',
+                                backgroundColor: 'rgb(255, 255, 255)'
+                            }}>
+                                <input type='file'></input>
+                            </section>
+                        </section>
+                        <section style={{ width: '40vw'}}>
+                            <p style={{marginBottom: "0.5em"}}>CIDS CORRESPONDENTES</p>
+                            <span style={{lineHeight: '1.5em', display: "flex", flexWrap: "wrap"}}>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={1} onChange={handleCidsChange}/> F84 - Autismo
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={2} onChange={handleCidsChange}/> F70 - Retardo mental leve
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={3} onChange={handleCidsChange}/> F71 - Retardo mental moderado
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={4} onChange={handleCidsChange}/> F72 - Retardo mental grave
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={5} onChange={handleCidsChange}/> F73 - Deficiência intelectual profunda
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={6} onChange={handleCidsChange}/> G80 - Paralisia cerebral
+                                </span>
+                                <span style={{marginRight: "1.5em"}}>
+                                    <input type='checkbox' value={7} onChange={handleCidsChange}/> Outro/Não identificado
+                                </span>
+                            </span>
+                        
+
+                        </section>
                     </section>
                 </section>
             </div>
@@ -174,7 +231,7 @@ export default function RegistroAluno({ onAddAluno }) {
 
             <div style={{ marginTop: '10vh' }}>
                 <section>
-                    <h1 style={{textAlign: 'center'}}>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
+                    <h1 style={{ textAlign: 'center' }}>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -182,24 +239,24 @@ export default function RegistroAluno({ onAddAluno }) {
                     <section className={styles.DadosGeraisResponsavel}>
                         <section className={styles.Dados1Responsavel}>
                             <section>
-                                <p style={{ marginTop: '1em' }}>NOME COMPLETO<span style={{ color: "red" }}>*</span></p>
+                                <p style={{ marginTop: '1em' }}>NOME COMPLETO</p>
                                 <input type="name" style={{ width: "45vw" }} placeholder="Digite o nome completo do responsável..." pattern="[A-Za-z ]+" title="Apenas letras e espaços são permitidos" value={nome_resp} onChange={(e) => setNomeResp(e.target.value)}></input>
                             </section>
                             <section style={{ display: "flex", justifyContent: "space-between" }}>
                                 <section>
-                                    <p style={{ marginTop: '1em' }}>CPF<span style={{ color: "red" }}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>CPF</p>
                                     <input placeholder="Digite o CPF do responsável..." minLength="11" maxLength="11" type="text" style={{ width: "22vw" }} value={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
-                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO<span style={{ color: "red" }}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</p>
                                     <input type="date" style={{ width: "22vw" }} value={data_nasc_resp} onChange={(e) => setDataNascResp(e.target.value)}></input>
                                 </section>
                                 <section>
-                                    <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE<span style={{ color: "red" }}>*</span></p>
+                                    <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE</p>
                                     <input placeholder="Digite o número do RG do responsável..." type="text" minLength="9" maxLength="9" style={{ width: "22vw" }} value={identidade_resp} onChange={(e) => setIdentidadeResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>TELEFONE</p>
                                     <input placeholder="Digite o telefone do responsável..." type="text" minLength="11" maxLength="11" style={{ width: "22vw" }} value={contato_resp} onChange={(e) => setContatoResp(e.target.value)}></input>
                                 </section>
                             </section>
-                            <p style={{ marginTop: '1em' }}>EMAIL<span style={{ color: "red" }}>*</span></p>
+                            <p style={{ marginTop: '1em' }}>EMAIL</p>
                             <input placeholder="Digite o email do responsável..." type="email" style={{ width: "45vw" }} value={email_resp} onChange={(e) => setEmailResp(e.target.value)}></input>
                         </section>
 
@@ -234,7 +291,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <p style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</p>
                             <input type="file" style={{ width: "45vw" }} accept=".pdf" value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
 
-                            <div style={{ display: "flex", marginTop: "1em", marginBottom: "5em", justifyContent: "right", alignItems: "end" }}>
+                            <div style={{display: "flex", justifyContent: "end", marginTop: "1em"}}>
                                 <button className={styles.BotaoRegistrar} type='submit'>
                                     <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
                                 </button>

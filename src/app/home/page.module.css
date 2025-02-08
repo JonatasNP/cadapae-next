@@ -124,8 +124,8 @@
 
 .BotaoRegistrar img {
   padding-right: 10px;
-  height: 3em;
-  width: 4em;
+  height: 40px;
+  width: 50px;
 }
 
 
@@ -226,3 +226,11 @@
   border: none;
 }
 
+.Cids {
+  background-color: #8490ff;
+  border-radius: 30px;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5em;
+  margin: 0.2em;
+}

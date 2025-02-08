@@ -22,10 +22,12 @@ export async function GET(request, { params }) {
     const client = await pool.connect();
     const aluno = await client.query('SELECT * FROM aluno WHERE cpf = $1', [cpf_aluno])
     const responsavel = await client.query('SELECT r.* FROM responsavel r INNER JOIN aluno a ON r.cpf = a.cpf_responsavel WHERE a.cpf = $1', [cpf_aluno])
+    const cids = await client.query('SELECT c.* FROM cid c INNER JOIN cid_aluno ca ON c.id = ca.id_cid INNER JOIN aluno a ON a.cpf = ca.cpf_aluno WHERE a.cpf = $1', [cpf_aluno])
     client.release();
     return NextResponse.json({
       aluno: aluno.rows[0],
-      responsavel: responsavel.rows[0]
+      responsavel: responsavel.rows[0],
+      cids: cids.rows
     })
   } catch (error) {
     console.error('Erro listando alunos:', error);
@@ -37,8 +39,6 @@ export async function PUT(request, { params }) {
   const { cpf_aluno } = params;
   try {
     const {
-      matricula_aluno,
-      cpf_aluno,
       foto,
       nome_aluno,
       cartao_sus_aluno,
@@ -47,6 +47,7 @@ export async function PUT(request, { params }) {
       data_nasc_aluno,
       laudo_aluno,
       especificidades_aluno,
+      
       cpf_resp,
       nome_resp,
       identidade_resp,
@@ -62,19 +63,17 @@ export async function PUT(request, { params }) {
     const client = await pool.connect();
     const result = await client.query(
       `UPDATE aluno SET
-      matricula = $1,
-      cpf = $2,
-      foto = $3,
-      nome = $4,
-      numero_cartao_sus = $5,
-      numero_identidade = $6,
-      data_ingresso = $7,
-      data_nascimento = $8,
-      laudo = $9, 
-      especificidades = $10
-      WHERE cpf = $2
+      cpf = $1,
+      foto = $2,
+      nome = $3,
+      numero_cartao_sus = $4,
+      numero_identidade = $5,
+      data_ingresso = $6,
+      data_nascimento = $7,
+      especificidades = $8
+      WHERE cpf = $1
       RETURNING *`,
-      [matricula_aluno, cpf_aluno, foto, nome_aluno, cartao_sus_aluno, identidade_aluno, data_ingresso, data_nasc_aluno, laudo_aluno, especificidades_aluno]
+      [cpf_aluno, foto, nome_aluno, cartao_sus_aluno, identidade_aluno, data_ingresso, data_nasc_aluno, especificidades_aluno]
     );
 
     const result2 = await client.query(
@@ -97,7 +96,7 @@ export async function PUT(request, { params }) {
       RETURNING *`,
       [cpf_resp, nome_resp, identidade_resp, data_nasc_resp, comprov_resid_resp, email_resp, contato_resp, cidade, rua, bairro, numero, complemento, cpf_aluno]
     )
-    
+
 
     client.release();
     return NextResponse.json(result.rows[0], { status: 201 });

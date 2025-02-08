@@ -10,6 +10,7 @@ import Header from '../../components/Header';
 function Registrar_Aluno() {
 
   const [aluno, setAluno] = useState([]);
+  const [cids, setCids] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function Registrar_Aluno() {
     const response = await fetch('/api/alunos')
     if (response.ok) {
       const data = await response.json();
-      setAluno(data)
+      setCids(data.cids)
     } else {
       console.error('Erro ao buscar os alunos', response.status, response.statusText);
     }
@@ -49,7 +50,7 @@ function Registrar_Aluno() {
     <div style={{ height: "100vh" }}>
       <Header />
       <div id={styles.conteudo}>
-        <RegistroAluno onAddAluno={addAluno} />
+        <RegistroAluno onAddAluno={addAluno} cids={cids} />
       </div>
     </div>
   );

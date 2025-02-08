@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import styles from '../page.module.css';
 import ImgLogo from '../imgs/logo-apae.png';
+import iconePerfil from '../icones/icone-perfil.png';
 import iconeConfiguracao from '../icones/icone_configuracao.png';
 
 
@@ -23,7 +24,7 @@ export default function Header() {
                 <section className={styles.botaoUser}>
                     <button id={styles.buttonHome}>
                         <Link href="/perfil">
-                            <Image src={iconeConfiguracao} alt='icone_configuracao' style={{width: "5em", height: '5em'}}></Image>
+                            <Image src={iconePerfil} alt='Icone Perfil' style={{width: "4em", height: '5em'}}></Image>
                         </Link>
                     </button>
                 </section>

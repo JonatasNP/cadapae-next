@@ -7,14 +7,7 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
 
-import iconeUsuario from '../icones/perfil_do_usuario.png';
-import iconeHome from '../icones/icone_home.png';
-import iconeAluno from '../icones/icone_aluno.png';
-import iconeRelatorio from '../icones/icone_relatorio.png';
-import iconePagamentos from '../icones/icone_pagamentos.png';
-import iconeConfiguracao from '../icones/icone_configuracao.png';
-import iconeSair from '../icones/icone_sair.png';
-import iconePesquisar from '../icones/icone-pesquisa.png';
+import iconeFiltro from '../icones/icone-filtro.png';
 
 import { useEffect, useState } from "react";
 
@@ -40,11 +33,13 @@ function Home() {
 
     const [aluno, setAluno] = useState("");
     const [alunos, setAlunos] = useState([]);
+    const [cids, setCids] = useState([]);
 
     const fetchAlunos = async () => {
         const response = await fetch('/api/alunos');
         const dados = await response.json();
-        setAlunos(dados);
+        setAlunos(dados.alunos);
+        setCids(dados.cids)
     }
 
     useEffect(() => {
@@ -65,7 +60,7 @@ function Home() {
                     <section className={styles.ExibicaoAlunos}>
                         <input className={styles.BarraPesquisa} placeholder='Insira o nome do aluno a ser pesquisado...' value={aluno} onChange={e => setAluno(e.target.value)} />
 
-                        <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} />
+                        <ListarAlunos alunos={alunos} nomeAlunoPesquisa={aluno} cids={cids} />
 
 
                         
@@ -116,21 +111,7 @@ function Home() {
                                 </select>
 
                             </div>
-                            <div className={styles.FiltroCID}>
-                                <h3 style={{ color: '#6079d0' }}>Filtrar por CID</h3>
-                                <select>
-                                    <option disabled selected>Selecione o CID correspondente</option>
-                                    <option>CID não identificado</option>
-                                    <option>CID F7 - Retardo mental não especificado</option>
-                                    <option>CID F8 - Autismo</option>
-                                    <option>Outro CID</option>
-                                </select>
-
-
-
-
-
-                            </div>
+                            
                         </section>
 
 

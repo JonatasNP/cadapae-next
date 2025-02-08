@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from 'next/image';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 import ImageAdd from '../../icones/icone-adicionar.png';
 import ImagemAluno from '../../imgs/imagem-pessoa.png';
@@ -59,16 +59,19 @@ function PerfilAluno({ params }) {
 
 
     const [aluno, setAluno] = useState();
+    const [laudos, setLaudos] = useState([]);
+    const [cids, setCids] = useState([]);
     const [responsavel, setResponsavel] = useState();
 
 
     const fetchAluno = async () => {
-        const response = await fetch('/api/alunos/'+params.cpf_aluno);
+        const response = await fetch('/api/alunos/' + params.cpf_aluno);
         const data = await response.json();
         setAluno(data.aluno);
         setResponsavel(data.responsavel);
+        setCids(data.cids);
     }
-    
+
     useEffect(() => {
         fetchAluno();
     }, [])
@@ -85,115 +88,151 @@ function PerfilAluno({ params }) {
 
 
     return (
-        
+
         <div id={styles.Body} style={{ height: "100vh" }}>
-            <Header/>
+            <Header />
 
 
 
             {aluno && aluno.cpf ? (
-            <div id={styles.conteudo}>
-                
-                <div>
-                    <section>
-                        <h1>DADOS DO ALUNO</h1>
-                        <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
-                        }}></div>
+                <div id={styles.conteudo}>
 
-                        <section className={styles.DadosGeraisAluno}>
-                            <section className={styles.ImagemAluno} style={{ border: "1px solid lightgray" }}>
-                                {false ? <Image></Image> : <p>Este aluno ainda não possui foto.</p>}
-                            </section>
+                    <div>
+                        <section>
+                            <h1>DADOS DO ALUNO</h1>
+                            <div style={{
+                                backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
+                            }}></div>
 
-                            <section className={styles.DadosAluno}>
-                                <section style={{ width: '60vw', display: 'flex' }}>
-                                    <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>NOME</h3> {aluno.nome.toUpperCase()}
-                                        <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? ""+aluno.cpf : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " ("+calcularIdade(aluno.data_nascimento)+" anos)" : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.numero_cartao_sus ? aluno.numero_cartao_sus : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
+                            <section className={styles.DadosGeraisAluno}>
+                                <section className={styles.ImagemAluno} style={{ border: "1px solid lightgray" }}>
+                                    {false ? <Image></Image> : <p>Este aluno ainda não possui foto.</p>}
+                                </section>
+
+                                <section className={styles.DadosAluno}>
+                                    <section style={{ width: '64vw', display: 'flex' }}>
+                                        <section style={{ width: '40vw' }}>
+                                            <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {aluno.nome.toUpperCase()}
+                                            <h3 style={{ marginTop: '1em' }}>NÚMERO DO CARTÃO DO SUS</h3> {aluno.numero_cartao_sus ? aluno.numero_cartao_sus : "-"}
+                                        </section>
+                                        <section style={{ width: '25vw' }}>
+                                            <h3 style={{ marginTop: '1em' }}>CPF</h3> {aluno.cpf ? "" + aluno.cpf : "-"}
+                                            <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {aluno.numero_identidade ? aluno.numero_identidade : "-"}
+                                        </section>
+                                        <section style={{ width: '20vw' }}>
+                                            <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {aluno.data_nascimento ? formatarData(aluno.data_nascimento) + " (" + calcularIdade(aluno.data_nascimento) + " anos)" : "-"}
+                                            <h3 style={{ marginTop: '1em' }}>DATA DE INGRESSO</h3> {aluno.data_ingresso ? formatarData(aluno.data_ingresso) : "-"}
+                                        </section>
                                     </section>
-                                    <section style={{ width: '30vw' }}>
-                                        <h3 style={{ marginTop: '1em' }}>MATRÍCULA</h3> {aluno.matricula}
-                                        <h3 style={{ marginTop: '1em' }}>CID</h3> {aluno.cid ? aluno.cid : "-"}
-                                        <h3 style={{ marginTop: '1em' }}>DATA DE INGRESSO</h3> {aluno.data_ingresso ? formatarData(aluno.data_ingresso) : "-"}
-                                        <h3 style={{ marginTop: '1em', alignItems: "center", display: "flex" }}>LAUDO {aluno.laudo ? <Link href={aluno.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
-                                        <h3 style={{ marginTop: '1em' }}>CONTRIBUIÇÕES MENSAIS</h3>
-                                        <Link href={`./pagamentos/${aluno.cpf}`}>
-                                            <section style={{
-                                                marginTop: "0.5em", padding: "0.3em", minWidth: "10em", maxWidth: "23em", backgroundColor: "#8490ff", display: "flex", verticalAlign: "middle", alignItems: "center", justifyContent: "center", fontWeight: "bolder", color: "white"
-                                            }}>
-                                                <Image src={iconePagamentos} style={{ height: "2em", width: "2em", marginRight: "0.5em" }}></Image> ACESSAR HISTÓRICO DE CONTRIBUIÇÕES
-                                            </section>
-                                        </Link>
+                                    <section style={{marginTop: "1em"}}>
+                                        <h3 style={{marginRight: "0.7em"}}>ESPECIFICIDADES DO ALUNO </h3> <p>{aluno.especificidades ? aluno.especificidades : "Não foram definidas."}</p>
+                                    </section>
+                                    <section style={{ marginTop: "1em", display: 'flex'}}>
+                                        <section style={{ width: '30vw' }}>
+                                            <h3 style={{marginRight: "0.7em"}}>LAUDOS MÉDICOS</h3>
+                                            {
+                                                laudos.length !== 0 ? (
+                                                    laudos.map(l => {
+                                                        {l.arquivo}
+                                                    })
+                                                ) : ("Nenhum laudo foi anexado.")
+                                            }
+                                        </section>
+                                        <section style={{ width: '30vw' }}>
+                                            <h3 style={{marginRight: "0.7em"}}>CIDS CORRESPONDENTES</h3>
+                                            {
+                                                cids.length !== 0 ? (
+                                                    cids.map(c => 
+                                                        <p title={c.nome}>
+                                                            {`${c.codigo} - ${c.nome}`}
+                                                        </p>
+                                                        
+                                                    )
+                                                ) : ("Nenhum CID correspondente.")
+                                            }
+                                        </section>
+
                                     </section>
                                 </section>
-                                <section>
-                                    <h3 style={{ marginTop: '1em' }}>ESPECIFICIDADES DO ALUNO</h3> {aluno.especificidades ? aluno.especificidades : "-"}
-                                </section>
-                            </section>
 
-                        </section>
-                    </section>
-                </div>
-
-
-
-                <div style={{ marginTop: '10vh' }}>
-                    <section>
-                        <h1>DADOS DO RESPONSÁVEL</h1>
-                        <div style={{
-                            backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
-                        }}></div>
-
-                        <section className={styles.DadosGeraisResponsavel}>
-                            <section className={styles.Dados1Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>NOME COMPLETO</h3> {responsavel.nome ? responsavel.nome.toUpperCase() : "-"}
-                                <h3 style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento ? responsavel.data_nascimento : "-"}
-                                <h3 style={{ marginTop: '1em' }}>NÚMERO DA IDENTIDADE</h3> {responsavel.numero_identidade ? responsavel.numero_identidade : "-"}
-                                <h3 style={{ marginTop: '1em' }}>CONTATO</h3> {responsavel.telefone ? responsavel.telefone : "-"}
-                            </section>
-                            <section className={styles.Dados2Responsavel}>
-                                <h3 style={{ marginTop: '1em' }}>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}
-                                <h3 style={{ marginTop: '1em' }}>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}
-                                <h3 style={{ marginTop: '1em' }}>ENDEREÇO</h3> {responsavel.rua && responsavel.numero ? `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento} ` : "-"}
-                                <h3 style={{ marginTop: '1em', alignItems: "center", display: "flex" }}>COMPROVANTE DE RESIDÊNCIA {responsavel.comprovante_residencia ? <Link href={responsavel.cpf} about="_blank"><button className={styles.BotaoVisualizar}>Visualizar</button></Link> : <h5 style={{color: "red"}}>Não anexado</h5>}</h3>
                             </section>
                         </section>
-                    </section>
-                </div>
-
-
-
-
-                <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
-
-                    <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", marginRight: "0.5%" }}
-                        onClick={() => router.push(`edicao/${aluno.cpf}`)}
-                    >
-                        <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
-                    </button>
-                    
-                    <button
-                        className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537"}}
-                        onClick={() => {
-                            if(prompt(`Para confirmar a exclusão de ${aluno.nome.toUpperCase()} do sistema, digite "Excluir".`).toUpperCase() === "EXCLUIR") deleteAluno(aluno.cpf);
-                            else alert(`Não foi possível excluir ${aluno.nome.toUpperCase()} do sistema!`)
-                        }}
-                    >
-                        <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
-                    </button>
-
-                </div>
-
-            </div>):
-                    <div id={styles.conteudo}>
-                        <h2 className={styles.Carregamento} style={{ height: "100vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
-                            Carregando dados do aluno...
-                        </h2>
                     </div>
+
+
+
+                    <div style={{ marginTop: '10vh' }}>
+                        <section>
+                            <h1>DADOS DO RESPONSÁVEL</h1>
+                            <div style={{
+                                backgroundColor: "#8490ff", width: "95vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
+                            }}></div>
+
+                            <section className={styles.DadosGeraisResponsavel}>
+                                <section className={styles.Dados1Responsavel} style={{ marginTop: '1em' }}>
+                                    <p style={{width: "30vw"}}><h3>NOME COMPLETO</h3> {responsavel.nome ? responsavel.nome.toUpperCase() : "-"}</p>
+                                    <p style={{width: "20vw"}}><h3>CPF</h3> {responsavel.cpf ? responsavel.cpf : "-"}</p>
+                                    <p style={{width: "22vw"}}><h3>NÚMERO DA IDENTIDADE</h3> {responsavel.numero_identidade ? responsavel.numero_identidade : "-"}</p>
+                                    <p style={{width: "15vw"}}><h3>DATA DE NASCIMENTO</h3> {responsavel.data_nascimento ? formatarData(responsavel.data_nascimento) + " (" + calcularIdade(responsavel.data_nascimento) + " anos)" : "-"}</p>
+                                </section>
+                                <section className={styles.Dados2Responsavel} style={{ marginTop: '1em' }}>
+                                    <p style={{width: "30vw"}}><h3>E-MAIL</h3> {responsavel.email ? responsavel.email : "-"}</p>
+                                    <p style={{width: "20vw"}}><h3>TELEFONE</h3> {responsavel.telefone ? responsavel.telefone : "-"}</p>
+                                    <p style={{width: "37vw"}}><h3>ENDEREÇO</h3> {
+                                        responsavel.rua && responsavel.numero ?
+                                            `${responsavel.cidade}, ${responsavel.bairro}, ${responsavel.rua}, ${responsavel.numero}, ${responsavel.complemento}`
+                                            : "-"
+                                    }</p>
+                                </section>
+                                <section style={{ width: '30vw', textAlign: "left", marginTop: '1em' }}>
+                                    <h3 style={{marginRight: "0.7em"}}>COMPROVANTE DE RESIDÊNCIA</h3>
+                                    {
+                                        responsavel.comprovante ? (
+                                            <b>
+                                                Acessar comprovante de residência {responsavel.comprovante}
+                                            </b>
+                                        ) : ("Nenhum comprovante de residência foi anexado.")
+                                    }
+                                </section>
+                            </section>
+                        </section>
+                    </div>
+
+
+
+
+                    <div style={{ marginTop: "3vh", display: "flex", justifyContent: "right", alignItems: "end" }}>
+
+                        <button className={styles.BotaoStyle} style={{ backgroundColor: "#8490ff", marginRight: "0.5%", height: "4em" }}
+                            onClick={() => router.push(`pagamentos/${aluno.cpf}`)}
+                        >
+                            ACESSAR HISTÓRICO DE CONTRIBUIÇÕES
+                        </button>
+
+                        <button className={styles.BotaoStyle} style={{ backgroundColor: "cyan", marginRight: "0.5%" }}
+                            onClick={() => router.push(`edicao/${aluno.cpf}`)}
+                        >
+                            <Image src={iconeEditar} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EDITAR DADOS DO ALUNO
+                        </button>
+
+                        <button
+                            className={styles.BotaoStyle} style={{ backgroundColor: "#FF5537" }}
+                            onClick={() => {
+                                if (prompt(`Para confirmar a exclusão de ${aluno.nome} do sistema, digite "Excluir".`).toUpperCase() === "Excluir") deleteAluno(aluno.cpf);
+                                else alert(`Não foi possível excluir ${aluno.nome.toUpperCase()} do sistema!`)
+                            }}
+                        >
+                            <Image src={iconeExcluir} style={{ height: "2em", width: "2em", marginRight: "1em" }} /> EXCLUIR ALUNO DO SISTEMA
+                        </button>
+
+                    </div>
+
+                </div>) :
+                <div id={styles.conteudo}>
+                    <h2 className={styles.Carregamento} style={{ height: "100vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle" }}>
+                        Carregando dados do aluno...
+                    </h2>
+                </div>
             }
 
 
