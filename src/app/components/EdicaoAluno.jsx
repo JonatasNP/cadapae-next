@@ -92,7 +92,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
         <form onSubmit={handleSubmit}>
             <div>
                 <section>
-                    <h1 style={{ textAlign: 'center' }}>PREENCHA COM OS DADOS DO ALUNO</h1>
+                    <h1 style={{ textAlign: 'center' }}>EDITE OS DADOS DO ALUNO</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -142,11 +142,11 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                     <span style={{ width: "24.75vw", display: "flex", marginTop: '1em' }}>
                                         <p>NASCIMENTO
                                             <input type="date" style={{ width: '9.5vw' }} 
-                                                defaultValue={data_nasc_aluno} onChange={(e) => setDataNascAluno(e.target.value)}></input>
+                                                defaultValue={formatarDataComHifen(data_nasc_aluno)} onChange={(e) => setDataNascAluno(e.target.value)}></input>
                                         </p>
                                         <p>INGRESSOU EM
                                             <input type="date" style={{ width: '9.5vw' }} 
-                                                defaultValue={data_ingresso} onChange={(e) => setDataIngresso(e.target.value)}></input>
+                                                defaultValue={formatarDataComHifen(data_ingresso)} onChange={(e) => setDataIngresso(e.target.value)}></input>
                                         </p>
                                     </span>
                                 </section>
@@ -218,7 +218,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
 
             <div style={{ marginTop: '10vh' }}>
                 <section>
-                    <h1 style={{ textAlign: 'center' }}>PREENCHA COM OS DADOS DO RESPONSÁVEL</h1>
+                    <h1 style={{ textAlign: 'center' }}>EDITE OS DADOS DO RESPONSÁVEL</h1>
                     <div style={{
                         backgroundColor: "#8490ff", width: "94vw", height: "1px", marginTop: "2vh", marginBottom: "2vh"
                     }}></div>
@@ -237,7 +237,7 @@ export default function EdicaoAluno({ dadosAluno, dadosResponsavel,  onChangeAlu
                                         defaultValue={cpf_resp} onChange={(e) => setCpfResp(e.target.value)}></input>
                                     <p style={{ marginTop: '1em' }}>DATA DE NASCIMENTO</p>
                                     <input type="date" style={{ width: "22vw" }}
-                                        defaultValue={data_nasc_resp} onChange={(e) => setDataNascResp(e.target.value)}></input>
+                                        defaultValue={formatarDataComHifen(data_nasc_resp)} onChange={(e) => setDataNascResp(e.target.value)}></input>
                                 </section>
                                 <section>
                                     <p style={{ marginTop: '1em' }}>NÚMERO DE IDENTIDADE</p>

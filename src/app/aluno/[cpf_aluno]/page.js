@@ -143,7 +143,7 @@ function PerfilAluno({ params }) {
                                             {
                                                 cids.length !== 0 ? (
                                                     cids.map(c => 
-                                                        <p>
+                                                        <p title={c.nome}>
                                                             {`${c.codigo} - ${c.nome}`}
                                                         </p>
                                                         

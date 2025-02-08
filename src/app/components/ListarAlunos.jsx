@@ -48,12 +48,12 @@ export default function ListarAlunos({ alunos, nomeAlunoPesquisa, cids }) {
                                     
                                     <p style={{ fontWeight: "bold", width: "20vw", justifyContent: "center" }}>{(calcularIdade(a.data_nascimento) > 0) ? calcularIdade(a.data_nascimento) : 0} anos</p>
                                     <p style={{ color: 'red', fontWeight: "bold", width: "20vw", justifyContent: "center" }}>
-                                        {0} pendências
+                                        {1} pendência(s)
                                     </p>
-                                    <p style={{ width: '20vw', justifyContent: "center" }}>
+                                    <p style={{ width: '40vw', justifyContent: "center" }}>
                                         {
                                             cids ? (
-                                                cids.map(c => <span className={styles.Cids}>{c.codigo}</span>)
+                                                cids.map(c => <span title={c.nome} className={styles.Cids}>{c.codigo}</span>)
                                             ) : ("")
                                         }
                                     </p>

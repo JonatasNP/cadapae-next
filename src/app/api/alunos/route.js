@@ -17,31 +17,30 @@ export async function GET() {
 export async function POST(request) {
   try {
     const {
-                cpf_aluno,
-                foto,
-                nome_aluno,
-                cartao_sus_aluno,
-                identidade_aluno,
-                data_ingresso,
-                data_nasc_aluno,
-                
-                especificidades_aluno,
-                
-                cpf_resp,
-                nome_resp,
-                identidade_resp,
-                data_nasc_resp,
-                comprov_resid_resp,
-                email_resp,
-                contato_resp,
-                cidade,
-                rua,
-                bairro,
-                numero,
-                complemento,
+      cpf_aluno,
+      foto,
+      nome_aluno,
+      cartao_sus_aluno,
+      identidade_aluno,
+      data_ingresso,
+      data_nasc_aluno,
+      especificidades_aluno,
 
-                cids_aluno,
-                laudos_aluno
+      cpf_resp,
+      nome_resp,
+      identidade_resp,
+      data_nasc_resp,
+      comprov_resid_resp,
+      email_resp,
+      contato_resp,
+      cidade,
+      rua,
+      bairro,
+      numero,
+      complemento,
+
+      cids_aluno,
+      laudos_aluno
               
               } = await request.json();
     const client = await pool.connect();
@@ -50,8 +49,8 @@ export async function POST(request) {
           [cpf_resp, nome_resp, identidade_resp, data_nasc_resp, comprov_resid_resp, email_resp, contato_resp, cidade, rua, bairro, numero, complemento]
         )
     const result = await client.query(
-          'INSERT INTO aluno (cpf, foto, nome, numero_cartao_sus, numero_identidade, data_ingresso, data_nascimento, laudo, especificidades, cpf_responsavel) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *',
-          [cpf_aluno, foto, nome_aluno, cartao_sus_aluno, identidade_aluno, data_ingresso, data_nasc_aluno, laudo_aluno, especificidades_aluno, cpf_resp]
+          'INSERT INTO aluno (cpf, foto, nome, numero_cartao_sus, numero_identidade, data_ingresso, data_nascimento, especificidades, cpf_responsavel) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+          [cpf_aluno, foto, nome_aluno, cartao_sus_aluno, identidade_aluno, data_ingresso, data_nasc_aluno, especificidades_aluno, cpf_resp]
         )
 
     client.release();

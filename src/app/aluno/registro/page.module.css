@@ -76,24 +76,6 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.BotaoRegistrar {
-
-  margin-left: 0.6vw;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  padding: 0.6em 1em 0.6em 1em;
-  font-weight: bolder;
-  display: flex;
-  vertical-align: middle;
-  align-items: center;
-  justify-content: center;
-
-  
-  background-color: rgb(49, 165, 49);
-  
-}
 
 .BotaoRegistrar:hover {
   cursor: pointer;
@@ -193,19 +175,18 @@
 
 
 .BotaoRegistrar {
-  color: white;
-  width: 22vw;
-  background-color: rgb(49, 165, 49);
-  border: none;
-  font-weight: bolder;
-  font-size: 2vh;
-  bottom: 10vh;
-  padding: 20px 20px 20px 20px;
-  align-items: center;
 
-  vertical-align: center;
+  background-color: rgb(49, 165, 49);
+
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border: none;
+  color: white;
+  padding: 0.6em 1em 0.6em 1em;
+  font-weight: bolder;
   display: flex;
-  height: 8vh;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
 }
 
 

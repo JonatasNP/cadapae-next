@@ -7,7 +7,22 @@ import ImageAdd from '../icones/icone-adicionar.png';
 import iconeUsuario from '../icones/perfil_do_usuario.png';
 import ImgLogo from '../imgs/logo-apae.png';
 
-export default function RegistroAluno({ onAddAluno }) {
+export default function RegistroAluno({ onAddAluno, cids }) {
+
+
+    function formatarDataComHifen(data) {
+        const date = new Date(data);
+
+        const dia = date.getDate().toString().padStart(2, '0');
+        const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+        const ano = date.getFullYear();
+
+
+        const dataFormatada = `${ano}-${mes}-${dia}`;
+
+        return dataFormatada;
+    }
+
 
     const [cpf_aluno, setCpfAluno] = useState('');
     const [foto, setFotoAluno] = useState('');
@@ -15,7 +30,7 @@ export default function RegistroAluno({ onAddAluno }) {
     const [cartao_sus_aluno, setCartaoSusAluno] = useState('');
 
     const [identidade_aluno, setIdentidadeAluno] = useState('');
-    const [data_ingresso, setDataIngresso] = useState('');
+    const [data_ingresso, setDataIngresso] = useState(formatarDataComHifen(Date.now()));
     const [data_nasc_aluno, setDataNascAluno] = useState('');
     const [especificidades_aluno, setEspecificidadesAluno] = useState('');
     const [cpf_resp, setCpfResp] = useState('');
@@ -32,10 +47,26 @@ export default function RegistroAluno({ onAddAluno }) {
     const [complemento, setComplemento] = useState('');
 
     const [laudos_aluno, setLaudosAluno] = useState('');
-    const [cids_aluno, setCidsAluno] = useState('');
+    const [cids_aluno, setCidsAluno] = useState(cids);
 
     const [senha, setSenhaResp] = useState('');
 
+
+
+
+    const handleCidsChange = (e) => {
+        const value = e.target.value;
+    
+        setCidsAluno((prev) =>
+          e.target.checked ?
+            [...prev, value] : prev.filter((cid) => cid !== value)
+        );
+        console.log(cids_aluno)
+    };
+
+
+    
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -164,25 +195,25 @@ export default function RegistroAluno({ onAddAluno }) {
                             <p style={{marginBottom: "0.5em"}}>CIDS CORRESPONDENTES</p>
                             <span style={{lineHeight: '1.5em', display: "flex", flexWrap: "wrap"}}>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> F84 - Autismo
+                                    <input type='checkbox' value={1} onChange={handleCidsChange}/> F84 - Autismo
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> F70 - Retardo mental leve
+                                    <input type='checkbox' value={2} onChange={handleCidsChange}/> F70 - Retardo mental leve
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> F71 - Retardo mental moderado
+                                    <input type='checkbox' value={3} onChange={handleCidsChange}/> F71 - Retardo mental moderado
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> F72 - Retardo mental grave
+                                    <input type='checkbox' value={4} onChange={handleCidsChange}/> F72 - Retardo mental grave
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> F73 - Deficiência intelectual profunda
+                                    <input type='checkbox' value={5} onChange={handleCidsChange}/> F73 - Deficiência intelectual profunda
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> G80 - Paralisia cerebral
+                                    <input type='checkbox' value={6} onChange={handleCidsChange}/> G80 - Paralisia cerebral
                                 </span>
                                 <span style={{marginRight: "1.5em"}}>
-                                    <input type='checkbox' /> Outro/Não identificado
+                                    <input type='checkbox' value={7} onChange={handleCidsChange}/> Outro/Não identificado
                                 </span>
                             </span>
                         
@@ -260,7 +291,7 @@ export default function RegistroAluno({ onAddAluno }) {
                             <p style={{ marginTop: '1em' }}>COMPROVANTE DE RESIDÊNCIA</p>
                             <input type="file" style={{ width: "45vw" }} accept=".pdf" value={comprov_resid_resp} onChange={(e) => setComprovResidResp(e.target.value)}></input>
 
-                            <div>
+                            <div style={{display: "flex", justifyContent: "end", marginTop: "1em"}}>
                                 <button className={styles.BotaoRegistrar} type='submit'>
                                     <Image src={ImageAdd} alt="Adicionar" /> FINALIZAR O REGISTRO
                                 </button>

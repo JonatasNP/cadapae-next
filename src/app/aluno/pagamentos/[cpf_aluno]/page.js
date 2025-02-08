@@ -97,7 +97,7 @@ function Pagamentos({ params }) {
                                 </p>
                                 <span style={{ display: "flex", justifyContent: "center", alignItems: "center", verticalAlign: "middle", width: "20vw" }}>
                                     <span style={{ height: "20px", width: "20px", borderRadius: "20px", backgroundColor: "red", marginRight: "1em" }} />
-                                    <h3 style={{ color: "red" }}>{quantPagamentosPendentes} pendências</h3>
+                                    <h3 style={{ color: "red" }}>{1 || quantPagamentosPendentes} pendência(s)</h3>
                                 </span>
                             </div>
                         </Link>
